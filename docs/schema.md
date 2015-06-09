@@ -6,8 +6,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null, unique
 image_url   | string    | 
-score       | integer   | not null
-wishlist_id | integer   | not null, foreign key (references wishlist)
+score       | integer   | 
+wishlist_id | integer   | foreign key (references wishlist)
 
 
 ## reviews
