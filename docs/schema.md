@@ -23,6 +23,8 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users)
+game_id     | integer   | not null, foreign key (references games)
+
 
 ## users
 column name     | data type | details
