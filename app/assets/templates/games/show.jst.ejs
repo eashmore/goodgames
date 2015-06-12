@@ -2,7 +2,9 @@
   <h1><%= game.escape('name') %></h1>
   <div class='row'>
     <img class='box-art' src='<%= game.escape('boxart_url') %>'/>
-    <div><strong id='score'>Average Score: <%= game.escape('score') %>/5</strong></div>
+    <div><strong id='score'>
+      Average Score: <%= game.escape('score') %>
+    </strong></div>
     <div class='game-info'>
       About: <%= game.escape('deck') %>
     </div>
