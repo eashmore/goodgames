@@ -16,6 +16,10 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
   deleteGame: function (event) {
     event.preventDefault();
     this.collection.remove(this.model);
-    this.remove();
+    this.collection.fetch({
+      success: function () {
+        this.remove();
+      }
+    });
   }
 });
