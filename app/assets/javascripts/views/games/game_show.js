@@ -11,13 +11,14 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     this.setScore();
     var content = this.template({ game: this.model });
     this.$el.html(content);
-
     var reviewView = new GoodgamesApp.Views.ReviewsIndex({
       collection: this.reviews,
       game: this.model
     });
     var reviewIndex = this.$el.find('#review-index');
     reviewIndex.html(reviewView.render().$el);
+
+    this.$el.find("#average-score").rating();
 
     return this;
   },
@@ -32,7 +33,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
 
     var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
     if (!averageScore) {
-      averageScore = 'Be the first to review this game';
+      averageScore = 0;
     }
     this.model.set({ score: averageScore });
   }

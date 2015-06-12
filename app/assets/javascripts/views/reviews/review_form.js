@@ -15,6 +15,8 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     var content = this.template({ game_id: this.game.id });
     this.$el.html(content);
 
+    this.$el.find("#review-score").rating();
+
     return this;
   },
 

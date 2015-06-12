@@ -3,7 +3,17 @@
   <div class='row'>
     <img class='box-art' src='<%= game.escape('boxart_url') %>'/>
     <div><strong id='score'>
-      Average Score: <%= game.escape('score') %>
+      Average Score:
+      <% if (!game.get('score')) { %>
+        Be the first to review <%= game.escape('name') %>!
+      <% } else { %>
+        <%= game.escape('score') %>
+      <% } %>
+
+      <input id="average-score" type="number" class="rating" disabled='true'
+        min=0 max=5 step=0.1 data-size="md" value='<%= game.escape('score') %>'
+      >
+    <div>Number of Reviews: <%= game.reviews().length %></div>
     </strong></div>
     <div class='game-info'>
       About: <%= game.escape('deck') %>

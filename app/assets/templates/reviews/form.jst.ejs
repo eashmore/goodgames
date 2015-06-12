@@ -1,23 +1,7 @@
 <h3>Write a review</h3>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <label>Score:
-      <label>
-        <input type="radio" name="review[score]" value="1">
-      1 </label>
-      <label>
-        <input type="radio" name="review[score]" value="2">
-      2 </label>
-      <label>
-        <input type="radio" name="review[score]" value="3">
-      3 </label>
-      <label>
-        <input type="radio" name="review[score]" value="4">
-      4 </label>
-      <label>
-        <input type="radio" name="review[score]" value="5">
-      5</label>
-    </label>
+  <input id="review-score" type="number" name="review[score]" class="rating" min=0 max=5 step=1 data-size="sm" >
   </div>
   <div class="panel-body">
     <label>Review

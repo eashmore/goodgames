@@ -10,6 +10,8 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
     var content = this.template({ review: this.model, author: author });
     this.$el.html(content);
 
+    this.$el.find("#given-score").rating();
+
     return this;
   },
 

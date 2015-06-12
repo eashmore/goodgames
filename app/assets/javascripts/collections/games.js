@@ -21,8 +21,12 @@ GoodgamesApp.Collections.Games = Backbone.Collection.extend({
   },
 
   comparator: function (game1, game2) {
-    if (game1.get('created_at') < game2.get('created_at')) return -1; // before
-    if (game2.get('created_at') > game1.get('created_at')) return 1; // after
-    return 0; // equal
+    if (game1.get('created_at') < game2.get('created_at')) {
+      return -1;
+    }
+    if (game2.get('created_at') > game1.get('created_at')) {
+      return 1;
+    }
+    return 0;
   }
 });
