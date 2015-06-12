@@ -7,16 +7,17 @@ id          | integer   | not null, primary key
 title       | string    | not null, unique
 image_url   | string    | 
 score       | integer   | 
-wishlist_id | integer   | foreign key (references wishlist)
 
 
 ## reviews
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references user)
 body        | text      | not null
 score       | integer   | not null
+user_id     | integer   | not null, foreign key (references user)
+game_id     | integer   | not null, foreign key (references game)
+
 
 ## wishlists
 column name | data type | details

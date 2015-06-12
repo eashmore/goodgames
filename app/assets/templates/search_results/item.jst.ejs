@@ -1,0 +1,8 @@
+<% if (game.get('image') && game.id !== 16696) { %>
+  <div id='game-box' class='game-thumb thumbnail pull-left text-center'>
+    <a href="#/games/<%= game.id %>">
+      <img id='boxart' src='<%= game.get('image').small_url %>'></img>
+      <span class='caption'><%= game.escape('name') %></span>
+    </a>
+  </div>
+<% } %>

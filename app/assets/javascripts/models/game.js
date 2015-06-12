@@ -1,3 +1,20 @@
 GoodgamesApp.Models.Game = Backbone.Model.extend({
-  urlRoot: 'http://www.giantbomb.com/api/games/?api_key=3237292f5c8790f3237e3aa779cc19b3edbf1cdb&format=json'
+  urlRoot: '/games',
+
+  reviews: function () {
+    if (!this._reviews) {
+      this._reviews = new GoodgamesApp.Collections.Reviews([], { game: this });
+    }
+
+    return this._reviews;
+  },
+
+  parse: function (response) {
+    if (response.reviews) {
+      this.reviews().set(response.reviews, { parse: true });
+      delete response.reviews;
+    }
+
+    return response;
+  }
 });

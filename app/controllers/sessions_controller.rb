@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      logout
+      redirect_to new_session_url
+    end
   end
 
   def create

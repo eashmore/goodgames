@@ -7,11 +7,9 @@ GoodgamesApp.Views.GamesIndex = Backbone.View.extend({
   },
 
   render: function () {
-    debugger;
-    if (this.collection.length) {
-    var content = this.template({ games: this.collection.models[0].attributes.results });
+    var content = this.template({ games: this.collection });
     this.$el.html(content);
-  }
+
     return this;
   }
 

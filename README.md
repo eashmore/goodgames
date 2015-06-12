@@ -9,11 +9,11 @@ Goodgames is a Goodreads clone built on Rails and Backbone in which users will b
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Review and score video games
-- [ ] View average user score of video games
-- [ ] Search for games by title
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Review and score video games
+- [X] View average user score of video games
+- [X] Search for games by title
 - [ ] Maintain a video game wishlist
 
 ## Design Docs

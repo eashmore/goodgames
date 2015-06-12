@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ #main {
+   margin-top: 50px;
+ }
+
+ .game-thumb {
+   height: 210px;
+   width: 170px;
+   z-index: -1;
+ }
+
+ .box-art {
+   max-height: 400px;
+ }
+
+#profile-dropdown {
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+#boxart {
+  max-height: 160px;
+}
+
+#edit-review {
+  position: relative;
+  top: -10px;
+}

@@ -1,18 +1,17 @@
-<div class='games-index-title'>
-  <h3>Games</h3>
-</div>
+<div class='row'>
+  <div class='games-index-title'>
+    <h3>Games</h3>
+  </div>
 
-<ul class='games'>
-  <% games.forEach(function (game) { %>
-    <div>
-      <a href="#/games/<%= games.id %>">
-        <% if (game.image) { %>
-          <img src='<%= game.image.thumb_url %>'/>
-        <% } %>
-        <span class='title'>
-          <%= game.name %>
-        </span>
-      </a>
-    </div>
-  <% }); %>
-</ul>
+    <% games.forEach(function (game) { %>
+      <% if (game.escape('boxart_url') !== "" && game.id !== 16696) { %>
+        <div class='game-thumb thumbnail pull-left text-center'>
+          <a href="#games/<%= game.id %>">
+            <img id='boxart' src='<%= game.get('boxart_url') %>'></img>
+            <span class='caption'><%= game.escape('name') %></span>
+          </a>
+        </div>
+      <% } %>
+    <% }); %>
+  </div>
+</div>

@@ -5,22 +5,28 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <script>
+    window.GIANTBOMB = {
+      api_key: '<%= ENV['giantbomb_api_key'] %>'
+    }
+  </script>
+
+  <script>
+    window.CURRENT_USER = "<%= current_user ? current_user.username : '' %>"
+  </script>
 </head>
 <body>
 
-<% if signed_in? %>
-  <%= current_user.username %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_url %>
-  <%= link_to "Sign Up", new_user_url %>
-<% end %>
-
-<br>
-
-<%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
-
 <div class="container">
+  <% if !signed_in? %>
+    <%= link_to "Sign In", new_session_url %><br>
+    <%= link_to "Sign Up", new_user_url %>
+  <% end %>
+
+  <br>
+
+  <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+
   <%= yield %>
 </div>
 

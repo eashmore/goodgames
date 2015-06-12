@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Goodgames</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li id="search-bar"></li>
+      <li class="dropdown">
+        <a id='profile-dropdown' href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= CURRENT_USER %><span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="/session/new">Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</nav>

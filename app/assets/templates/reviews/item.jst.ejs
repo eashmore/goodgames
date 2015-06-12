@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <strong><%= author.escape('username') %></strong> gave this game a
+    <strong><%= review.escape('score') %>/5</strong>
+    <div class='pull-right'>
+      Written on: <%= review.escape('created_at').slice(0, 10) %>
+    </div>
+  </div>
+  <br>
+  <div class="panel-body"><%= review.escape('body') %></div>
+  <div class="panel-footer a">
+    <a id='edit-review' class='pull-right' href="#">Edit Review</a>
+  </div>
+</div>

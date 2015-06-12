@@ -1,0 +1,32 @@
+<h3>Write a review</h3>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <label>Score:
+      <label>
+        <input type="radio" name="review[score]" value="1">
+      1 </label>
+      <label>
+        <input type="radio" name="review[score]" value="2">
+      2 </label>
+      <label>
+        <input type="radio" name="review[score]" value="3">
+      3 </label>
+      <label>
+        <input type="radio" name="review[score]" value="4">
+      4 </label>
+      <label>
+        <input type="radio" name="review[score]" value="5">
+      5</label>
+    </label>
+  </div>
+  <div class="panel-body">
+    <label>Review
+      <br>
+      <textarea name="review[body]" rows="8" cols="80"></textarea>
+    </label>
+  </div>
+  <input type='hidden' name='review[game_id]' value='<%= game_id %>'>
+  <div class="panel-footer">
+    <button class="btn btn-default" type="submit">Submit</button>
+  </div>
+</div>

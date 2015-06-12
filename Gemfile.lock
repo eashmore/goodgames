@@ -178,6 +178,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   annotate
   backbone-on-rails
   bcrypt
@@ -189,6 +190,7 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg
   pry-rails
   rails (= 4.2.1)
