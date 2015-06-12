@@ -5,6 +5,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.reviews = this.model.reviews();
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.reviews(), 'add', this.render);
   },
 
   render: function () {

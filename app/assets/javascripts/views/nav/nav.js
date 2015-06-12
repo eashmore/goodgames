@@ -2,6 +2,10 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
 
   template: JST['nav/nav'],
 
+  events: {
+    'click #profile': 'toProfile'
+  },
+
   initialize: function (options) {},
 
   render: function () {
@@ -10,5 +14,10 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
     this.$el.find('#search-bar').html(searchView.render().$el);
 
     return this;
+  },
+
+  toProfile: function (event) {
+    event.preventDefault();
+    Backbone.history.navigate('/user', { trigger: true });
   }
 });

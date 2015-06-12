@@ -6,6 +6,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
+    'user': 'showUserPage',
     'games/search/?/:query': 'showSearchResults',
     'games/:id': 'showGame'
   },
@@ -34,6 +35,12 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
       collection: searchResults
     });
     this._swapView(resultsView);
+  },
+
+  showUserPage: function () {
+    var user = GoodgamesApp.users.getOrFetch(CURRENT_USER_ID);
+    var userView = new GoodgamesApp.Views.UserProfile({ model: user });
+    this._swapView(userView);
   },
 
   _swapView: function (view) {

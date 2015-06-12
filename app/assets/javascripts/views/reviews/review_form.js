@@ -27,7 +27,7 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     this.model.set(attrs);
     this.model.save([], {
       success: function () {
-        this.collection.unshift(this.model);
+        this.collection.add(this.model);
         this.render();
       }.bind(this)
     });
