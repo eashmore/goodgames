@@ -9,6 +9,9 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     var content = this.template({ user: this.model });
     this.$el.html(content);
 
+    var collectionView = new GoodgamesApp.Views.CollectionsIndex({ user: this.model, collection: this.model.ownedGames() });
+    this.$el.find('#collection').html(collectionView.render().$el);
+
     return this;
   }
 });

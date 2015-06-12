@@ -19,5 +19,14 @@
       About: <%= game.escape('deck') %>
     </div>
   </div>
+
+  <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
+    <button id='collection-button' class='btn btn-default'>Add to Collection</button>
+  <% } else { %>
+    <button class='btn btn-disabled'>In Collection</button>
+
+  <% } %>
+
+
   <div id='review-index'></div>
 </div>

@@ -1,4 +1,4 @@
-json.extract! @game, :score, :id, :name, :deck, :thumbnail_url, :boxart_url
+json.partial! 'games/game', game: @game
 
 json.reviews @game.reviews do |review|
   json.partial! 'reviews/review', review: review

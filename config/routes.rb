@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   resources :games
   resources :reviews
+
+  resources :collections
 end

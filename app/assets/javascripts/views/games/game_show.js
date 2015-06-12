@@ -2,15 +2,20 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
 
   template: JST['games/show'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.currentUser = options.user;
     this.reviews = this.model.reviews();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.reviews(), 'add', this.render);
   },
 
+  events: {
+    'click #collection-button': 'addToCollection'
+  },
+
   render: function () {
     this.setScore();
-    var content = this.template({ game: this.model });
+    var content = this.template({ game: this.model, currentUser: this.currentUser });
     this.$el.html(content);
     var reviewView = new GoodgamesApp.Views.ReviewsIndex({
       collection: this.reviews,
@@ -37,5 +42,20 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       averageScore = 0;
     }
     this.model.set({ score: averageScore });
+  },
+
+  addToCollection: function (event) {
+    event.preventDefault();
+    var collection = new GoodgamesApp.Models.Collection();
+    collection.set({
+      user_id: this.currentUser.id,
+      game_id: this.model.id
+    });
+    collection.save([],{
+      success: function () {
+        this.currentUser.ownedGames().add(this.model);
+        this.render();
+      }.bind(this)
+    });
   }
 });

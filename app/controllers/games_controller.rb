@@ -31,6 +31,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params[:game].permit(:name, :deck, :id, :boxart_url)
+    params.require(:game).permit(:name, :deck, :id, :boxart_url)
   end
 end
