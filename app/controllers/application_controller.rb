@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     # while offset < 1
       # file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&offset=" + offset.to_s)
 
-      file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&sort=number_of_user_reviews")
+      file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&sort=number_of_user_reviews&limit=50")
       doc = Nokogiri::XML(file_handle)
 
       # doc.css('game').each do |node|
@@ -51,9 +51,6 @@ class ApplicationController < ActionController::Base
   def login(user)
     @current_user = user
     session[:session_token] = user.reset_token!
-    if Game.all.length == 0
-      self.fill_game_database
-    end
   end
 
   def logout

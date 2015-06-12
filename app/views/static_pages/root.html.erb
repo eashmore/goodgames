@@ -2,3 +2,7 @@
   <div id='nav'></div>
   <div id="main"></div>
 </div>
+
+<% if Game.all.length == 0 %>
+  <% fill_game_database %>
+<% end %>
