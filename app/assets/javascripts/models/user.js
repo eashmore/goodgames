@@ -18,6 +18,14 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     return this._ownedGames;
   },
 
+  wishlistGames: function () {
+    if (!this._wishlistGames) {
+      this._wishlistGames = new GoodgamesApp.Collections.Games([], { user: this });
+    }
+
+    return this._wishlistGames;
+  },
+
   parse: function (response) {
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
@@ -27,6 +35,11 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     if (response.owned_games) {
       this.ownedGames().set(response.owned_games, { parse: true });
       delete response.owned_games;
+    }
+
+    if (response.wishlist_games) {
+      this.wishlistGames().set(response.wishlist_games, { parse: true });
+      delete response.wishlist_games;
     }
 
     return response;

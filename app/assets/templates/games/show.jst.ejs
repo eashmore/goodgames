@@ -24,9 +24,13 @@
     <button id='collection-button' class='btn btn-default'>Add to Collection</button>
   <% } else { %>
     <button class='btn btn-disabled'>In Collection</button>
-
   <% } %>
 
+  <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
+    <button id='wishlist-button' class='btn btn-default'>Add to Wishlist</button>
+  <% } else { %>
+    <button class='btn btn-disabled'>On Wishlist</button>
+  <% } %>
 
   <div id='review-index'></div>
 </div>

@@ -10,7 +10,8 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click #collection-button': 'addToCollection'
+    'click #collection-button': 'addToCollection',
+    'click #wishlist-button': 'addToWishlist'
   },
 
   render: function () {
@@ -54,9 +55,24 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       user_id: this.currentUser.id,
       game_id: this.model.id
     });
-    collection.save({},{
+    collection.save({}, {
       success: function () {
         this.currentUser.ownedGames().add(this.model);
+        this.render();
+      }.bind(this)
+    });
+  },
+
+  addToWishlist: function (event) {
+    event.preventDefault();
+    var wishlist = new GoodgamesApp.Models.Wishlist();
+    wishlist.set({
+      user_id: this.currentUser.id,
+      game_id: this.model.id
+    });
+    wishlist.save({}, {
+      success: function () {
+        this.currentUser.wishlistGames().add(this.model);
         this.render();
       }.bind(this)
     });

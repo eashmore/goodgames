@@ -2,7 +2,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.currentUser = GoodgamesApp.users.getOrFetch(CURRENT_USER_ID);
+    this.currentUser = new GoodgamesApp.Collections.Users().getOrFetch(CURRENT_USER_ID);
   },
 
   routes: {
@@ -20,7 +20,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showGame: function (id) {
-    // pass search result as model to get more info
     var game = GoodgamesApp.games.getOrFetch(id);
     var showView = new GoodgamesApp.Views.GameShow({ model: game, user: this.currentUser });
     this._swapView(showView);

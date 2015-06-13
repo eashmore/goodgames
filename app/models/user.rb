@@ -8,8 +8,11 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :collections
+  has_many :wishlists
   has_many :reviews
   has_many :owned_games, through: :collections, source: :game
+  has_many :wishlist_games, through: :wishlists, source: :game
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
