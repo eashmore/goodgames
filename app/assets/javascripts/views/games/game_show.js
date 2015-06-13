@@ -13,13 +13,12 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     'click #collection-button': 'addToCollection'
   },
 
-  addGame: function () {
-    
-  },
-
   render: function () {
     this.setScore();
-    var content = this.template({ game: this.model, currentUser: this.currentUser });
+    var content = this.template({
+      game: this.model,
+      currentUser: this.currentUser
+    });
     this.$el.html(content);
     var reviewView = new GoodgamesApp.Views.ReviewsIndex({
       collection: this.reviews,
