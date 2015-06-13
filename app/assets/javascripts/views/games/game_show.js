@@ -13,6 +13,10 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     'click #collection-button': 'addToCollection'
   },
 
+  addGame: function () {
+    
+  },
+
   render: function () {
     this.setScore();
     var content = this.template({ game: this.model, currentUser: this.currentUser });
@@ -51,7 +55,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       user_id: this.currentUser.id,
       game_id: this.model.id
     });
-    collection.save([],{
+    collection.save({},{
       success: function () {
         this.currentUser.ownedGames().add(this.model);
         this.render();

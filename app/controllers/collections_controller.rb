@@ -1,5 +1,10 @@
 class CollectionsController < ApplicationController
 
+  def index
+    @collections = Collection.all
+    render json: @collections
+  end
+
   def create
     @collection = Collection.new(collection_params)
     if @collection.save
@@ -7,6 +12,12 @@ class CollectionsController < ApplicationController
     else
       render json: @collection.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @collection = Collection.find(params[:id])
+    @collection.destroy
+    render json: []
   end
 
   private

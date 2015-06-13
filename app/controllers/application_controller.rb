@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :fill_game_database
 
-  def fill_game_database
+  def fill_game_database # TA: seeds or rake task  seed_dump
     # Game.all.delete_all
     id_list = []
 

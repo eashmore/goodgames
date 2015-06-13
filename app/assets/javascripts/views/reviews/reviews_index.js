@@ -22,8 +22,8 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       collection: this.collection,
       game: this.game
     });
-    var form = this.$el.find('#new-form');
-    form.html(formView.render().$el);
+    var $form = this.$el.find('#new-form'); // TA: register this as a CompositeView subview
+    $form.html(formView.render().$el);
 
     this.attachSubviews();
 
