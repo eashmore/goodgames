@@ -25,6 +25,7 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
     })[0];
     currentCollection.destroy({
       success: function() {
+        this.currentUser.ownedGames().remove(this.model);
         this.remove();
       }.bind(this)
     });

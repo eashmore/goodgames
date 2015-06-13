@@ -1,3 +1,9 @@
-<img id="boxart" src='<%= game.escape('boxart_url') %>'</img><br>
-<div><%= game.escape('name') %><br><div>
-<button id='delete-item' class='btn btn-default'>Remove from Collection</button>
+<div class='col-xs-2'>
+<div class='game-thumb thumbnail pull-left text-center'>
+  <a href="#games/<%= game.id %>">
+    <img id='boxart' src='<%= game.escape('boxart_url') %>'></img>
+    <span class='caption'><%= game.escape('name') %></span>
+  </a>
+</div>
+  <button id='delete-item' class='btn btn-default'>Remove from Collection</button>
+</div>
