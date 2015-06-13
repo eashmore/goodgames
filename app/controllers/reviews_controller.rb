@@ -8,7 +8,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.new(review_params);
+    @review = current_user.reviews.new(review_params)
+    @review.author = current_user.username
     if @review.save
       render json: @review
     else

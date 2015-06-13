@@ -36,10 +36,9 @@ ActiveRecord::Schema.define(version: 20150613202022) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "games", ["name"], name: "index_games_on_name", using: :btree
-
   create_table "reviews", force: :cascade do |t|
     t.text     "body",       null: false
+    t.string   "author",     null: false
     t.integer  "score",      null: false
     t.integer  "user_id",    null: false
     t.integer  "game_id",    null: false

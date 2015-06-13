@@ -10,9 +10,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
   },
 
   addReview: function (review) {
-    var users = new GoodgamesApp.Collections.Users();
-    var author = users.getOrFetch(review.escape('user_id'));
-    var itemView = new GoodgamesApp.Views.ReviewItem({ model: review, author: author });
+    var itemView = new GoodgamesApp.Views.ReviewItem({ model: review });
     this.addSubview('#review-list', itemView, 'prepend');
   },
 

@@ -2,6 +2,7 @@ class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
       t.text :body, null: false
+      t.string :author, null: false
       t.integer :score, null: false
       t.integer :user_id, null: false
       t.integer :game_id, null: false
