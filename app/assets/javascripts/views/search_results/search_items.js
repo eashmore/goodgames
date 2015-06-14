@@ -3,7 +3,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   template: JST['search_results/item'],
 
   events: {
-    'click #game-box': 'toShow'
+    'click .game-thumb': 'toShow'
   },
 
   render: function () {
@@ -23,6 +23,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
     this.model.get('platforms').forEach(function (platform) {
       platforms += platform.name + "@@@";
     });
+    debugger;
     var attrs = { game: {
       id: this.model.get('id'),
       name: this.model.get('name'),

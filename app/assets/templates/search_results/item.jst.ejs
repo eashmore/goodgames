@@ -1,7 +1,9 @@
 <div class='game-thumb thumbnail pull-left text-center'>
   <div class='box'>
     <a href="#games/<%= game.id %>">
+    <% if (game.get('image')) { %>
       <img id='boxart' src='<%= game.get('image').small_url %>'></img>
+      <% } %>
   </div><hr class='box-divider'>
     <span class='caption'><%= game.escape('name') %></span>
   </a>
