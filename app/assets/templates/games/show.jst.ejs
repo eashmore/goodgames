@@ -31,9 +31,9 @@
 </div>
 
   <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-    <button id='collection-button' class='btn btn-default'>Add to My Collection</button>
+    <button id='collection-button' class='btn btn-default'>Recommend This Game</button>
   <% } else { %>
-    <button class='btn btn-disabled'>In Collection</button>
+    <button class='btn btn-disabled'>Recommended</button>
   <% } %>
 
   <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>

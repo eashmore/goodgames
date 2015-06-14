@@ -54,7 +54,9 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     var collection = new GoodgamesApp.Models.Collection();
     collection.set({
       user_id: this.currentUser.id,
-      game_id: this.model.id
+      game_id: this.model.id,
+      user_name: this.currentUser.escape('username'),
+      game_name: this.model.escape('name')
     });
     collection.save({}, {
       success: function () {

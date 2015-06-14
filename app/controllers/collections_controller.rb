@@ -22,6 +22,6 @@ class CollectionsController < ApplicationController
 
   private
   def collection_params
-    params.require(:collection).permit(:user_id, :game_id)
+    params.require(:collection).permit(:user_id, :game_id, :game_name, :user_name)
   end
 end

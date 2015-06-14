@@ -16,7 +16,8 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   index: function () {
     var indexView = new GoodgamesApp.Views.GamesIndex({
-      collection: GoodgamesApp.games
+      collection: GoodgamesApp.games,
+      currentUser: this.currentUser
     });
     this._swapView(indexView);
   },

@@ -2,8 +2,10 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
 
   template: JST['games/index'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.currentUser = options.currentUser;
     this.listenTo(this.collection, 'sync', this.render);
+    this.addFeed();
     // this.listenTo(this.collection, 'add', this.addGames);
 
   },
@@ -25,6 +27,12 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
       var gameView = new GoodgamesApp.Views.GameItem({ model: game });
       this.addSubview(index, gameView);
     }.bind(this));
+  },
+
+  addFeed: function () {
+    var recFeedView = new GoodgamesApp.Views.CollectionFeed();
+    this.addSubview('#rec-feed-index', recFeedView);
+
   },
 
   render: function () {

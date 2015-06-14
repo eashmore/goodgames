@@ -23,7 +23,6 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
     this.model.get('platforms').forEach(function (platform) {
       platforms += platform.name + "@@@";
     });
-    debugger;
     var attrs = { game: {
       id: this.model.get('id'),
       name: this.model.get('name'),

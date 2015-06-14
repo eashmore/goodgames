@@ -2,7 +2,7 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
 
   template: JST['wishlists/item'],
 
-  button: JST['collections/button'],
+  button: JST['wishlists/button'],
 
   events: {
     'click #delete-item': "deleteGame"

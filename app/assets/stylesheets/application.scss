@@ -22,9 +22,9 @@
  }
 
  .game-thumb {
-   height: 220px;
-   width: 177px;
-   margin: 9px;
+   height: 240px;
+   width: 150px;
+   margin: 5px;
   }
 
   .game-thumb:hover {
@@ -71,4 +71,13 @@
 
 #delete-button {
   margin-left: 9px;
+}
+
+#feed-item {
+  margin: 5px 5px 5px 0px;
+  height: 40px;
+  border: 1px blue solid;
+  padding-left: 5px;
+  border-radius: 4px;
+
 }
