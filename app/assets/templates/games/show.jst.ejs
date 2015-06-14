@@ -16,18 +16,22 @@
     <div>Number of Reviews: <%= game.reviews().length %></div>
     </strong></div>
     <div class='game-info'>
-      About: <%= game.escape('deck') %>
+      About: <%= game.escape('deck') %><br>
+      Release Date: <%= game.escape('release_date') %><br>
+      Platform: <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
+        <br><%= platform %>
+      <% }) %>
     </div>
   </div>
 
   <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-    <button id='collection-button' class='btn btn-default'>Add to Collection</button>
+    <button id='collection-button' class='btn btn-default'>Add to My Collection</button>
   <% } else { %>
     <button class='btn btn-disabled'>In Collection</button>
   <% } %>
 
   <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
-    <button id='wishlist-button' class='btn btn-default'>Add to Wishlist</button>
+    <button id='wishlist-button' class='btn btn-default'>Add to My Wishlist</button>
   <% } else { %>
     <button class='btn btn-disabled'>On Wishlist</button>
   <% } %>

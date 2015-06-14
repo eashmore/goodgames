@@ -3,6 +3,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   template: JST['games/show'],
 
   initialize: function (options) {
+    window.scrollTo(0,0);
     this.currentUser = options.user;
     this.reviews = this.model.reviews();
     this.listenTo(this.model, 'sync', this.render);

@@ -6,6 +6,10 @@
 <% if Game.all.length == 0 %>
   <% fill_game_database %>
 <% end %>
-
+<script>
+$(document).ready(function(){
+  GoodgamesApp.initialize();
+});
+</script>
 <script>window.CURRENT_USER = '<%= current_user.username %>'</script>
 <script>window.CURRENT_USER_ID = <%= current_user.id %></script>

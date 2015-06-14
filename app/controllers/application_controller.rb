@@ -37,12 +37,17 @@ class ApplicationController < ActionController::Base
       file_handle = open("http://www.giantbomb.com/api/game/3030-" + id.to_s + "/?api_key=" + ENV['giantbomb_api_key'])
       doc = Nokogiri::XML(file_handle)
       doc.css('results').each do |node|
+        platforms = ""
+        node.css('platform').each do |platform|
+          platforms += platform.css('name').inner_text + "@@@"
+        end
         Game.create({
           name: node.css('name').first.inner_text,
           deck: node.css('deck').first.inner_text,
           id: node.css('id').first.inner_text,
-          # thumbnail_url: node.css('thumb_url').first ? node.css('thumb_url').first.inner_text() : "",
-          boxart_url: node.css('small_url').first ? node.css('small_url').first.inner_text() : ""
+          boxart_url: node.css('small_url').first ? node.css('small_url').first.inner_text() : "",
+          release_date: node.css('original_release_date').first.inner_text[0..9],
+          platforms: platforms
         })
       end
     end

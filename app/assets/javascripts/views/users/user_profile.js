@@ -4,6 +4,8 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   templateShow: JST['users/show'],
 
   initialize: function (options) {
+    window.scrollTo(0,0);
+
     this.currentUser = options.currentUser;
 
     this.userCollection = new GoodgamesApp.Collections.Collections();

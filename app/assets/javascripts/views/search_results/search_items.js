@@ -19,11 +19,17 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
     if (GoodgamesApp.games.where({ id: this.model.id }).length) {
       game.set({ id: this.model.id });
     }
+    var platforms = "";
+    this.model.get('platforms').forEach(function (platform) {
+      platforms += platform.name + "@@@";
+    });
     var attrs = { game: {
       id: this.model.get('id'),
       name: this.model.get('name'),
       deck: this.model.get('deck'),
-      boxart_url: this.model.get('image').small_url
+      boxart_url: this.model.get('image').small_url,
+      release_date: this.model.get('original_release_date').slice(0, 10),
+      platforms: platforms
     }};
     game.set(attrs);
     game.save([], {
