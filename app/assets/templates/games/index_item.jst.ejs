@@ -1,8 +1,6 @@
-<% if (game.escape('boxart_url') !== "" && game.id !== 16696) { %>
-  <div class='game-thumb thumbnail pull-left text-center'>
-    <a href="#games/<%= game.id %>">
-      <img id='boxart' src='<%= game.escape('boxart_url') %>'></img>
-      <span class='caption'><%= game.escape('name') %></span>
-    </a>
-  </div>
-<% } %>
+<div class='game-thumb thumbnail pull-left text-center'>
+  <a href="#games/<%= game.id %>">
+    <img id='boxart' src='<%= game.escape('boxart_url') %>'></img>
+    <span class='caption'><%= game.escape('name') %></span>
+  </a>
+</div>

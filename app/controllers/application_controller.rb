@@ -8,19 +8,28 @@ class ApplicationController < ActionController::Base
 
   def fill_game_database # TA: seeds or rake task  seed_dump
     # Game.all.delete_all
-    id_list = []
+    id_list = [
+      #popular
+      36765, 36113, 46569, 35573, 24024, 33394,
+      #new releases
+      41484, 45577, 46582, 47342, 49073, 46447,
+      #highest rated,
+      26839, 22420, 1539, 15473, 2600, 17280,
+      #classics
+      12572, 10299, 18115, 9463, 8307, 8870,
+      ]
 
     # offset = 0;
     # while offset < 1
       # file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&offset=" + offset.to_s)
-
-      file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&sort=number_of_user_reviews&limit=50")
-      doc = Nokogiri::XML(file_handle)
-
+      #
+      # file_handle = open("http://www.giantbomb.com/api/games/?api_key=" + ENV['giantbomb_api_key'] + "&sort=number_of_user_reviews&limit=50")
+      # doc = Nokogiri::XML(file_handle)
+      #
+      # # doc.css('game').each do |node|
       # doc.css('game').each do |node|
-      doc.css('game').each do |node|
-        id_list << node.css('id').first.inner_text
-      end
+      #   id_list << node.css('id').first.inner_text
+      # end
       # offset += 100
     # end
 
