@@ -2,7 +2,8 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   template: JST['reviews/item'],
 
   events: {
-    'click #edit-review': 'edit'
+    'click #edit-review': 'edit',
+    'click #username': 'toProfile'
   },
 
   render: function () {
@@ -16,5 +17,10 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
 
   edit: function (event) {
     event.preventDefault();
+  },
+
+  toProfile: function (event) {
+    event.preventDefault();
+    Backbone.history.navigate('users/' + this.model.escape('user_id'), { trigger: true });
   }
 });

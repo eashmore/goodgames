@@ -14,7 +14,7 @@ Goodgames is a Goodreads clone built on Rails and Backbone in which users will b
 - [X] Review and score video games
 - [X] View average user score of video games
 - [X] Search for games by title
-- [ ] Maintain a video game wishlist
+- [X] Maintain a video game wishlist
 
 ## Design Docs
 * [View Wireframes][views]

@@ -2,17 +2,25 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
 
   template: JST['collections/item'],
 
+  button: JST['collections/button'],
+
   events: {
     'click #delete-item': "deleteGame"
   },
 
   initialize: function (options) {
+    this.user = options.user;
     this.currentUser = options.currentUser;
   },
 
   render: function () {
     var content = this.template({ game: this.model });
+
     this.$el.html(content);
+
+    if (this.user.id === this.currentUser.id) {
+      this.$el.find('#delete-button').html(this.button);
+    }
 
     return this;
   },

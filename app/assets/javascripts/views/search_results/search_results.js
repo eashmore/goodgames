@@ -3,11 +3,11 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   template: JST['search_results/index'],
 
   initialize: function () {
-    this.listenTo(this.collection, 'add', this.render);
-    this.listenTo(this.collection, 'add', this.addResult);
+    // this.listenTo(this.collection, 'add', this.render);
+    // this.listenTo(this.collection, 'add', this.addResult);
     this.listenTo(this.collection, 'reset', this.removeSubs);
 
-    // this.collection.each(this.addSubview.bind(this));
+    this.collection.each(this.addResult.bind(this));
   },
 
   addResult: function (item) {
@@ -20,7 +20,7 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var content = this.template();
+    var content = this.template({ results: this.collection });
     this.$el.html(content);
 
     this.attachSubviews();

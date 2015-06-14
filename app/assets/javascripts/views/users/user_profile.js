@@ -1,7 +1,11 @@
 GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   template: JST['users/profile'],
 
-  initialize: function () {
+  templateShow: JST['users/show'],
+
+  initialize: function (options) {
+    this.currentUser = options.currentUser;
+
     this.userCollection = new GoodgamesApp.Collections.Collections();
     this.userCollection.fetch();
 
@@ -19,24 +23,31 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
 
   addOwnedGame: function (game) {
     var collectionView = new GoodgamesApp.Views.CollectionItem({
-      currentUser: this.model,
+      user: this.model,
       collection: this.userCollection,
-      model: game
+      model: game,
+      currentUser: this.currentUser
     });
     this.addSubview('#collection', collectionView);
   },
 
   addWishlistGame: function (game) {
     var wishlistView = new GoodgamesApp.Views.WishlistItem({
-      currentUser: this.model,
+      user: this.model,
       collection: this.userWishlist,
-      model: game
+      model: game,
+      currentUser: this.currentUser
     });
     this.addSubview('#wishlist', wishlistView);
   },
 
   render: function () {
-    var content = this.template({ user: this.model });
+    var content;
+    if (this.model === this.currentUser) {
+      content = this.template({ user: this.model });
+    } else {
+      content = this.templateShow({ user: this.model });
+    }
     this.$el.html(content);
 
     this.attachSubviews();

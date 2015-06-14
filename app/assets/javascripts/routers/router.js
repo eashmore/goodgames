@@ -7,7 +7,8 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'user': 'showUserPage',
+    'user': 'showCurrentUserPage',
+    'users/:id': 'showUserPage',
     'games/search/?/:query': 'showSearchResults',
     'games/:id': 'showGame'
   },
@@ -26,20 +27,34 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showSearchResults: function (query) {
+    var loadingView = new GoodgamesApp.Views.Loading();
+    this._swapView(loadingView);
     var searchResults = new GoodgamesApp.Collections.SearchResults();
     searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
            "&format=json&query=" + query + "&resources=game",
+      success: function () {
+        var resultsView = new GoodgamesApp.Views.SearchResults({
+          collection: searchResults
+        });
+        this._swapView(resultsView);
+      }.bind(this)
     });
-    var resultsView = new GoodgamesApp.Views.SearchResults({
-      collection: searchResults
-    });
-    this._swapView(resultsView);
   },
 
-  showUserPage: function () {
+  showUserPage: function (id) {
+    var user = new GoodgamesApp.Collections.Users().getOrFetch(id);
     var userView = new GoodgamesApp.Views.UserProfile({
-      model: this.currentUser
+      model: user,
+      currentUser: this.currentUser
+    });
+    this._swapView(userView);
+  },
+
+  showCurrentUserPage: function () {
+    var userView = new GoodgamesApp.Views.UserProfile({
+      model: this.currentUser,
+      currentUser: this.currentUser
     });
     this._swapView(userView);
   },
