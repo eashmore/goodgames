@@ -1,28 +1,34 @@
 <div>
   <h1><%= game.escape('name') %></h1>
   <div class='row'>
-    <img class='box-art' src='<%= game.escape('boxart_url') %>'/>
-    <div><strong id='score'>
-      Average Score:
-      <% if (!game.get('score')) { %>
-        Be the first to review <%= game.escape('name') %>!
-      <% } else { %>
-        <%= game.escape('score') %>
-      <% } %>
+    <div class='col-xs-4'>
+      <img class='box-art' src='<%= game.escape('boxart_url') %>'/>
+      <div><strong id='score'>
+        Average Score:
+        <% if (!game.get('score')) { %>
+          Be the first to review <%= game.escape('name') %>!
+        <% } else { %>
+          <%= game.escape('score') %>
+        <% } %>
 
-      <input id="average-score" type="number" class="rating" disabled='true'
-        min=0 max=5 step=0.1 data-size="md" value='<%= game.escape('score') %>'
-      >
-    <div>Number of Reviews: <%= game.reviews().length %></div>
-    </strong></div>
+        <input id="average-score" type="number" class="rating" disabled='true'
+          min=0 max=5 step=0.1 data-size="md" value='<%= game.escape('score') %>'
+        >
+        <div>Number of Reviews: <%= game.reviews().length %></div>
+        </strong>
+      </div>
+    </div>
+  <div class='col-xs-8'>
     <div class='game-info'>
-      About: <%= game.escape('deck') %><br>
-      Release Date: <%= game.escape('release_date') %><br>
-      Platform: <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
+      <h5><%= game.escape('deck') %></h5><br>
+      <strong>Release Date: </strong><%= game.escape('release_date') %>
+      <br><br>
+      <strong>Available Platform(s): </strong><% game.escape('platforms').split('@@@').forEach(function (platform) { %>
         <br><%= platform %>
       <% }) %>
     </div>
   </div>
+</div>
 
   <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
     <button id='collection-button' class='btn btn-default'>Add to My Collection</button>
@@ -35,6 +41,6 @@
   <% } else { %>
     <button class='btn btn-disabled'>On Wishlist</button>
   <% } %>
-
+<hr>
   <div id='review-index'></div>
 </div>
