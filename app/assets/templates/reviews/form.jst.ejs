@@ -1,19 +1,22 @@
-<div class="m-backdrop">
+<div class="m-backdrop"></div>
 <div class="m-content">
-  <h3>Write a review</h3>
+  <!-- <h3>Write a review</h3> -->
   <div class="panel panel-default">
     <div class="panel-heading">
-    <input id="review-score" type="number" name="review[score]" class="rating" min=0 max=5 step=1 data-size="sm" >
+      <button class="close pull-right">&times;</button>
+      <input id="review-score" type="number" name="review[score]"
+             class="rating" min=0 max=5 step=1 data-size="sm"
+      >
     </div>
     <div class="panel-body">
-      <label>Review
+      <label>What did you think of this game?
         <br>
         <textarea name="review[body]" rows="8" cols="80"></textarea>
       </label>
     </div>
     <input type="hidden" name="review[game_id]" value="<%= game_id %>">
     <div class="panel-footer">
-      <button class="btn btn-default" type="submit">Submit</button>
+      <button class="compose btn btn-default" type="submit">Submit Review</button>
     </div>
   </div>
-<div>
+</div>

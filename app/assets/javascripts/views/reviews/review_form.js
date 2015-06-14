@@ -4,7 +4,9 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
   template: JST['reviews/form'],
 
   events: {
-    'click button': 'submit'
+    'click .close': 'remove',
+    'click .m-backdrop': 'remove',
+    'click .compose': 'submit'
   },
 
   initialize: function(options) {
@@ -28,7 +30,7 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     this.model.save([], {
       success: function () {
         this.collection.add(this.model);
-        this.render();
+        this.remove();
       }.bind(this)
     });
   }

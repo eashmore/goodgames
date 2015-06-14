@@ -6,10 +6,6 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
     'click #username': 'toProfile'
   },
 
-  initialize: function () {
-    window.scrollTo(0, 1000);
-  },
-
   render: function () {
     var content = this.template({ review: this.model });
     this.$el.html(content);

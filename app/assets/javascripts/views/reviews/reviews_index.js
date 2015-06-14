@@ -2,6 +2,10 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   template: JST['reviews/index'],
 
+  events: {
+    'click .btn-compose': 'addForm'
+  },
+
   initialize: function (options) {
     this.game = options.game;
     this.listenTo(this.collection, 'change', this.render);
@@ -21,11 +25,10 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       collection: this.collection,
       game: this.game
     });
-    this.addSubview('#new-form', formView);
+    $('body').prepend(formView.render().$el);
   },
 
   render: function () {
-    this.addForm();
     this.$el.html(this.template);
 
     this.attachSubviews();
