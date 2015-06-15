@@ -5,6 +5,7 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
   events: {
     'click #profile': 'toProfile',
     'click #games-link': 'toGamesIndex',
+    'click #users-index': 'toUserIndex',
     'click .search-games': 'searchGamesBar',
     'click .search-users': 'searchUserBar'
   },
@@ -37,6 +38,11 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
   toGamesIndex: function (event) {
     event.preventDefault();
     Backbone.history.navigate('', { trigger: true });
+  },
+
+  toUserIndex: function (event) {
+    event.preventDefault();
+    Backbone.history.navigate('/users', { trigger: true });
   },
 
   _swapSearch: function (searchView) {

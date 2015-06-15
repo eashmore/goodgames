@@ -1,2 +1,5 @@
-<img class="profile-pic" src="<%= image.get('url') %>"/>
-<button type="button" class="upload-pic">Upload Profile Pic</button>
+<% if (image.get('url')) { %>
+  <img class="profile-pic" src="<%= image.get('url') %>"/>
+<% } else { %>
+  <img class="profile-pic" src="assets/user.png"/>
+<% } %>

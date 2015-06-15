@@ -9,10 +9,12 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'user': 'showCurrentUserPage',
+    'users': 'usersPage',
     'users/?/:query': 'userSearch',
     'users/:id': 'showUserPage',
     'games/search/?/:query': 'showSearchResults',
     'games/:id': 'showGame'
+
   },
 
   index: function () {
@@ -74,6 +76,8 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   userSearch: function (query) {
+    $(".nav").find(".active").removeClass("active");
+    $('#users-index').addClass("active");
     var users = new GoodgamesApp.Collections.Users();
 
     users.fetch({
@@ -85,6 +89,15 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
         this._swapView(userSearchView);
       }.bind(this)
     });
+  },
+
+  usersPage: function () {
+    $(".nav").find(".active").removeClass("active");
+    $('#users-index').addClass("active");
+
+    var users = new GoodgamesApp.Collections.Users();
+    var userView = new GoodgamesApp.Views.UsersIndex({ collection: users });
+    this._swapView(userView);
   },
 
   _swapView: function (view) {

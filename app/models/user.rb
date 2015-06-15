@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   has_many :wishlist_games, through: :wishlists, source: :game
   has_many :comments, as: :commentable, class_name: 'Review'
 
-
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.valid_password?(password) ? user : nil

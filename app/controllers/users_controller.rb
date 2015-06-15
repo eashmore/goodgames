@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    render json: @users
+    render :index
   end
 
   def new
@@ -12,6 +12,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
+
+      Image.new({
+        url: "assets/user.png",
+        thumb_url: "assets/user.png"
+      })
+      Image.save();
+
       redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages
