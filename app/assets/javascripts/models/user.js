@@ -34,6 +34,14 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     return this._comments;
   },
 
+  image: function () {
+    if (!this._image) {
+      this._image = new GoodgamesApp.Models.Image([], { user: this });
+    }
+
+    return this._image;
+  },
+
   parse: function (response) {
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
@@ -53,6 +61,11 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });
       delete response.comments;
+    }
+
+    if (response.image) {
+      this.image().set(response.image, { parse: true });
+      delete response.image;
     }
 
     return response;

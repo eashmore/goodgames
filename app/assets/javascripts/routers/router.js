@@ -9,6 +9,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'user': 'showCurrentUserPage',
+    'users/?/:query': 'userSearch',
     'users/:id': 'showUserPage',
     'games/search/?/:query': 'showSearchResults',
     'games/:id': 'showGame'
@@ -42,6 +43,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
            "&format=json&query=" + query + "&resources=game",
+      // headers: {'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'}
       success: function () {
         var resultsView = new GoodgamesApp.Views.SearchResults({
           collection: searchResults
@@ -69,6 +71,20 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
       currentUser: this.currentUser
     });
     this._swapView(userView);
+  },
+
+  userSearch: function (query) {
+    var users = new GoodgamesApp.Collections.Users();
+
+    users.fetch({
+      success: function () {
+        var results = users.where({ username: query });
+        var userSearchView = new GoodgamesApp.Views.UserSearchResults({
+          collection: results
+        });
+        this._swapView(userSearchView);
+      }.bind(this)
+    });
   },
 
   _swapView: function (view) {

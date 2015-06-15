@@ -15,7 +15,15 @@ GoodgamesApp.Views.UserSearchBar = Backbone.View.extend({
 
   search: function (event) {
     event.preventDefault();
-    var query = this.$el.serializeJSON();
-    Backbone.history.navigate("games/search/?/" + query.query, { trigger: true });
+    this.query = this.$el.serializeJSON();
+
+    Backbone.history.navigate('/users/?/' + this.query.query, { trigger: true });
+    // this.users = new GoodgamesApp.Collections.Users();
+    // this.users.fetch({
+    //   success: function () {
+    //     this.results = this.users.where({ username: this.query.query });
+    //     Backbone.history.navigate('/users', { trigger: true, results: this.results });
+    //   }.bind(this)
+    // });
   }
 });

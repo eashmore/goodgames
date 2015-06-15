@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :collections
   resources :wishlists
+  resources :images
+
 end

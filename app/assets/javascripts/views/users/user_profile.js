@@ -3,6 +3,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
 
   templateShow: JST['users/show'],
 
+
   initialize: function (options) {
     window.scrollTo(0,0);
 
@@ -15,6 +16,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.userWishlist.fetch();
 
     this.addCommentsIndex();
+    this.addPic();
 
     this.listenTo(this.model, 'sync', this.render);
 
@@ -50,6 +52,11 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addSubview('.comment-index', commentView);
   },
 
+  addPic: function () {
+    var picView = new GoodgamesApp.Views.ImagesShow({ model: this.model });
+    this.addSubview('.profile-pic', picView);
+  },
+
   render: function () {
     var content;
     if (this.model === this.currentUser) {
@@ -62,5 +69,6 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
-  }
+  },
+
 });

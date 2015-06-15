@@ -15,3 +15,7 @@ end
 json.comments @user.comments do |comment|
   json.partial! 'reviews/review', review: comment
 end
+
+json.image do
+  json.partial! 'images/image', image: @user.image
+end

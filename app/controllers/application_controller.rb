@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
 
   skip_before_filter :verify_authenticity_token
 
-  before_filter :set_access
-
-  def set_access
-    # headers["Access-Control-Allow-Origin"] = "*"
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-  end
+  # before_filter :set_access
+  #
+  # def set_access
+  #   # headers["Access-Control-Allow-Origin"] = "*"
+  #   response.headers['Access-Control-Allow-Origin'] = '*'
+  #   response.headers['Access-Control-Allow-Credentials'] = 'true'
+  # end
 
   def fill_game_database # TA: seeds or rake task  seed_dump
     # Game.all.delete_all
