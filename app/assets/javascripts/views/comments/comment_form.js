@@ -20,7 +20,6 @@ GoodgamesApp.Views.CommentForm = Backbone.View.extend({
   },
 
   submit: function () {
-    debugger
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     var comment = new GoodgamesApp.Models.Review();
