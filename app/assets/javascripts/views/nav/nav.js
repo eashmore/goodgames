@@ -34,15 +34,12 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
 
   toProfile: function (event) {
     event.preventDefault();
-    $(".nav").find(".active").removeClass("active");
-    $('#profile').addClass("active");
+
     Backbone.history.navigate('/user', { trigger: true });
   },
 
   toGamesIndex: function (event) {
     event.preventDefault();
-    $(".nav").find(".active").removeClass("active");
-    $('.games-link').addClass("active");
     Backbone.history.navigate('', { trigger: true });
   },
 
