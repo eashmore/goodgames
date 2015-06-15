@@ -23,6 +23,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showGame: function (id) {
+    $(".nav").find(".active").removeClass("active");
     var game = GoodgamesApp.games.getOrFetch(id);
     var showView = new GoodgamesApp.Views.GameShow({
       model: game,
@@ -32,6 +33,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showSearchResults: function (query) {
+    $(".nav").find(".active").removeClass("active");
     var loadingView = new GoodgamesApp.Views.Loading();
     this._swapView(loadingView);
     var searchResults = new GoodgamesApp.Collections.SearchResults();
@@ -48,6 +50,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showUserPage: function (id) {
+    $(".nav").find(".active").removeClass("active");
     var user = new GoodgamesApp.Collections.Users().getOrFetch(id);
     var userView = new GoodgamesApp.Views.UserProfile({
       model: user,
