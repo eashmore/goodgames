@@ -39,7 +39,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
   addFeed: function () {
     var recFeedView = new GoodgamesApp.Views.CollectionFeed();
     this.addSubview('#rec-feed-index', recFeedView);
-
   },
 
   render: function () {

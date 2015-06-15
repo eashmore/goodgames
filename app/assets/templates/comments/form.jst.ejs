@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Leave a comment: </h4>
+  </div>
+  <div class="panel-body">
+      <br>
+      <textarea name="review[body]" rows="5" cols="155"></textarea>
+  </div>
+  <input type="hidden" name="review[commentable_id]" value="<%= user.id %>">
+  <input type="hidden" name="review[score]" value='1'>
+  <input type="hidden" name="review[commentable_type]" value="<%= "User" %>">
+
+
+  <div class="panel-footer">
+    <button class="compose btn btn-default" type="submit">Submit Comment</button>
+  </div>
+</div>

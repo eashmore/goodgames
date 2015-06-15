@@ -14,7 +14,9 @@
         <textarea name="review[body]" rows="8" cols="80"></textarea>
       </label>
     </div>
-    <input type="hidden" name="review[game_id]" value="<%= game_id %>">
+    <input type="hidden" name="review[commentable_id]" value="<%= game_id %>">
+    <input type="hidden" name="review[commentable_type]" value="Game">
+
     <div class="panel-footer">
       <button class="compose btn btn-default" type="submit">Submit Review</button>
     </div>

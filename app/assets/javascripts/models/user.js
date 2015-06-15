@@ -26,6 +26,14 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     return this._wishlistGames;
   },
 
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new GoodgamesApp.Collections.Reviews([], { user: this });
+    }
+
+    return this._comments;
+  },
+
   parse: function (response) {
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
@@ -40,6 +48,11 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     if (response.wishlist_games) {
       this.wishlistGames().set(response.wishlist_games, { parse: true });
       delete response.wishlist_games;
+    }
+
+    if (response.comments) {
+      this.comments().set(response.comments, { parse: true });
+      delete response.comments;
     }
 
     return response;

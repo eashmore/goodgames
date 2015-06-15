@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :owned_games, through: :collections, source: :game
   has_many :wishlist_games, through: :wishlists, source: :game
+  has_many :comments, as: :commentable, class_name: 'Review'
 
 
   def self.find_by_credentials(username, password)

@@ -31,6 +31,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:body, :score, :game_id);
+    params.require(:review).permit(:body, :score, :commentable_id, :commentable_type);
   end
 end

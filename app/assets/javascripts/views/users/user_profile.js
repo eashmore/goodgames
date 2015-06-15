@@ -14,6 +14,8 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.userWishlist = new GoodgamesApp.Collections.Wishlists();
     this.userWishlist.fetch();
 
+    this.addCommentsIndex();
+
     this.listenTo(this.model, 'sync', this.render);
 
     this.listenTo(this.model.ownedGames(), 'add', this.addOwnedGame);
@@ -41,6 +43,11 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       currentUser: this.currentUser
     });
     this.addSubview('#wishlist', wishlistView);
+  },
+
+  addCommentsIndex: function () {
+    var commentView = new GoodgamesApp.Views.CommentIndex({ user: this.model });
+    this.addSubview('.comment-index', commentView);
   },
 
   render: function () {
