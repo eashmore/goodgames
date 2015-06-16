@@ -57,6 +57,11 @@
     margin: 5px;
   }
 
+  .game-thumb-profile {
+    min-height: 175px;
+    width: 125px;
+  }
+
   .game-thumb-search {
     height: 225px;
     width: 150px;
@@ -67,13 +72,17 @@
     background-color: gray;
   }
 
+  .game-thumb-profile:hover {
+    background-color: gray;
+  }
+
   .game-thumb-search:hover {
     background-color: gray;
   }
 
   .box-art {
-    max-height: 350px;
-    max-width: 275px;
+    max-height: 400px;
+    max-width: 325px;
     border: 1px black solid;
     border-radius: 3px;
   }
@@ -209,8 +218,8 @@
   .profile-picture {
     border: 3px gray solid;
     border-radius: 5px;
-    height: 350px;
-    width: 350px;
+    height: 400px;
+    width: 400px;
   }
 
   .feed-hr {
@@ -241,13 +250,13 @@
   }
 
   .col-delete {
-    right: 4px;
     position: relative;
+    right: 8px;
   }
 
   .wl-delete {
     position: relative;
-    right: 18px;
+    right: 3px;
   }
 
   .slick-slide

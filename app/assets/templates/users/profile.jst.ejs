@@ -1,20 +1,30 @@
-<h1><%= user.escape('username') %>'s Profile</h1>
-<div class="profile-pic"></div>
-
-<button type="button" class="upload-pic btn btn-default">Upload Profile Pic</button>
-
 <div class="row">
+  <div class="col-xs-5">
 
-  <h4>My Recommended Games: </h4>
-  <div class="collection slider">
+  <h1><%= user.escape('username') %>'s Profile</h1>
+
+  <div class="profile-pic"></div>
+
+  <button type="button" class="upload-pic btn btn-default">Upload Profile Pic</button>
 
   </div>
-</div>
 
-<div class="row">
+  <div class="col-xs-7">
 
-  <h4>My Wishlist: </h4>
-  <div id='wishlist' class='slider'></div>
+  <div class="row">
+
+    <h4>My Recommended Games: </h4>
+    <div class="collection slider">
+
+    </div>
+  </div>
+
+  <div class="row">
+
+    <h4>My Wishlist: </h4>
+    <div id='wishlist' class='slider'></div>
+  </div>
 </div>
+  </div>
 
 <div class="comment-index"></div>
