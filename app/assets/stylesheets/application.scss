@@ -26,7 +26,7 @@
   @import "bootswatch/superhero/bootswatch";
 
   nav.nav {
-    background-color: black;
+    background-color: #171a21;
     color: white;
     border: 1px;
   }
@@ -242,7 +242,20 @@
   }
 
   div.panel.css-panel {
+    background-color: #45556c;
+    border-color: gray;
+  }
+
+  div.panel-heading.css-panel-head {
     background-color: black;
+    color: white;
+    border-color: gray;
+  }
+
+  div.panel-footer.css-panel-foot {
+    background-color: black;
+    color: white;
+    border-color: gray;
   }
 
   textarea {
@@ -259,7 +272,6 @@
     right: 3px;
   }
 
-  .slick-slide
-  {
+  .slick-slide {
     width: 170px;
   }
