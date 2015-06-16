@@ -16,7 +16,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.setScore();
+    // this.setScore();
     var content = this.template({
       game: this.model,
       currentUser: this.currentUser
@@ -34,20 +34,20 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  setScore: function () {
-    var reviewCount = 0;
-    var totalPoints = 0;
-    this.model.reviews().each(function (review) {
-      totalPoints += review.get('score');
-      reviewCount += 1;
-    });
-
-    var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
-    if (!averageScore) {
-      averageScore = 0;
-    }
-    this.model.set({ score: averageScore });
-  },
+  // setScore: function () {
+  //   var reviewCount = 0;
+  //   var totalPoints = 0;
+  //   this.model.reviews().each(function (review) {
+  //     totalPoints += review.get('score');
+  //     reviewCount += 1;
+  //   });
+  //
+  //   var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
+  //   if (!averageScore) {
+  //     averageScore = 0;
+  //   }
+  //   this.model.set({ score: averageScore });
+  // },
 
   addToCollection: function (event) {
     event.preventDefault();
