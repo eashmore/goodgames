@@ -4,8 +4,10 @@
       <img id='feed-prof-pic' src="<%= image.get('thumb_url') %>" />
     </a>
   </div>
-  <strong><a id='feed-username' href='#'><%= recommendation.escape("user_name") %></a></strong>
-  recommended
-  <strong><a id='feed-gamename' href='#'><%= recommendation.get("game_name") %></a></strong>
+  <div class="feed-text">
+    <strong><a id='feed-username' href='#'><%= recommendation.escape("user_name") %></a></strong>
+    recommended
+    <strong><a id='feed-gamename' href='#'><%= recommendation.get("game_name") %></a></strong>
+  </div>
+  <hr class='feed-hr'>
 <div>
-<hr class='feed-hr'>

@@ -217,3 +217,12 @@
   span.caption.game-title {
     color: white;
   }
+
+  #my-thumbs-list{
+    overflow: auto;
+    width: 800px;
+    height: 300px;
+  }
+  .feed-text {
+    min-height: 40px;
+  }

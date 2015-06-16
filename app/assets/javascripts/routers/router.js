@@ -44,7 +44,11 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     var searchResults = new GoodgamesApp.Collections.SearchResults();
     searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
-           "&format=json&query=" + query + "&resources=game",
+           "&format=jsonp&query=" + query + "&resources=game",
+      dataType: 'jsonp',
+      jsonpCallback: 'json_callback',
+      contentType: "application/json",
+      jsonp: 'json_callback',
       success: function () {
         var resultsView = new GoodgamesApp.Views.SearchResults({
           collection: searchResults
@@ -107,3 +111,12 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   }
 
 });
+
+
+// $.ajax({
+//   url: "http://www.giantbomb.com/api/search/?api_key=3237292f5c8790f3237e3aa779cc19b3edbf1cdb&query=zelda&resources=game&format=jsonp",
+//   dataType: 'jsonp', jsonpCallback: 'json_callback',contentType: "application/json",jsonp: 'json_callback',
+// success: function(dataWeGotViaJsonp){
+//                        console.log(arguments);
+//                     }
+// , error: function () { console.log(arguments) }})

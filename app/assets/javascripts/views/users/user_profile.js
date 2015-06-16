@@ -37,7 +37,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       model: game,
       currentUser: this.currentUser
     });
-    this.addSubview('#collection', collectionView);
+    this.addSubview('.collection', collectionView);
   },
 
   addWishlistGame: function (game) {
