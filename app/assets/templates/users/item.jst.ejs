@@ -1,2 +1,15 @@
-<%= user.escape('username') %>
-<%= numberOfReviews %>
+<div class="panel-body">
+  <div class="pull-left">
+    <a id="to-user" href="#">
+      <strong><%= user.escape('username') %></strong>
+      <img class="user-index-pic" src="<%= user.image().get('url') %>" />
+    </a>
+  </div>
+  <h5>User Recommendations:</h5>
+    <div id="recs" class="">
+    </div>
+  <div class="pull-right">
+    Reviews Written: <%= numberOfReviews %>
+  </div>
+</div>
+<hr>

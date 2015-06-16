@@ -1,4 +1,9 @@
-<div id='feed-item'>
+<div id='feed-item' class="row">
+  <div class="col-xs-3">
+    <a href="#" id='feed-username'>
+      <img id='feed-prof-pic' src="<%= image.get('thumb_url') %>" />
+    </a>
+  </div>
   <strong><a id='feed-username' href='#'><%= recommendation.escape("user_name") %></a></strong>
   recommended
   <strong><a id='feed-gamename' href='#'><%= recommendation.get("game_name") %></a></strong>

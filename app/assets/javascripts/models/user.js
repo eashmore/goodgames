@@ -67,6 +67,13 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     if (response.image) {
       this.image().set(response.image, { parse: true });
       delete response.image;
+    } else {
+      this.image().set({
+        url: "assets/user.png",
+        thumb_url: "assets/user.png",
+        user_id: response.id
+      }, {parse: true });
+      delete response.image;
     }
 
     return response;

@@ -10,6 +10,10 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
     'click .search-users': 'searchUserBar'
   },
 
+  initialize: function () {
+    this.listenTo(GoodgamesApp.currentUser, 'sync', this.render);
+  },
+
   render: function () {
     this.$el.html(this.template);
     this.searchGamesBar();
