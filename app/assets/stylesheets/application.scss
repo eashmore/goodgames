@@ -155,6 +155,7 @@
     border-right: 1px gray solid;
     height: 1300px;
     right: 20px;
+    // overflow-y: hidden;
   }
 
   .nav-drop {
@@ -237,4 +238,19 @@
 
   textarea {
     color: black !important;
+  }
+
+  .col-delete {
+    right: 4px;
+    position: relative;
+  }
+
+  .wl-delete {
+    position: relative;
+    right: 18px;
+  }
+
+  .slick-slide
+  {
+    width: 170px;
   }
