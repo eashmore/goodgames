@@ -13,12 +13,6 @@ class UsersController < ApplicationController
     if @user.save
       login(@user)
 
-      Image.new({
-        url: "assets/user.png",
-        thumb_url: "assets/user.png"
-      })
-      Image.save();
-
       redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages

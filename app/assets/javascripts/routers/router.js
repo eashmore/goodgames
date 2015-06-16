@@ -45,7 +45,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
            "&format=json&query=" + query + "&resources=game",
-      // headers: {'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'}
       success: function () {
         var resultsView = new GoodgamesApp.Views.SearchResults({
           collection: searchResults

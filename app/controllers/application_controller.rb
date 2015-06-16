@@ -6,14 +6,15 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :fill_game_database
 
-  skip_before_filter :verify_authenticity_token
+  # skip_before_filter :verify_authenticity_token
 
   # before_filter :set_access
-  #
+
   # def set_access
-  #   # headers["Access-Control-Allow-Origin"] = "*"
-  #   response.headers['Access-Control-Allow-Origin'] = '*'
-  #   response.headers['Access-Control-Allow-Credentials'] = 'true'
+  #   headers["Access-Control-Allow-Origin"] = "*"
+  #   headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE, OPTIONS'
+  #   headers['Access-Control-Allow-Credentials'] = 'true'
+  #   headers['Access-Control-Allow-Headers'] = 'X-Requested-With,Content-Type'
   # end
 
   def fill_game_database # TA: seeds or rake task  seed_dump

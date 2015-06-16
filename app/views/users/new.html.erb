@@ -3,20 +3,24 @@
 <form action="<%= users_url %>" method="post">
   <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
 
-  <label>
-    Username
-    <input type="text" name="user[username]" value="">
-  </label><br>
+  <div class="form-group">
 
-  <label>
-    Email
-    <input type="text" name="user[email]" value="">
-  </label><br>
+    <label>
+      Username
+      <input type="text" class="form-control" name="user[username]" value="">
+    </label><br>
 
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label><br>
+  </div>
 
-  <input type="submit" value="Sign Up">
+  <div class="form-group">
+    <label>
+      Password
+      <input type="password" class="form-control" name="user[password]" value="">
+    </label><br>
+  </div>
+
+  <input type="submit" class="btn btn-default btn-success" value="Sign Up">
+  <a href="../session/new">
+    <input type="button" class="btn btn-default btn-success" value="Sign In">
+  </a>
 </form>

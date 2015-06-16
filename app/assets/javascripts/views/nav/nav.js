@@ -40,12 +40,14 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
   },
 
   toGamesIndex: function (event) {
+    this.searchGamesBar(event);
     event.preventDefault();
     Backbone.history.navigate('', { trigger: true });
   },
 
   toUserIndex: function (event) {
     event.preventDefault();
+    this.searchUserBar(event);
     Backbone.history.navigate('/users', { trigger: true });
   },
 

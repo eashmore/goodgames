@@ -3,7 +3,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   template: JST['search_results/item'],
 
   events: {
-    'click .game-thumb': 'toShow'
+    'click .game-thumb-search': 'toShow'
   },
 
   render: function () {
