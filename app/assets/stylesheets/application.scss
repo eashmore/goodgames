@@ -17,12 +17,31 @@
   @import "bootstrap-sprockets";
   @import "bootswatch/superhero/variables";
   @import "bootstrap";
-  body { padding-top: 60px; }
+  body {
+    padding-top: 60px;
+    background: url("../assets/blue_body_bg.jpg") center top repeat-y #000000;
+    background-color: black;
+    color: white !important;
+  }
   @import "bootswatch/superhero/bootswatch";
 
-  // #main {
-  //   margin-top: 50px;
-  // }
+  nav.nav {
+    background-color: black;
+    color: white;
+    border: 1px;
+  }
+
+  .navbar-default .navbar-nav>li>a.nav-link:hover {
+    color: white;
+  }
+
+  .navbar-default .navbar-nav>li>a#profile-dropdown:hover {
+    color: white;
+  }
+
+  .game-left-col {
+    margin-top: 15px;
+  }
 
   .game-thumb {
     min-height: 200px;
@@ -37,15 +56,16 @@
   }
 
   .game-thumb:hover {
-    background-color: #e1e1e8;
+    background-color: gray;
   }
 
   .game-thumb-search:hover {
-    background-color: #e1e1e8;
+    background-color: gray;
   }
 
   .box-art {
-    max-height: 400px;
+    max-height: 350px;
+    max-width: 275px;
     border: 1px black solid;
     border-radius: 3px;
   }
@@ -121,7 +141,7 @@
   }
 
   #rec-div {
-    border-right: 1px black solid;
+    border-right: 1px gray solid;
     height: 1300px;
     right: 20px;
   }
@@ -133,6 +153,8 @@
 
   div.thumbnail {
     border: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
   }
 
   #feed-prof-pic {
@@ -140,7 +162,7 @@
     height: 40px;
     position: relative;
     right: 10px;
-    border: 1px black solid;
+    border: 2px gray solid;
     border-radius: 25px;
   }
 
@@ -175,11 +197,15 @@
   .profile-picture {
     border: 3px gray solid;
     border-radius: 5px;
-    max-height: 350px;
-    max-width: 350px;
+    height: 350px;
+    width: 350px;
   }
 
   .feed-hr {
     margin-top: 5px;
     margin-bottom: 0px;
+  }
+
+  span.caption.game-title {
+    color: white;
   }

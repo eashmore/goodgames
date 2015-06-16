@@ -1,7 +1,6 @@
 <div>
-  <h1><%= game.escape('name') %></h1>
   <div class='row'>
-    <div class='col-xs-4'>
+    <div class='col-xs-3 game-left-col'>
       <img class='box-art' src='<%= game.escape('boxart_url') %>'/>
       <div><strong id='score'>
         Average Score:
@@ -18,8 +17,9 @@
         </strong>
       </div>
     </div>
-  <div class='col-xs-8'>
+  <div class='col-xs-9'>
     <div class='game-info'>
+  <h1><%= game.escape('name') %></h1><br>
       <h5><%= game.escape('deck') %></h5><br>
       <strong>Release Date: </strong><%= game.escape('release_date') %>
       <br><br>
