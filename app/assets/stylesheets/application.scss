@@ -31,12 +31,20 @@
     border: 1px;
   }
 
+  .navbar-default .navbar-nav>li>a.nav-link {
+    color: #b8b6b4;
+  }
+
   .navbar-default .navbar-nav>li>a.nav-link:hover {
-    color: white;
+    color: #ffffff;
+  }
+
+  .navbar-default .navbar-nav>li>a#profile-dropdown {
+    color: #b8b6b4;
   }
 
   .navbar-default .navbar-nav>li>a#profile-dropdown:hover {
-    color: white;
+    color: #ffffff;
   }
 
   .game-left-col {
