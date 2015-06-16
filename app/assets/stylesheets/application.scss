@@ -100,6 +100,8 @@
 
   .review-body {
     word-wrap: break-word;
+    position: relative;
+    top: -2em;
   }
 
   .box {
@@ -129,13 +131,14 @@
 
   .m-content {
     z-index: 101;
-    background-color: white;
+    // background-color: white;
     border-radius: 3px;
-    padding: 20px;
+    // padding: 20px;
     position: fixed;
     /* margin: 0 auto; */
-    margin-top: 100px;
-    left: 32%;
+    margin-top: 3em;
+    left: 21%;
+    width: 60em;
   }
 
   .m-backdrop {
@@ -223,6 +226,15 @@
     width: 800px;
     height: 300px;
   }
+
   .feed-text {
     min-height: 40px;
+  }
+
+  div.panel.css-panel {
+    background-color: black;
+  }
+
+  textarea {
+    color: black !important;
   }
