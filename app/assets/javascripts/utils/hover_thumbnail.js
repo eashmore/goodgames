@@ -12,13 +12,13 @@
 
 $(function () {
   setTimeout( function () {
-    $(".game-thumb").mouseenter(function () {
+    $("#main").on("mouseenter", '.game-thumb', (function () {
       $(this).find(".index-boxart").css('opacity', 0.3);
       $(this).find('.rate').css('z-index', 10);
-    }).mouseleave(function () {
+    })).on('mouseleave', '.game-thumb', (function () {
       $(this).find(".index-boxart").css('opacity', 1);
       $(this).find('.rate').css('z-index', -10);
 
-    });
-  }, 200);
+    }));
+  }, 500);
 });
