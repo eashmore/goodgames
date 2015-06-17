@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @games = Game.includes(:reviews).all
     render :index
   end
 
@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.includes(:reviews).find(params[:id])
     render :show
   end
 

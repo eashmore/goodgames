@@ -1,6 +1,6 @@
 <div class="panel panel-default css-panel">
 
-  <div class="panel-heading">
+  <div class="panel-heading css-panel-head">
     <div class='pull-right'>
       Written on: <%= comment.escape('created_at').slice(0, 10) %>
     </div>
@@ -8,7 +8,7 @@
   </div>
   <br>
   <div class="comment-body panel-body"><%= comment.escape('body') %></div>
-  <div class="panel-footer a">
+  <div class="panel-footer css-panel-foot a">
     <a id='edit-review' class='pull-right' href="#">Edit Comment</a>
   </div>
 </div>
