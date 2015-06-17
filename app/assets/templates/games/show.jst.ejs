@@ -31,15 +31,15 @@
 </div>
 
   <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-    <button id='collection-button' class='btn btn-default'>Recommend This Game</button>
+    <button id='collection-button' class='btn btn-default btn-warning'>Recommend This Game</button>
   <% } else { %>
-    <button class='btn btn-disabled'>Recommended</button>
+    <button class='btn btn-danger btn-disabled'>Recommended</button>
   <% } %>
 
   <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
-    <button id='wishlist-button' class='btn btn-default'>Add to My Wishlist</button>
+    <button id='wishlist-button' class='btn btn-warning btn-default'>Add to My Wishlist</button>
   <% } else { %>
-    <button class='btn btn-disabled'>On Wishlist</button>
+    <button class='btn btn-danger btn-disabled'>On Wishlist</button>
   <% } %>
 <hr>
   <div id='review-index'></div>
