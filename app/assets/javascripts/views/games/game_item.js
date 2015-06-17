@@ -5,6 +5,8 @@ GoodgamesApp.Views.GameItem = Backbone.View.extend({
   render: function () {
     var content = this.template({ game: this.model });
     this.$el.html(content);
+    
+    this.$el.find("#average-score").rating();
 
     return this;
   }

@@ -18,17 +18,15 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    $(".nav").find(".active").removeClass("active");
-    $('.games-link').addClass("active");
     var indexView = new GoodgamesApp.Views.GamesIndex({
       collection: GoodgamesApp.games,
       currentUser: this.currentUser
     });
     this._swapView(indexView);
+    $('.games-link').addClass("active");
   },
 
   showGame: function (id) {
-    $(".nav").find(".active").removeClass("active");
     var game = GoodgamesApp.games.getOrFetch(id);
     var showView = new GoodgamesApp.Views.GameShow({
       model: game,
@@ -38,7 +36,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showSearchResults: function (query) {
-    $(".nav").find(".active").removeClass("active");
     var loadingView = new GoodgamesApp.Views.Loading();
     this._swapView(loadingView);
     var searchResults = new GoodgamesApp.Collections.SearchResults();
@@ -59,7 +56,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showUserPage: function (id) {
-    $(".nav").find(".active").removeClass("active");
     var user = new GoodgamesApp.Collections.Users().getOrFetch(id);
     var userView = new GoodgamesApp.Views.UserProfile({
       model: user,
@@ -69,18 +65,16 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showCurrentUserPage: function () {
-    $(".nav").find(".active").removeClass("active");
-    $('#profile').addClass("active");
     var userView = new GoodgamesApp.Views.UserProfile({
       model: this.currentUser,
       currentUser: this.currentUser
     });
     this._swapView(userView);
+    $('#profile').addClass("active");
   },
 
   userSearch: function (query) {
-    $(".nav").find(".active").removeClass("active");
-    $('#users-index').addClass("active");
+
     var users = new GoodgamesApp.Collections.Users();
 
     users.fetch({
@@ -90,20 +84,22 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
           collection: results
         });
         this._swapView(userSearchView);
+
+        $('#users-index').addClass("active");
       }.bind(this)
     });
   },
 
   usersPage: function () {
-    $(".nav").find(".active").removeClass("active");
-    $('#users-index').addClass("active");
-
     var users = new GoodgamesApp.Collections.Users();
     var userView = new GoodgamesApp.Views.UsersIndex({ collection: users });
     this._swapView(userView);
+
+    $('#users-index').addClass("active");
   },
 
   _swapView: function (view) {
+    $(".nav").find(".active").removeClass("active");
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.$el);

@@ -27,7 +27,7 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
     this._swapSearch(searchView);
   },
 
-  searchUserBar: function(event) {
+  searchUserBar: function (event) {
     event.preventDefault();
     var searchView = new GoodgamesApp.Views.UserSearchBar();
     this._swapSearch(searchView);

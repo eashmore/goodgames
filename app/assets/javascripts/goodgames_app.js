@@ -13,6 +13,8 @@ window.GoodgamesApp = {
     var $rootEl = $("#main");
     var router = new GoodgamesApp.Routers.Router( { $rootEl: $rootEl });
     var nav = new GoodgamesApp.Views.Nav();
+
+
     $('#nav').html(nav.render().$el);
 
     Backbone.history.start();

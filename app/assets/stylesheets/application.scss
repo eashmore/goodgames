@@ -69,10 +69,6 @@
     margin: 5px;
   }
 
-  .game-thumb:hover {
-    background-color: gray;
-  }
-
   .game-thumb-profile:hover {
     background-color: gray;
   }
@@ -94,9 +90,19 @@
   }
 
   #boxart {
-    max-height: 160px;
+    // max-height: 160px;
+    // width: 145px;
     border: 1px black solid;
     border-radius: 2px;
+  }
+
+  .index-boxart {
+    width: 145px;
+    // position: relative;
+    // bottom: 50px;
+    border: 1px black solid;
+    border-radius: 2px;
+
   }
 
   #edit-review {
@@ -120,6 +126,8 @@
 
   .box-divider {
     margin: 5px;
+    position: relative;
+    top: 40px;
   }
 
   .loading-img {
@@ -165,7 +173,6 @@
     border-right: 1px gray solid;
     height: 1300px;
     right: 20px;
-    // overflow-y: hidden;
   }
 
   .nav-drop {
@@ -228,8 +235,14 @@
     margin-bottom: 0px;
   }
 
+  span.caption.game-title.index {
+    position: relative;
+    top: 40px;
+  }
+
   span.caption.game-title {
     color: white;
+
   }
 
   #my-thumbs-list{
@@ -325,4 +338,20 @@
     bottom: 0;
     top: 0;
     position: fixed;
+  }
+
+  .profile-game-buffer {
+    min-height: 240px;
+  }
+
+  .rate {
+    position: relative;
+    bottom: 10px;
+    z-index: -10;
+  }
+
+  a>div.star-rating {
+    position: relative;
+    top: -50px;
+    z-index: -10;
   }
