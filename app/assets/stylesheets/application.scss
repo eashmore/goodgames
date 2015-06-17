@@ -24,6 +24,7 @@
     color: white !important;
   }
   @import "bootswatch/superhero/bootswatch";
+  @import 'slick';
 
   nav.nav {
     background-color: #171a21;
@@ -274,4 +275,54 @@
 
   .slick-slide {
     width: 170px;
+  }
+
+  img.slick-slide {
+    height: 200px;
+  }
+
+  div.autoplay0 {
+    z-index: -10;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  div.autoplay1 {
+    z-index: -10;
+    opacity: 0.3;
+    position: fixed;
+    top: 200px;
+    left: 0;
+  }
+
+  div.autoplay2 {
+    z-index: -10;
+    opacity: 0.3;
+    position: fixed;
+    top: 400px;
+    left: 0;
+  }
+
+  div.autoplay3 {
+    z-index: -10;
+    opacity: 0.3;
+    position: fixed;
+    top: 600px;
+    left: 0;
+  }
+
+  div.autoplay4 {
+    z-index: -10;
+    opacity: 0.3;
+    position: fixed;
+    top: 800px;
+    left: 0;
+  }
+
+  div.new-session {
+    bottom: 0;
+    top: 0;
+    position: fixed;
   }

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:reviews).all
+    @users = User.includes(:reviews).includes(:owned_games).includes(:image).all
     render :index
   end
 

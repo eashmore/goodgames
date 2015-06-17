@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.includes(:reviews).find(params[:id])
+    @game = Game.find(params[:id])
     render :show
   end
 

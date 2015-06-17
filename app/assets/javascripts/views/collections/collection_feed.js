@@ -5,10 +5,9 @@ GoodgamesApp.Views.CollectionFeed = Backbone.CompositeView.extend({
     this.recommendations = new GoodgamesApp.Collections.Collections();
     this.recommendations.fetch();
     this.listenTo(this.recommendations, 'sync', this.render);
-    this.listenTo(this.recommendations, 'add', this.addRecommendation);
-    this.listenTo(this.recommendations, 'add', this.removeLast);
+    // this.listenTo(this.recommendations, 'add', this.addRecommendation);
+    // this.listenTo(this.recommendations, 'add', this.removeLast);
 
-    // this.recommendations.each(this.addRecommendation.bind(this));
 
   },
 
@@ -18,6 +17,7 @@ GoodgamesApp.Views.CollectionFeed = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    this.recommendations.slice(0,20).forEach(this.addRecommendation.bind(this));
     this.$el.html(this.template);
 
     this.attachSubviews();
