@@ -10,6 +10,8 @@ gem 'newrelic_rpm'
 
 gem 'bootswatch-rails'
 
+gem 'rails_12factor', group: :production
+
 gem 'rack-cors', :require => 'rack/cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -57,8 +59,4 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'bullet'
-end
-
-group :production do
-  gem 'rails_12factor'
 end
