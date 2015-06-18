@@ -13,6 +13,11 @@ class ImagesController < ApplicationController
     end
   end
 
+  def index
+    @images = Image.all
+    render json: @images
+  end
+
   def show
     render json: Image.find(params[:id])
   end
