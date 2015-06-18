@@ -1,15 +1,16 @@
-<div class="panel-body">
-  <div class="pull-left">
+<div class="panel panel-body css-panel">
+  <div class="pull-right">
+    <h3>Reviews Written: <%= numberOfReviews %></h3>
+  </div>
+  <div class="pull-left text-center user-idx">
     <a id="to-user" href="#">
-      <strong><%= user.escape('username') %></strong>
+      <h3><strong><%= user.escape('username') %></strong></h3>
       <img class="user-index-pic" src="<%= user.image().get('url') %>" />
     </a>
   </div>
-  <h5>User Recommendations:</h5>
-    <div id="recs" class="">
-    </div>
-  <div class="pull-right">
-    Reviews Written: <%= numberOfReviews %>
+
+  <div class="user-idx-recs row">
+    <h5>User's Recommendations:</h5>
+    <div id="recs" class=""></div>
   </div>
 </div>
-<hr>
