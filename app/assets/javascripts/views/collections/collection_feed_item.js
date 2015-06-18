@@ -2,11 +2,11 @@ GoodgamesApp.Views.CollectionFeedItem = Backbone.View.extend({
 
   template: JST['collections/feed_item'],
 
-  initialize: function () {
-    this.users = new GoodgamesApp.Collections.Users();
-    this.user = this.users.getOrFetch(this.model.escape('user_id'));
+  initialize: function (options) {
+    // this.users = new GoodgamesApp.Collections.Users();
+    this.user = options.user;
 
-    this.listenTo(this.user, 'sync', this.render);
+    // this.listenTo(this.users, 'sync', this.render);
   },
 
   events: {
