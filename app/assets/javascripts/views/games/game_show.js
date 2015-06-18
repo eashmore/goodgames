@@ -6,8 +6,9 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     window.scrollTo(0,0);
     this.currentUser = options.user;
     this.reviews = this.model.reviews();
+    this.wishlist = new GoodgamesApp.Collections.Wishlists();
 
-    this.listenTo(this.currentUser, 'change', this.render);
+    this.listenTo(this.currentUser.wishlistGames(), 'add remove', this.render);
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.reviews(), 'add', this.render);
@@ -15,7 +16,9 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
 
   events: {
     'click #collection-button': 'addToCollection',
-    'click #wishlist-button': 'addToWishlist'
+    'click #wishlist-button': 'addToWishlist',
+    'click #delete-item': "deleteGame"
+
   },
 
   render: function () {
@@ -80,6 +83,25 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       success: function () {
         this.currentUser.wishlistGames().add(this.model);
         this.render();
+      }.bind(this)
+    });
+  },
+
+  deleteGame: function (event) {
+    event.preventDefault();
+    this.wishlist.fetch({
+      success: function () {
+        var currentWishlist = this.wishlist.where({
+          game_id: this.model.id,
+          user_id: this.currentUser.id,
+        })[0];
+        currentWishlist.destroy({
+          success: function() {
+            this.currentUser.wishlistGames().remove(this.model);
+            this.render();
+          }.bind(this)
+        });
+
       }.bind(this)
     });
   }

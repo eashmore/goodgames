@@ -39,7 +39,7 @@
   <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
     <button id='wishlist-button' class='btn btn-warning btn-default'>Add to My Wishlist</button>
   <% } else { %>
-    <button class='btn btn-danger btn-disabled'>On Wishlist</button>
+    <button id='delete-item' class='btn btn-default btn-danger wl-delete'>Remove from Wishlist</button>
   <% } %>
 <hr>
   <div id='review-index'></div>
