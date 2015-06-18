@@ -6,9 +6,11 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     window.scrollTo(0,0);
     this.currentUser = options.user;
     this.reviews = this.model.reviews();
+
+    this.listenTo(this.currentUser, 'change', this.render);
+
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.reviews(), 'add', this.render);
-
   },
 
   events: {
