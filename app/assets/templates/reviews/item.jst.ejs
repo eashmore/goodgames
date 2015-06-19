@@ -4,7 +4,12 @@
     <div class='pull-right'>
       Written on: <%= review.escape('created_at').slice(0, 10) %>
     </div>
-    <strong><a id='username' href='#'><%= review.escape('author') %></a></strong> gave this game a
+    <strong><a id='username' href='#'><%= review.escape('author') %></a></strong> gave
+
+    <a id="game-name" href="#">
+      <%= game.escape('name') %>
+    </a>
+
     <input id="given-score" type="number" class="rating" disabled='true'
       min=0 max=5 step=0.1 data-size="xs" value='<%= review.escape('score') %>'
     >

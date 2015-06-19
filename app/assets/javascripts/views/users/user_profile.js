@@ -4,7 +4,9 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   templateShow: JST['users/show'],
 
   events: {
-    'click .upload-pic': 'upload'
+    'click .upload-pic': 'upload',
+    'click .see-reviews': 'addReviewIndex'
+
   },
 
   initialize: function (options) {
@@ -74,6 +76,23 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.slickSlider();
   },
 
+  upload: function(event){
+    event.preventDefault();
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+      var data = result[0];
+      this.model.image().set({url: data.url, thumb_url: data.thumbnail_url});
+      this.model.image().save();
+    }.bind(this));
+  },
+
+  addReviewIndex: function (event) {
+    event.preventDefault();
+    var reviewsView = new GoodgamesApp.Views.ReviewsProfile({
+      collection: this.model.reviews().where({ commentable_type: 'Game'}),
+    });
+    $('body').prepend(reviewsView.render().$el);
+  },
+
   slickSlider: function () {
     $('.slider').slick({
       dots: true,
@@ -108,14 +127,4 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       ]
     });
   },
-
-  upload: function(event){
-    event.preventDefault();
-    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
-      var data = result[0];
-      this.model.image().set({url: data.url, thumb_url: data.thumbnail_url});
-      this.model.image().save();
-    }.bind(this));
-  },
-
 });
