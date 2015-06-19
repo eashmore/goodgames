@@ -48,7 +48,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
         var resultsView = new GoodgamesApp.Views.SearchResults({
           collection: searchResults
         });
-        // this._swapView(resultsView);
+        this._swapView(resultsView);
       }.bind(this)
     });
   },
@@ -105,12 +105,3 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   }
 
 });
-
-
-// $.ajax({
-//   url: "http://www.giantbomb.com/api/search/?api_key=3237292f5c8790f3237e3aa779cc19b3edbf1cdb&query=zelda&resources=game&format=jsonp",
-//   dataType: 'jsonp', jsonpCallback: 'json_callback',contentType: "application/json",jsonp: 'json_callback',
-// success: function(dataWeGotViaJsonp){
-//                        console.log(arguments);
-//                     }
-// , error: function () { console.log(arguments) }})

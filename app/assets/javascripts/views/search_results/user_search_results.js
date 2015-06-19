@@ -7,7 +7,7 @@ GoodgamesApp.Views.UserSearchResults = Backbone.CompositeView.extend({
   },
 
   addResults: function (result) {
-    var resultsView = new GoodgamesApp.Views.ResultItem({ model: result });
+    var resultsView = new GoodgamesApp.Views.UserItem({ model: result });
 
     this.addSubview('.user-results', resultsView);
   },
