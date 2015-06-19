@@ -42,13 +42,12 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
   setRank: function () {
     var numReviews = GoodgamesApp.currentUser.reviews().where({
       commentable_type: 'Game'
-    }).length;
+    }).length + 1;
     ranks = new GoodgamesApp.Collections.Ranks();
     ranks.fetch({
       success: function () {
-        debugger
-        ranks.forEach(function(rank) {
-          if (numReviews >= rank.get('score')) {
+        ranks.slice(1).forEach(function(rank) {
+          if (numReviews >= rank.escape('score')) {
             GoodgamesApp.currentUser.set({ rank_id: rank.id });
             GoodgamesApp.currentUser.save();
           }

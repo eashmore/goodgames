@@ -48,7 +48,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
         var resultsView = new GoodgamesApp.Views.SearchResults({
           collection: searchResults
         });
-        this._swapView(resultsView);
+        // this._swapView(resultsView);
       }.bind(this)
     });
   },

@@ -18,10 +18,15 @@ class ApplicationController < ActionController::Base
   # end
 
   def createRanks #move to seeds
+    Rank.create({
+      name: 'Goomba',
+      score: 0,
+      image_url: 'http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,w_250/v1434752158/180px-Goomba_onloq5.png'
+    })
 
     Rank.create({
-      name: 'Newbie',
-      score: 0,
+      name: 'Noob',
+      score: 1,
       image_url: 'http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,w_250/v1434663945/400px-MushroomMarioKart8_graijs.png'
     })
     Rank.create({

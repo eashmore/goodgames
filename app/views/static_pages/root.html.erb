@@ -1,3 +1,5 @@
+<div class="container">
+
 <div class="backdrop">
   <div id='nav'></div>
   <div id="main"></div>
@@ -7,7 +9,6 @@
   <% fill_game_database %>
 <% end %>
 
-
 <script>
   $(document).ready(function(){
     GoodgamesApp.initialize();
@@ -16,3 +17,5 @@
 
 <script>window.CURRENT_USER = '<%= current_user.username %>'</script>
 <script>window.CURRENT_USER_ID = <%= current_user.id %></script>
+
+</div>
