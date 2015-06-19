@@ -23,9 +23,13 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addCommentsIndex();
     this.addPic();
 
+    if (this.model.rank().id){
+      this.addRank();
+    }
+    this.listenTo(this.model, 'sync', this.addRank);
+
     this.listenTo(this.model, 'sync', this.render);
 
-    // this.listenToOnce(this.model, 'sync', this.addRank);
 
     this.listenTo(this.model.ownedGames(), 'add', this.addOwnedGame);
     this.model.ownedGames().each(this.addOwnedGame.bind(this));
@@ -73,9 +77,6 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     }
     this.$el.html(content);
 
-    this.addRank();
-
-
     this.attachSubviews();
 
     this.slickSlider();
@@ -99,7 +100,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   },
 
   addRank: function () {
-    var rankView = new GoodgamesApp.Views.Rank({ model: this.model.rank() });
+    var rankView = new GoodgamesApp.Views.Rank({ model: this.model.rank(), user: this.model });
     this.addSubview('.rank', rankView);
   },
 
@@ -108,8 +109,8 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       dots: true,
       infinite: false,
       speed: 300,
-      slidesToShow: 4,
-      slidesToScroll: 4,
+      slidesToShow: 7,
+      slidesToScroll: 7,
       responsive: [
         {
           breakpoint: 1024,

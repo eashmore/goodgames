@@ -1,2 +1,11 @@
-<%= rank.escape('name') %>
-<img src="<%= rank.get('image_url') %>" />
+<div class="text-center">
+
+  <h4>Rank:</h4>
+  <div class="text-center rank-pic">
+    <h4><%= rank.escape('name') %></h4>
+      <br>
+    <img class='prof-rank' src="<%= rank.get('image_url') %>" />
+  </div>
+  <br>
+  Reviews Submitted: <%= numRevs %>
+</div>

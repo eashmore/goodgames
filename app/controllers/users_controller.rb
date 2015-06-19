@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:reviews).includes(:owned_games).includes(:image).all
+    @users = User.includes(:reviews).includes(:owned_games).includes(:image).includes(:rank).all
     render :index
   end
 
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.rank_id = 10
+    @user.rank_id = Rank.first.id
     if @user.save
       login(@user)
 
