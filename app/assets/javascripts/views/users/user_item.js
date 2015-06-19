@@ -21,7 +21,7 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var numberOfReviews = this.model.reviews().length;
+    var numberOfReviews = this.model.reviews().where({ commentable_type: 'Game' }).length;
     var content = this.template({ user: this.model, numberOfReviews: numberOfReviews });
     this.$el.html(content);
 
