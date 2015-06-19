@@ -31,9 +31,27 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model);
         this.remove();
+        this.setRank();
       }.bind(this),
       error: function (model, response) {
         this.$el.find('.errors').html(response.responseText.slice(1,-1).split(',').join('<br>'));
+      }.bind(this)
+    });
+  },
+
+  setRank: function () {
+    var numReviews = GoodgamesApp.currentUser.reviews().where({
+      commentable_type: 'Game'
+    }).length;
+    ranks = new GoodgamesApp.Collections.Ranks();
+    ranks.fetch({
+      success: function () {
+        ranks.forEach(function(rank) {
+          if (numReviews >= rank.get('score')) {
+            GoodgamesApp.currentUser.set({ rank_id: rank.id });
+            GoodgamesApp.currentUser.save();
+          }
+        });
       }.bind(this)
     });
   }

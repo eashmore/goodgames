@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.rank_id = 10
     if @user.save
       login(@user)
 
@@ -20,6 +21,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.includes(:reviews).find(params[:id])
+    if @user.update(user_params)
+      render :show
+    end
+  end
+
   def show
     @user = User.includes(:reviews).find(params[:id])
     render :show
@@ -27,6 +35,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:password, :username, :email, :commentable_id, :commentable_type)
+    params.require(:user).permit(:password, :username, :email, :commentable_id, :commentable_type, :rank_id)
   end
 end

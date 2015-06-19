@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  belongs_to :rank
+
   has_one :image
   has_many :collections
   has_many :wishlists

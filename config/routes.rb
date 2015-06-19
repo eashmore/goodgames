@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
-  resources :users, only: [:new, :create, :index, :show]
+  resources :users, only: [:new, :create, :index, :show, :update]
   resource :session, only: [:new, :create, :destroy]
 
   resources :games
@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :collections
   resources :wishlists
   resources :images
+  resources :ranks
 
 end

@@ -13,3 +13,9 @@ if user.image
     json.partial! 'images/image', image: user.image
   end
 end
+
+if user.rank
+  json.rank do
+    json.partial! 'ranks/rank', rank: user.rank
+  end
+end
