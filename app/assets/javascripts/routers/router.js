@@ -16,12 +16,15 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    $(".nav").find(".active").removeClass("active");
     var indexView = new GoodgamesApp.Views.GamesIndex({
       collection: GoodgamesApp.games,
       currentUser: GoodgamesApp.currentUser
     });
     this._swapView(indexView);
-    $('.games-link').addClass("active");
+    setTimeout(function () {
+      $('.games-link').addClass("active");
+    }, 300);
   },
 
   showGame: function (id) {
@@ -63,15 +66,19 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showCurrentUserPage: function () {
+    $(".nav").find(".active").removeClass("active");
     var userView = new GoodgamesApp.Views.UserProfile({
       model: GoodgamesApp.currentUser,
       currentUser: GoodgamesApp.currentUser
     });
     this._swapView(userView);
-    $('#profile').addClass("active");
+    setTimeout(function () {
+      $('#profile').addClass("active");
+    }, 300);
   },
 
   userSearch: function (query) {
+    $(".nav").find(".active").removeClass("active");
 
     var users = new GoodgamesApp.Collections.Users();
 
@@ -82,22 +89,25 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
           collection: results
         });
         this._swapView(userSearchView);
-
-        $('#users-index').addClass("active");
+        setTimeout(function () {
+          $('#users-index').addClass("active");
+        }, 300);
       }.bind(this)
     });
   },
 
   usersPage: function () {
+    $(".nav").find(".active").removeClass("active");
     var users = new GoodgamesApp.Collections.Users();
     var userView = new GoodgamesApp.Views.UsersIndex({ collection: users });
     this._swapView(userView);
 
-    $('#users-index').addClass("active");
+    setTimeout(function () {
+      $('#users-index').addClass("active");
+    }, 300);
   },
 
   _swapView: function (view) {
-    $(".nav").find(".active").removeClass("active");
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.$el);
