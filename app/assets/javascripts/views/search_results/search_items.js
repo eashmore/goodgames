@@ -28,7 +28,9 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
       name: this.model.get('name'),
       deck: this.model.get('deck'),
       boxart_url: this.model.get('image').small_url,
-      release_date: this.model.get('original_release_date').slice(0, 10),
+      release_date: this.model.get('original_release_date') ?
+        this.model.get('original_release_date').slice(0, 10) :
+        this.model.get('expected_release_year'),
       platforms: platforms
     }};
     game.set(attrs);
