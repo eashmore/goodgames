@@ -1,7 +1,8 @@
-<div class='new-session'>
-  <h1>Sign In</h1>
+<div class='new-session text-center'>
+  <img class='logo' src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png" />
 
-  <form action="<%= session_url %>" method="post">
+  <form class='new-sess-form' action="<%= session_url %>" method="post">
+  <h3>Sign In</h3>
 
     <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
 
@@ -25,6 +26,7 @@
     </a>
 
   </form>
+
 
   <% 5.times do |idx| %>
 
