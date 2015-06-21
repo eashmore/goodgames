@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :images
   resources :ranks
 
+  resources :game_reviews
 end

@@ -25,7 +25,6 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    debugger;
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {

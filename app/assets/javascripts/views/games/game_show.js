@@ -5,7 +5,12 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   initialize: function (options) {
     window.scrollTo(0,0);
     this.currentUser = options.user;
-    this.reviews = this.model.reviews();
+    this.reviews = new GoodgamesApp.Collections.GameReviews();
+    this.reviews.fetch({
+      data: { page: 1,
+              game_id: this.model.id
+            }
+    });
     this.wishlist = new GoodgamesApp.Collections.Wishlists();
 
     this.addReviewIndex();

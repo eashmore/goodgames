@@ -13,6 +13,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'change', this.render);
 
     this.collection.each(this.addReview.bind(this));
+
   },
 
   addReview: function (review) {
@@ -20,7 +21,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       model: review,
       collection: this.collection
     });
-    this.addSubview('#review-list', itemView, 'prepend');
+    this.addSubview('#review-list', itemView);
   },
 
   addForm: function (event) {
@@ -38,6 +39,9 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.$el.html(this.template);
 
     this.attachSubviews();
+
+    this.listenForScroll.call(this);
+
 
     return this;
   },
@@ -57,6 +61,25 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
         });
       }.bind(this)
     });
+  },
+
+  listenForScroll: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  nextPage: function () {
+    var view = this;
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      if (view.collection.page < view.collection.total_pages) {
+        view.collection.fetch({
+          data: { page: parseInt(view.collection.page) + 1,
+                  game_id: view.game.id },
+          remove: false,
+        });
+      }
+    }
   }
 
 });
