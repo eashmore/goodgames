@@ -23,7 +23,8 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.addSubview('#review-list', itemView, 'prepend');
   },
 
-  addForm: function () {
+  addForm: function (event) {
+    event.preventDefault();
     var newReview = new GoodgamesApp.Models.Review();
     var formView = new GoodgamesApp.Views.ReviewForm({
       model: newReview,
