@@ -46,12 +46,12 @@ class ApplicationController < ActionController::Base
     })
     Rank.create({
       name: 'Master',
-      score: 100,
+      score: 75,
       image_url: 'http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,w_250/v1434663941/400px-GoldenMushroomMK8_wvy0ml.png'
     })
     Rank.create({
       name: 'Gaming God',
-      score: 250,
+      score: 100,
       image_url: 'http://res.cloudinary.com/dqucbuno8/image/upload/v1434750624/Retro_Mushroom_Super_3_fefmzh.png'
     })
   end

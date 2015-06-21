@@ -1,5 +1,5 @@
-<div class="m-backdrop"></div>
-<div class="m-content">
+<div class="m-backdrop form"></div>
+<div class="m-content form">
 
   <div class="panel panel-default css-panel">
     <div class="panel-heading css-panel-head">
@@ -13,7 +13,7 @@
 
       <label>What did you think of this game?
         <br>
-        <textarea name="review[body]" rows="16" cols="131"></textarea>
+        <textarea name="review[body]" rows="16" cols="131"><%= review.escape('body') %></textarea>
       </label>
     </div>
     <input type="hidden" name="review[commentable_id]" value="<%= game_id %>">

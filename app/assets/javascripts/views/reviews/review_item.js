@@ -2,13 +2,15 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   template: JST['reviews/item'],
 
   events: {
-    'click #edit-review': 'edit',
+    // 'click #edit-review': 'edit',
     'click #username': 'toProfile',
-    'click #game-name': 'toGame'
+    'click #game-name': 'toGame',
+    'click #edit-review': 'addForm'
   },
 
   initialize: function () {
     this.game = GoodgamesApp.games.get(this.model.get('commentable_id'));
+    this.listenTo(this.model, 'change', this.render);
   },
 
   render: function () {
@@ -18,10 +20,6 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
     this.$el.find("#given-score").rating();
 
     return this;
-  },
-
-  edit: function (event) {
-    event.preventDefault();
   },
 
   toProfile: function (event) {
@@ -37,5 +35,16 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
     Backbone.history.navigate('games/' + this.game.id,
       { trigger: true }
     );
-  }
+  },
+
+  addForm: function (event) {
+    event.preventDefault();
+    var formView = new GoodgamesApp.Views.ReviewForm({
+      model: this.model,
+      collection: this.game.reviews(),
+      game: this.game
+    });
+
+    $('body').prepend(formView.render().$el);
+  },
 });

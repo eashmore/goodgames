@@ -17,6 +17,8 @@
   <br>
   <div class="review-body panel-body"><%= review.escape('body') %></div>
   <div class="panel-footer  css-panel-foot a">
-    <a id='edit-review' class='pull-right' href="#">Edit Review</a>
+    <% if (review.escape('user_id') == GoodgamesApp.currentUser.id) { %>
+      <a id='edit-review' class='pull-right' href="#">Edit Review</a>
+    <% } %>
   </div>
 </div>

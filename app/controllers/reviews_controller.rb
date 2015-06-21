@@ -18,11 +18,17 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id]);
+    @review = Review.find(params[:id])
     render :show
   end
 
-  def edit
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      render json: @review
+    else
+      render json: @review.errors.full_messages, status: :unprocessable_entity
+    end
   end
 
   def destroy

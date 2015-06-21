@@ -17,6 +17,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   index: function () {
     $(".nav").find(".active").removeClass("active");
+    
     var indexView = new GoodgamesApp.Views.GamesIndex({
       collection: GoodgamesApp.games,
       currentUser: GoodgamesApp.currentUser
