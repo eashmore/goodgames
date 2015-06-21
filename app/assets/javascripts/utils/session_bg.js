@@ -4,11 +4,12 @@ $(function() {
     arrows: false,
     infinite: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 13,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 800,
     pauseOnHover: false,
+
   });
 });
 
@@ -18,7 +19,7 @@ $(function() {
     arrows: false,
     infinite: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 13,
     slidesToScroll: -1,
     autoplay: true,
     autoplaySpeed: 1200,
@@ -35,7 +36,7 @@ $(function() {
     arrows: false,
     infinite: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 13,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 900,
@@ -49,13 +50,13 @@ $(function() {
     arrows: false,
     infinite: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 13,
     slidesToScroll: -1,
     autoplay: true,
     autoplaySpeed: 1100,
     pauseOnHover: false,
     initialSlide: 5
-    
+
   });
 });
 
@@ -65,10 +66,12 @@ $(function() {
     arrows: false,
     infinite: true,
     variableWidth: true,
-    slidesToShow: 7,
+    slidesToShow: 13,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1400,
     pauseOnHover: false,
+    initialSlide: 5
+
   });
 });
