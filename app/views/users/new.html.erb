@@ -1,26 +1,29 @@
-<h1>Sign Up</h1>
+<div class='new-session text-center'>
+  <img class='logo' src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png" />
 
-<form action="<%= users_url %>" method="post">
-  <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
+  <form class='new-sess-form' action="<%= users_url %>" method="post">
 
-  <div class="form-group">
+    <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
 
-    <label>
-      Username
-      <input type="text" class="form-control" name="user[username]" value="">
-    </label><br>
+    <div class="form-group">
+      <label>
+        Username
+        <input type="text" class="form-control" name="user[username]" value="">
+      </label>
+    </div>
 
-  </div>
+    <div class="form-group">
+      <label>
+        Password
+        <input type="password" class="form-control" name="user[password]" value="">
+      </label>
+    </div>
 
-  <div class="form-group">
-    <label>
-      Password
-      <input type="password" class="form-control" name="user[password]" value="">
-    </label><br>
-  </div>
+    <a href="../session/new">
+      <input type="button" class="btn btn-default btn-success" value="Sign In">
+    </a>
+    <input type="submit" class="btn btn-default btn-success" value="Sign Up">
 
-  <input type="submit" class="btn btn-default btn-success" value="Sign Up">
-  <a href="../session/new">
-    <input type="button" class="btn btn-default btn-success" value="Sign In">
-  </a>
-</form>
+  </form>
+
+</div>
