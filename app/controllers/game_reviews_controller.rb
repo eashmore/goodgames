@@ -4,7 +4,7 @@ class GameReviewsController < ApplicationController
     render json: {
         :models => @reviews,
         :page => params[:page],
-        :total_pages => @reviews.total_pages # thanks kaminari!
+        :total_pages => @reviews.total_pages
     }
   end
 
