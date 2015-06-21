@@ -10,10 +10,12 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.game = options.game;
     this.listenTo(this.collection, 'add', this.addReview);
     this.listenTo(this.collection, 'add', this.setRank);
+
     this.listenTo(this.collection, 'change', this.render);
 
-    this.collection.each(this.addReview.bind(this));
+    this.listenTo(this.game.reviews(), 'add', this.addNewReview);
 
+    this.collection.each(this.addReview.bind(this));
   },
 
   addReview: function (review) {
@@ -23,6 +25,15 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     });
     this.addSubview('#review-list', itemView);
   },
+
+  addNewReview: function (review) {
+    var itemView = new GoodgamesApp.Views.ReviewItem({
+      model: review,
+      collection: this.collection
+    });
+    this.addSubview('#review-list', itemView, 'prepend');
+  },
+
 
   addForm: function (event) {
     event.preventDefault();

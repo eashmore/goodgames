@@ -7,4 +7,19 @@ class GameReviewsController < ApplicationController
         :total_pages => @reviews.total_pages # thanks kaminari!
     }
   end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      render json: @review
+    else
+      render json: @review.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:body, :score, :commentable_id, :commentable_type);
+  end
 end
