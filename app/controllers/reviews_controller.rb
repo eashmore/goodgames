@@ -4,9 +4,6 @@ class ReviewsController < ApplicationController
     render json: @reviews
   end
 
-  def new
-  end
-
   def create
     @review = current_user.reviews.new(review_params)
     @review.author = current_user.username

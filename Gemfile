@@ -10,6 +10,8 @@ gem 'newrelic_rpm'
 
 gem 'bootswatch-rails'
 
+gem 'kaminari'
+
 gem 'rails_12factor', group: :production
 
 gem 'rack-cors', :require => 'rack/cors'

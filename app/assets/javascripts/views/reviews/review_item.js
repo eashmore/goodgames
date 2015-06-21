@@ -2,7 +2,6 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   template: JST['reviews/item'],
 
   events: {
-    // 'click #edit-review': 'edit',
     'click #username': 'toProfile',
     'click #game-name': 'toGame',
     'click #edit-review': 'addForm'

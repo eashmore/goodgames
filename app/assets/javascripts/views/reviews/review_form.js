@@ -30,7 +30,6 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model);
-        // this.setRank();
         this.remove();
       }.bind(this),
       error: function (model, response) {
@@ -39,20 +38,4 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     });
   },
 
-  // setRank: function () {
-  //   var numReviews = GoodgamesApp.currentUser.reviews().where({
-  //     commentable_type: 'Game'
-  //   }).length + 1;
-  //   ranks = new GoodgamesApp.Collections.Ranks();
-  //   ranks.fetch({
-  //     success: function () {
-  //       ranks.slice(1).forEach(function(rank) {
-  //         if (numReviews >= rank.escape('score')) {
-  //           GoodgamesApp.currentUser.set({ rank_id: rank.id });
-  //           GoodgamesApp.currentUser.save();
-  //         }
-  //       });
-  //     }.bind(this)
-  //   });
-  // }
 });

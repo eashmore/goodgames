@@ -23,6 +23,8 @@ $(function() {
     autoplay: true,
     autoplaySpeed: 1200,
     pauseOnHover: false,
+    lazyLoad: 'progressive',
+    initialSlide: 5
 
   });
 });
@@ -52,6 +54,8 @@ $(function() {
     autoplay: true,
     autoplaySpeed: 1100,
     pauseOnHover: false,
+    initialSlide: 5
+    
   });
 });
 
