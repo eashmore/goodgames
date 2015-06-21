@@ -14,14 +14,12 @@ GoodgamesApp.Models.Game = Backbone.Model.extend({
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
 
-      var reviewCount = 0;
       var totalPoints = 0;
       response.reviews.forEach(function (review) {
         totalPoints += review.score;
-        reviewCount += 1;
       });
 
-      averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
+      averageScore = Math.round(totalPoints/response.reviews.length * 100) / 100;
 
       delete response.reviews;
     }

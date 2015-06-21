@@ -47,13 +47,12 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   },
 
   setScore: function () {
-    var reviewCount = 0;
     var totalPoints = 0;
     this.model.reviews().each(function (review) {
       totalPoints += review.get('score');
-      reviewCount += 1;
     });
 
+    var reviewCount = this.model.reviews().length;
     var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
     if (!averageScore) {
       averageScore = 0;

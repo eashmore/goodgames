@@ -38,23 +38,10 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showSearchResults: function (query) {
-    var loadingView = new GoodgamesApp.Views.Loading();
-    this._swapView(loadingView);
-    var searchResults = new GoodgamesApp.Collections.SearchResults();
-    searchResults.fetch({
-      url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
-           "&format=jsonp&query=" + query + "&resources=game&limit=35",
-      dataType: 'jsonp',
-      jsonpCallback: 'json_callback',
-      contentType: "application/json",
-      jsonp: 'json_callback',
-      success: function () {
-        var resultsView = new GoodgamesApp.Views.SearchResults({
-          collection: searchResults
-        });
-        this._swapView(resultsView);
-      }.bind(this)
+    var resultsView = new GoodgamesApp.Views.SearchResults({
+      query: query
     });
+    this._swapView(resultsView);
   },
 
   showUserPage: function (id) {
