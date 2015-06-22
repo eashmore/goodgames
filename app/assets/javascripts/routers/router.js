@@ -49,6 +49,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
   },
 
   showUserPage: function (id) {
+    $(".nav").find(".active").removeClass("active");
     var user = new GoodgamesApp.Collections.Users().getOrFetch(id);
     var userView = new GoodgamesApp.Views.UserProfile({
       model: user,
