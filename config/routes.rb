@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   resources :game_reviews
   resources :user_comments
+  resources :recommendation_feeds
 end

@@ -1,0 +1,2 @@
+module RecommendationFeedsHelper
+end
