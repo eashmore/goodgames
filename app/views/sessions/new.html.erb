@@ -26,14 +26,31 @@
 
   </form>
 
-
-  <% 5.times do |idx| %>
-
-  <div class="autoplay<%= idx.to_s %>">
-    <% Game.all.shuffle.each do |game| %>
+  <% games = Game.all.shuffle %>
+    <div class="autoplay0">
+  <% games[0...15].each do |game| %>
       <img class="splash-box" src="<%= game.boxart_url %>"/>
-    <% end %>
-  </div>
-
   <% end %>
+    </div>
+    <div class="autoplay1">
+  <% games[15...30].each do |game| %>
+      <img class="splash-box" src="<%= game.boxart_url %>"/>
+  <% end %>
+    </div>
+    <div class="autoplay2">
+  <% games[30...45].each do |game| %>
+      <img class="splash-box" src="<%= game.boxart_url %>"/>
+  <% end %>
+    </div>
+    <div class="autoplay3">
+  <% games[45...60].each do |game| %>
+      <img class="splash-box" src="<%= game.boxart_url %>"/>
+  <% end %>
+    </div>
+    <div class="autoplay4">
+  <% games[65...80].each do |game| %>
+      <img class="splash-box" src="<%= game.boxart_url %>"/>
+  <% end %>
+    </div>
+
 </div>
