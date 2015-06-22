@@ -19,10 +19,22 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
     if (GoodgamesApp.games.where({ id: this.model.id }).length) {
       game.set({ id: this.model.id });
     }
+
+    game.set(this.getAttributes(game));
+    game.save({}, {
+      success: function () {
+        GoodgamesApp.games.add(game, { merge: true });
+        Backbone.history.navigate('games/' + game.id, { trigger: true });
+      }
+    });
+  },
+
+  getAttributes: function(game) {
     var platforms = "";
     this.model.get('platforms').forEach(function (platform) {
       platforms += platform.name + "@@@";
     });
+    
     var attrs = { game: {
       id: this.model.get('id'),
       name: this.model.get('name'),
@@ -33,12 +45,6 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
         this.model.get('expected_release_year'),
       platforms: platforms
     }};
-    game.set(attrs);
-    game.save([], {
-      success: function () {
-        GoodgamesApp.games.add(game, { merge: true });
-        Backbone.history.navigate('games/' + game.id, { trigger: true });
-      }
-    });
+    return attrs;
   }
 });

@@ -1,5 +1,5 @@
 GoodgamesApp.Views.Loading = Backbone.View.extend({
-  template: JST['loading'],
+  template: JST['search_results/loading'],
 
   render: function () {
     this.$el.html(this.template);

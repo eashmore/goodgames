@@ -17,7 +17,6 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
 
     this.listenTo(this.currentUser.wishlistGames(), 'add remove', this.render);
 
-    // this.listenTo(this.model, 'sync', this.addReviewIndex);
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model.reviews(), 'add', this.render);
   },
@@ -37,7 +36,6 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
 
-    // reviewIndex.html(reviewView.render().$el);
     this.attachSubviews();
     this.$el.find("#average-score").rating();
 

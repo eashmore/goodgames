@@ -3,17 +3,12 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.user = options.user;
-    // this.comments = options.comments;
-    // this.comments = this.user.comments();
 
     this.comments = new GoodgamesApp.Collections.UserComments();
     this.comments.fetch({
       data: { page: 1,
               user_id: this.user.id
             },
-            // success: function () {
-            //   debugger
-            // }.bind(this)
     });
 
     this.addForm();

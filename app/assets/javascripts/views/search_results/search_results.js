@@ -23,8 +23,12 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   render: function () {
     var loadingView = new GoodgamesApp.Views.Loading();
     this.$el.html(loadingView.render().$el);
-    this.searchResults = new GoodgamesApp.Collections.SearchResults();
 
+    this.getSearchResults();
+  },
+
+  getSearchResults: function () {
+    this.searchResults = new GoodgamesApp.Collections.SearchResults();
     this.searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
            "&format=jsonp&query=" + this.query + "&resources=game&limit=35",
@@ -38,8 +42,6 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
       }.bind(this)
     });
   },
-
-
 
   showResults: function () {
     var content = this.template({ results: this.searchResults });

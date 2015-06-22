@@ -1,5 +1,5 @@
 GoodgamesApp.Views.SearchBar = Backbone.View.extend({
-  template: JST['search_bar'],
+  template: JST['nav/search_bar'],
 
   tagName: 'form',
 
