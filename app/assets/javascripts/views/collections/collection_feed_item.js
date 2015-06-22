@@ -12,7 +12,7 @@ GoodgamesApp.Views.CollectionFeedItem = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ recommendation: this.model, image: this.user.image() });
+    var content = this.template({ recommendation: this.model, image: this.model.image() });
     this.$el.html(content);
 
     return this;
