@@ -1,21 +1,29 @@
 <div class='new-session text-center'>
-  <img class='logo' src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png" />
+  <img class='logo'
+    src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png"
+  />
 
   <form class='new-sess-form' action="<%= session_url %>" method="post">
 
-    <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
+    <input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>"
+    >
 
     <div class="form-group">
       <label>
         Username
-        <input type="text" class="form-control" name="user[username]" value="guest">
+        <input type="text" class="form-control"
+          name="user[username]" value="guest"
+        >
       </label>
     </div>
 
     <div class="form-group">
       <label>
         Password
-        <input type="password" class="form-control" name="user[password]" value="password">
+        <input type="password" class="form-control"
+          name="user[password]" value="password"
+        >
       </label>
     </div>
 
@@ -26,7 +34,7 @@
 
   </form>
 
-  <% games = Game.all.shuffle %>
+  <% games = Game.all[0..80].shuffle %>
     <div class="autoplay0">
   <% games[0...15].each do |game| %>
       <img class="splash-box" src="<%= game.boxart_url %>"/>

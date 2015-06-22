@@ -1,13 +1,19 @@
 <div id='feed-item' class="row">
   <div class="col-xs-3">
     <a href="#" id='feed-username'>
-      <img id='feed-prof-pic' src="<%= this.model.image().get('thumb_url') %>" />
+      <img id='feed-prof-pic'
+        src="<%= this.model.image().get('thumb_url') %>"
+      />
     </a>
   </div>
   <div class="feed-text">
-    <strong><a id='feed-username' href='#'><%= recommendation.escape("user_name") %></a></strong>
+    <strong><a id='feed-username' href='#'>
+      <%= recommendation.escape("user_name") %>
+    </a></strong>
     recommended
-    <strong><a id='feed-gamename' href='#'><%= recommendation.get("game_name") %></a></strong>
+    <strong><a id='feed-gamename' href='#'>
+      <%= recommendation.get("game_name") %>
+    </a></strong>
   </div>
   <hr class='feed-hr'>
 <div>

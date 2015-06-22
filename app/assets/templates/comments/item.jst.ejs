@@ -4,11 +4,13 @@
     <div class='pull-right'>
       Written on: <%= comment.escape('created_at').slice(0, 10) %>
     </div>
-    <strong><a id='username' href='#'><%= comment.escape('author') %></a></strong> said:
+    <strong><a id='username' href='#'><%= comment.escape('author') %>
+    </a></strong>
+    said:
   </div>
   <br>
-  <div class="comment-body panel-body review-body"><%= comment.escape('body') %></div>
+  <div class="comment-body panel-body review-body"><%= comment.escape('body') %>
+  </div>
   <div class="panel-footer css-panel-foot a">
-    <!-- <a id='edit-review' class='pull-right' href="#">Edit Comment</a> -->
   </div>
 </div>

@@ -17,8 +17,8 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
     this.listenTo(this.user.comments(), 'add', this.render);
 
 
+    // this.listenTo(this.comments, 'add', this.addComment);
     this.listenTo(this.comments, 'change', this.render);
-    this.listenTo(this.comments, 'add', this.addComment);
     this.comments.each(this.addComment.bind(this));
   },
 

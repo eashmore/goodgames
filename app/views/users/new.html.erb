@@ -1,9 +1,13 @@
 <div class='new-session text-center'>
-  <img class='logo' src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png" />
+  <img class='logo'
+    src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png"
+  />
 
   <form class='new-sess-form' action="<%= users_url %>" method="post">
 
-    <input type="hidden" name="authenticity_token" value= "<%= form_authenticity_token %>" >
+    <input type="hidden" name="authenticity_token"
+      value= "<%= form_authenticity_token %>"
+    >
 
     <div class="form-group">
       <label>
@@ -15,7 +19,9 @@
     <div class="form-group">
       <label>
         Password
-        <input type="password" class="form-control" name="user[password]" value="">
+        <input type="password" class="form-control"
+          name="user[password]" value=""
+        >
       </label>
     </div>
 
