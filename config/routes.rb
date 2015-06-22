@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :ranks
 
   resources :game_reviews
+  resources :user_comments
 end

@@ -6,11 +6,10 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   events: {
     'click .upload-pic': 'upload',
     'click .see-reviews': 'addReviewIndex'
-
   },
 
   initialize: function (options) {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
     this.currentUser = options.currentUser;
 
@@ -26,6 +25,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     if (this.model.rank().id){
       this.addRank();
     }
+
     this.listenTo(this.model, 'sync', this.addRank);
 
     this.listenTo(this.model, 'sync', this.render);

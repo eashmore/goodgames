@@ -26,7 +26,7 @@ GoodgamesApp.Views.CommentForm = Backbone.View.extend({
     comment.set(attrs);
     comment.save({}, {
       success: function () {
-        this.collection.add(comment);
+        this.user.comments().add(comment);
         this.render();
       }.bind(this),
       error: function (model,response) {
