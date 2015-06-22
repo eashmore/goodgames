@@ -12,6 +12,7 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(GoodgamesApp.currentUser, 'sync', this.render);
+    this.listenTo(GoodgamesApp.currentUser.image(), 'change', this.render);
   },
 
   render: function () {
