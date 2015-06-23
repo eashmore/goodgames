@@ -1,7 +1,4 @@
 class ImagesController < ApplicationController
-  # def index
-  #   render json: Image.all.to_json
-  # end
 
   def create
     @image = Image.new(image_params)

@@ -6,7 +6,7 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
   events: {
     'click .close': 'remove',
     'click .m-backdrop': 'remove',
-    'click .compose': 'submit'
+    'click button': 'submit'
   },
 
   initialize: function(options) {

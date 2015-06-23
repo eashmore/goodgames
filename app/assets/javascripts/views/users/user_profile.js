@@ -110,7 +110,10 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   },
 
   addRank: function () {
-    var rankView = new GoodgamesApp.Views.Rank({ model: this.model.rank(), user: this.model });
+    var rankView = new GoodgamesApp.Views.Rank({
+      model: this.model.rank(),
+      user: this.model
+    });
     this.addSubview('.rank', rankView);
   },
 

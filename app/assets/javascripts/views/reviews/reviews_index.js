@@ -8,8 +8,9 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.game = options.game;
-
-    this.listenTo(this.game.reviews(), 'add', this.addNewReview);
+    setTimeout(function () {
+      this.listenTo(this.game.reviews(), 'add', this.addNewReview);
+    }.bind(this), 500);
     this.listenTo(this.game.reviews(), 'add', this.setRank);
 
     this.listenTo(this.collection, 'add', this.addReview);
