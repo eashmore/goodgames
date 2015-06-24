@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :game_reviews, only: [:index, :update]
   resources :user_comments, only: :index
   resources :recommendation_feeds, only: :index
+
 end
