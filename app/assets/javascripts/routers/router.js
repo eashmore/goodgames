@@ -77,7 +77,13 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
     users.fetch({
       success: function () {
-        var results = users.where({ username: query });
+        var results = [];
+        users.each(function (user) {
+          var username = user.escape('username').toLowerCase();
+          if (username === query.toLowerCase()) {
+            results.push(user);
+          }
+        });
         var userSearchView = new GoodgamesApp.Views.UserSearchResults({
           collection: results
         });
