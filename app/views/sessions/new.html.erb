@@ -13,7 +13,7 @@
       <label>
         Username
         <input type="text" class="form-control"
-          name="user[username]" value="guest"
+          name="user[username]" value=""
         >
       </label>
     </div>
@@ -22,7 +22,7 @@
       <label>
         Password
         <input type="password" class="form-control"
-          name="user[password]" value="password"
+          name="user[password]" value=""
         >
       </label>
     </div>
@@ -31,8 +31,23 @@
     <a href="../users/new">
       <input type="button" class="btn btn-default btn-success" value="Sign Up">
     </a>
+    <br><br>
 
   </form>
+<form class='guest-sess-form' action="<%= session_url %>" method="post">
+  <input type="hidden" name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  >
+
+  <input type="hidden" name="user[username]" value="guest">
+  <input type="hidden" name="user[password]" value="password">
+
+  <input type="submit"
+    class="guest btn btn-default btn-success"
+    value="Guest Sign In"
+  >
+</form>
+
 
   <% games = Game.all[0..80].shuffle %>
     <div class="autoplay0">
