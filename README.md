@@ -8,10 +8,10 @@ Goodgames is a site for finding, recommending and reviewing video games. Users c
 
 Technologies used to build this application include:
 
-Rails
-Backbone.js
-jQuery
-Bootstrap
+* Rails
+* Backbone.js
+* jQuery
+* Bootstrap
 
 ## Minimum Viable Product
 Goodgames is application inspired by Goodreads built on Rails and Backbone in which users are able to:
