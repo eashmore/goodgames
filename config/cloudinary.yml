@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dqucbuno8
+  api_key: '184755151362349'
+  api_secret: SAyrmd5sz9m2whx6ts_ZUJ3Lglo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dqucbuno8
+  api_key: '184755151362349'
+  api_secret: SAyrmd5sz9m2whx6ts_ZUJ3Lglo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dqucbuno8
+  api_key: '184755151362349'
+  api_secret: SAyrmd5sz9m2whx6ts_ZUJ3Lglo
+  enhance_image_tag: true
+  static_image_support: false
