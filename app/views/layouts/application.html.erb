@@ -3,7 +3,6 @@
 <head>
   <title>Goodgames</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -29,15 +28,17 @@
     };
   </script>
 
+  <%= javascript_include_tag 'application' %>
 </head>
 <body>
 
 
 
   <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
-  <div class="container">
+  <div class="container-fluid">
     <%= yield %>
   </div>
   <script type="text/javascript" src="/assets/slick.min.js"></script>
+
 </body>
 </html>

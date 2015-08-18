@@ -34,46 +34,51 @@
     <br><br>
 
   </form>
-<form class='guest-sess-form' action="<%= session_url %>" method="post">
-  <input type="hidden" name="authenticity_token"
-    value="<%= form_authenticity_token %>"
-  >
+  <form class='guest-sess-form' action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token"
+      value="<%= form_authenticity_token %>"
+    >
 
-  <input type="hidden" name="user[username]" value="guest">
-  <input type="hidden" name="user[password]" value="password">
+    <input type="hidden" name="user[username]" value="guest">
+    <input type="hidden" name="user[password]" value="password">
 
-  <input type="submit"
-    class="guest btn btn-default btn-success"
-    value="Guest Sign In"
-  >
-</form>
+    <input type="submit"
+      class="guest btn btn-default btn-info"
+      value="Guest Sign In"
+    >
+  </form>
 
 
   <% games = Game.all[0..80].shuffle %>
-    <div class="autoplay0">
-  <% games[0...15].each do |game| %>
+
+  <div class="autoplay0">
+    <% games[0...15].each do |game| %>
       <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-  <% end %>
-    </div>
-    <div class="autoplay1">
-  <% games[15...30].each do |game| %>
+    <% end %>
+  </div>
+
+  <div class="autoplay1">
+    <% games[15...30].each do |game| %>
       <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-  <% end %>
-    </div>
-    <div class="autoplay2">
-  <% games[30...45].each do |game| %>
+      <% end %>
+  </div>
+
+  <div class="autoplay2">
+    <% games[30...45].each do |game| %>
       <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-  <% end %>
-    </div>
-    <div class="autoplay3">
-  <% games[45...60].each do |game| %>
+      <% end %>
+  </div>
+
+  <div class="autoplay3">
+    <% games[45...60].each do |game| %>
       <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-  <% end %>
-    </div>
-    <div class="autoplay4">
-  <% games[65...80].each do |game| %>
+    <% end %>
+  </div>
+
+  <div class="autoplay4">
+    <% games[65...80].each do |game| %>
       <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-  <% end %>
-    </div>
+    <% end %>
+  </div>
 
 </div>
