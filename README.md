@@ -1,7 +1,10 @@
 # Goodgames
 
+![alt text][screenshot]
+
 [Live link][link]
 
+[screenshot]: ./docs/goodgames.png
 [link]: http://thegoodgames.xyz
 
 Goodgames is a site for finding, recommending and reviewing video games. Users can add and remove games from a Recommended list that is publicly viewable by all other users. The application's game database consumes information from the Giantbomb API.
@@ -31,7 +34,7 @@ Goodgames is application inspired by Goodreads built on Rails and Backbone in wh
 
 ## Design Docs
 * [View Wireframes][views]
-* [DB schema][schema]
+* [Proposed DB schema][schema]
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
