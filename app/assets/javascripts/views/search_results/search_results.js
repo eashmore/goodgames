@@ -5,12 +5,10 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.query = options.query;
     this.listenTo(this.searchResults, 'reset', this.removeSubs);
-
   },
 
   addResult: function () {
     this.searchResults.each(function (item) {
-
       var itemView = new GoodgamesApp.Views.SearchItem({ model: item });
       this.addSubview('#results', itemView);
     }.bind(this));
@@ -23,7 +21,6 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   render: function () {
     var loadingView = new GoodgamesApp.Views.Loading();
     this.$el.html(loadingView.render().$el);
-
     this.getSearchResults();
   },
 
@@ -51,5 +48,4 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
 
     return this;
   }
-
 });

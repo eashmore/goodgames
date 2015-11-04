@@ -16,8 +16,6 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
     this.listenTo(this.user.comments(), 'add', this.addNewComment);
     this.listenTo(this.user.comments(), 'add', this.render);
 
-
-    // this.listenTo(this.comments, 'add', this.addComment);
     this.listenTo(this.comments, 'change', this.render);
     this.comments.each(this.addComment.bind(this));
   },
@@ -46,7 +44,6 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
 
     this.listenForScroll.call(this);
 
-
     return this;
   },
 
@@ -62,7 +59,8 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
       if (view.comments.page < view.comments.total_pages) {
         view.comments.fetch({
           data: { page: parseInt(view.comments.page) + 1,
-                  user_id: view.user.id },
+                  user_id: view.user.id
+                },
           remove: false,
         });
       }

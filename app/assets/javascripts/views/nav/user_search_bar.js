@@ -17,6 +17,8 @@ GoodgamesApp.Views.UserSearchBar = Backbone.View.extend({
     event.preventDefault();
     this.query = this.$el.serializeJSON();
 
-    Backbone.history.navigate('/users/?/' + this.query.query, { trigger: true });
+    Backbone.history.navigate('/users/?/' + this.query.query,
+      { trigger: true }
+    );
   }
 });

@@ -7,7 +7,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     this.highestRated = [26839, 22420, 1539, 15473, 2600];
     this.listenTo(this.collection, 'sync', this.render);
     this.addFeed();
-
   },
 
   addGames: function () {
@@ -44,8 +43,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-
-    // this.collection.each(this.addGames.bind(this));
     var content = this.template();
     this.$el.html(content);
 

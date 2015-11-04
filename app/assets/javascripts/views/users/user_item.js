@@ -26,8 +26,8 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
       user: this.model,
       numberOfReviews: numberOfReviews
     });
+    
     this.$el.html(content);
-
     this.attachSubviews();
 
     return this;

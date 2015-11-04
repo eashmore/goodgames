@@ -10,7 +10,10 @@ GoodgamesApp.Views.CollectionFeed = Backbone.CompositeView.extend({
   },
 
   addRecommendation: function (recommendation) {
-    var recView = new GoodgamesApp.Views.CollectionFeedItem({ model: recommendation });
+    var recView = new GoodgamesApp.Views.CollectionFeedItem({
+      model: recommendation
+    });
+    
     this.addSubview('#rec-feed', recView);
   },
 
