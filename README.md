@@ -11,8 +11,8 @@ Goodgames is a site for finding, recommending and reviewing video games. Users c
 
 Features:
 
-* Game database populated through the overriding of Backbone.js’s Model#parse method to parse nested data from the Giantbomb API* Search feature cache video game data and images consumed from the Giantbomb API to
-* Reviews and Comments share a Reviews table via polymorphic associations to maintain anormalized database* Custom authentication using BCrypt which stores user’s password as a secret hash
+* Game database populated through the overriding of Backbone.js’s Model#parse method to parse nested data from the Giantbomb API* Search feature consumes the Giantbomb API to cache video game information and images
+* Reviews and Comments share a Reviews table via polymorphic associations to maintain a normalized database* Custom authentication using BCrypt which stores user’s password as a secret hash
 
 Technologies used to build this application include:
 
