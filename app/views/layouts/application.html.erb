@@ -13,7 +13,7 @@
   <script type="text/javascript" charset="utf-8">
     window.GIANTBOMB = {
       api_key: '<%= ENV['giantbomb_api_key'] %>'
-    }
+    };
   </script>
 
   <script type="text/javascript" charset="utf-8">
@@ -30,7 +30,15 @@
 </head>
 <body>
 
-  <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+  <% if flash[:errors] %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+       <button type="button" class="close" data-dismiss="alert">
+         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+       </button>
+    <%= flash[:errors].join("<br>").html_safe %>
+    </div>
+  <% end %>
+
   <div class="container-fluid">
     <%= yield %>
   </div>

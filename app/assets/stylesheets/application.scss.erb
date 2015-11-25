@@ -17,14 +17,15 @@
   @import "bootstrap-sprockets";
   @import "bootswatch/superhero/variables";
   @import "bootstrap";
+  @import "bootswatch/superhero/bootswatch";
+  @import 'slick';
+  
   body {
     padding-top: 60px;
     background: url('<%= asset_path("blue_body_bg.jpg") %>') center top repeat-y #000000;
     background-color: black;
     color: white !important;
   }
-  @import "bootswatch/superhero/bootswatch";
-  @import 'slick';
 
   nav.nav {
     background-color: #171a21;
@@ -370,7 +371,7 @@
     bottom: 0;
     position: relative;
     top: -72px;
-    bottom: 0;
+    height: 1px;
   }
 
   .profile-game-buffer {
