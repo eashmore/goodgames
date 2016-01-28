@@ -48,37 +48,9 @@
     >
   </form>
 
-
-  <% games = Game.all[0..80].shuffle %>
-
-  <div class="autoplay0">
-    <% games[0...15].each do |game| %>
-      <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-    <% end %>
-  </div>
-
-  <div class="autoplay1">
-    <% games[15...30].each do |game| %>
-      <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-      <% end %>
-  </div>
-
-  <div class="autoplay2">
-    <% games[30...45].each do |game| %>
-      <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-      <% end %>
-  </div>
-
-  <div class="autoplay3">
-    <% games[45...60].each do |game| %>
-      <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-    <% end %>
-  </div>
-
-  <div class="autoplay4">
-    <% games[65...80].each do |game| %>
-      <img class="splash-box" src="<%= game.thumbnail_url %>"/>
-    <% end %>
-  </div>
+</video>
+  <video class="splash-vid" src="/assets/splash-vid.webm" autoplay loop
+    poster="/assests/splash-vid-poster.jpg"
+  ></video>
 
 </div>
