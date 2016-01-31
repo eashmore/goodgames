@@ -32,6 +32,10 @@ html>body {
   font-weight: bold;
 }
 
+.clearfix {
+  overflow: auto;
+}
+
 //Splash Page
 .splash-bg {
   width: 103%;
@@ -124,11 +128,17 @@ html>body {
     border: 1px black solid;
     border-radius: 3px;
     box-shadow: 0px 0px 5px #98f5ff;
-    margin-top: 15px;
+    margin: 10px;
+    margin-right: 40px;
+    float: left;
   }
 
   .game-score {
     margin: 10px;
+  }
+
+  .collection-button {
+    margin-right: 35px;
   }
 
   //Game Reviews
@@ -218,9 +228,10 @@ html>body {
     max-height: 125px;
   }
 
-  //Recommended games
+  //Recommended Games/Wishlist
+    //Game Thumbnails
 
-  //Wishlist
+
 
   //Comments
 
@@ -345,11 +356,6 @@ div.panel-footer.css-panel-foot {
 
 textarea {
   color: black !important;
-}
-
-.col-delete {
-  position: relative;
-  right: -1px;
 }
 
 .slick-slide {

@@ -5,7 +5,7 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
   button: JST['wishlists/button'],
 
   events: {
-    'click #delete-item': "deleteGame"
+    'click .remove-game': "removeGame"
   },
 
   initialize: function (options) {
@@ -24,7 +24,7 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
     return this;
   },
 
-  deleteGame: function (event) {
+  removeGame: function (event) {
     event.preventDefault();
     var currentWishlist = this.collection.where({
       user_id: this.currentUser.id,

@@ -5,7 +5,7 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
   button: JST['collections/button'],
 
   events: {
-    'click #delete-item': "deleteGame"
+    'click .remove-game': "removeGame"
   },
 
   initialize: function (options) {
@@ -25,7 +25,7 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
     return this;
   },
 
-  deleteGame: function (event) {
+  removeGame: function (event) {
     event.preventDefault();
     var currentCollection = this.collection.where({
       user_id: this.currentUser.id,

@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row prof-header">
-    <div class="col-xs-3">
-      <div class="profile-pic"></div>
-    </div>
 
-    <div class="col-xs-5">
-      <h1><%= user.escape('username') %>'s Profile</h1>
-      <button type="button" class="btn btn-default btn-success see-reviews">
-          See <%= user.escape('username') %>'s Reviews
-      </button>
+    <div class="user-info">
+      <div class="col-xs-3">
+        <div class="profile-pic"></div>
+      </div>
+
+      <div class="col-xs-5">
+        <h1><%= user.escape('username') %>'s Profile</h1>
+        <button type="button" class="btn btn-default btn-success see-reviews">
+            See <%= user.escape('username') %>'s Reviews
+        </button>
+      </div>
     </div>
 
     <div class="col-xs-3">
@@ -17,23 +20,16 @@
   </div>
 
   <br>
-    <div class="row">
+  <div class="row">
+    <h4><%= user.escape('username') %>'s Recommended Games: </h4>
+    <div class="recomendations slider"></div>
+  </div>
 
-      <div class="row">
-
-        <h4><%= user.escape('username') %>'s Recommended Games: </h4>
-        <div class="collection slider">
-
-        </div>
-      </div>
-
-      <div class="row">
-
-        <h4><%= user.escape('username') %>'s Wishlist: </h4>
-        <div class="wishlist slider"></div>
-      </div>
-    </div>
-    <br><br>
+  <div class="row">
+    <h4><%= user.escape('username') %>'s Wishlist: </h4>
+    <div class="wishlist slider"></div>
+  </div>
+  <br><br>
 
   <div class="comment-index"></div>
 </div>
