@@ -1,24 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-4 game-left-col">
-      <img class="box-art" src="<%= game.escape('boxart_url') %>"/>
-      <div><strong id="score">
+    <div class="col-xs-4">
+      <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
+      <div class="game-score bold">
         Average Score:
         <% if (!game.get('score')) { %>
           Be the first to review <%= game.escape('name') %>!
         <% } else { %>
           <%= game.escape('score') %>
         <% } %>
+        / 5.00
 
         <input type="number" class="average-score rating" disabled="true"
           min=0 max=5 step=0.1 data-size="md" value="<%= game.escape('score') %>"
         >
         <div>Number of Reviews: <%= game.reviews().length %></div>
-        </strong>
       </div>
+
       <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-        <button id="collection-button"
-          class="btn btn-default btn-warning pull-left">Recommend This Game
+        <button class="collection-button btn btn-default btn-warning pull-left">
+          Recommend This Game
         </button>
       <% } else { %>
         <button class="btn btn-danger btn-disabled pull-left">
@@ -27,24 +28,24 @@
       <% } %>
 
       <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
-        <button id="wishlist-button"
-          class="btn btn-warning btn-default pull-right">
+        <button class="wishlist-button btn btn-warning btn-default pull-right">
             Add to My Wishlist
         </button>
       <% } else { %>
-        <button id="delete-item"
-          class="btn btn-default btn-danger wl-delete pull-right">
+        <button class="remove-game btn btn-default btn-danger pull-right">
             Remove from Wishlist
         </button>
       <% } %>
     </div>
+
   <div class="col-xs-8">
     <div class="game-info">
       <h1><%= game.escape('name') %></h1><br>
-      <h5><%= game.escape('deck') %></h5><br>
-      <strong>Release Date: </strong><%= game.escape('release_date') %>
+      <p><%= game.escape('deck') %></h5><p>
+      <br>
+      <span class="bold">Release Date: </span><%= game.escape('release_date') %>
       <br><br>
-      <strong>Available Platform(s): </strong>
+      <span class="bold">Available Platform(s): </span>
       <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
         <br>
         <%= platform %>
@@ -54,5 +55,5 @@
 </div>
 
 <hr>
-  <div id="review-index"></div>
+  <div class="game-reviews"></div>
 </div>

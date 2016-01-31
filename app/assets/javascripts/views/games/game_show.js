@@ -22,9 +22,9 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click #collection-button': 'addToCollection',
-    'click #wishlist-button': 'addToWishlist',
-    'click #delete-item': "deleteGame"
+    'click .collection-button': 'addToCollection',
+    'click .wishlist-button': 'addToWishlist',
+    'click .remove-game': "removeFromWishlist"
 
   },
 
@@ -48,7 +48,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       game: this.model
     });
 
-    this.addSubview('#review-index', reviewView);
+    this.addSubview('.game-reviews', reviewView);
   },
 
   setScore: function () {
@@ -97,7 +97,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     });
   },
 
-  deleteGame: function (event) {
+  removeFromWishlist: function (event) {
     event.preventDefault();
     this.wishlist.fetch({
       success: function () {

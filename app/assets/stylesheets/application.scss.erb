@@ -22,9 +22,14 @@
 
 html>body {
   padding-top: 60px;
-  background: url('<%= asset_path("blue_body_bg.jpg") %>') center top repeat-y #000000;
+  background: url('<%= asset_path("blue_body_bg.jpg") %>')
+    center top repeat-y #000000;
   background-color: black;
   color: white;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 //Splash Page
@@ -64,9 +69,13 @@ html>body {
     box-shadow: 0px 0px 5px #98f5ff;
   }
 
+  .homepage-boxart:hover {
+    opacity: 0.2;
+    box-shadow: 0px 0px 15px #fff;
+  }
+
   .homepage-game-title {
     position: absolute;
-    font-weight: bold;
     z-index: -100;
     width: 150px;
     top: 15px;
@@ -109,16 +118,21 @@ html>body {
     margin-bottom: 0px;
   }
 
+// Game Show Page
+  // Game Info
+  .game-boxart {
+    width: 355px;
+    border: 1px black solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px #98f5ff;
+    margin-top: 15px;
+  }
 
+  .game-score {
+    margin: 10px;
+  }
 
-
-
-
-
-.game-left-col {
-  margin-top: 15px;
-}
-
+//Need to sort
 .game-thumb {
   min-height: 200px;
   width: 150px;
@@ -154,13 +168,6 @@ html>body {
 .search-boxart:hover {
   opacity: 1;
   box-shadow: 0px 0px 15px #fff;
-}
-
-.box-art {
-  width: 355px;
-  border: 1px black solid;
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px #98f5ff
 }
 
 .search-boxart {
@@ -303,10 +310,6 @@ textarea {
 .col-delete {
   position: relative;
   right: -1px;
-}
-
-.wl-delete {
-  position: relative;
 }
 
 .slick-slide {
