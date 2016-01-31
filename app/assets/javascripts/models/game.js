@@ -23,9 +23,11 @@ GoodgamesApp.Models.Game = Backbone.Model.extend({
 
       delete response.reviews;
     }
+
     if (!averageScore) {
       averageScore = 0;
     }
+
     response.score = averageScore;
     return response;
   }

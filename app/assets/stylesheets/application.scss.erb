@@ -50,18 +50,37 @@ html>body {
   top: -50px;
 }
 
-//Landing Page
+//Home Page
   //Games
+  .game-thumb {
+    position: relative;
+    height: 220px;
+  }
+
   .homepage-boxart {
-    width: 145px;
+    width: 150px;
     border: 1px black solid;
     border-radius: 2px;
     box-shadow: 0px 0px 5px #98f5ff;
+  }
 
+  .homepage-game-title {
+    position: absolute;
+    font-weight: bold;
+    z-index: -100;
+    width: 150px;
+    top: 15px;
+  }
+
+  .homepage-avg-score {
+    position: relative;
+    z-index: -100;
+    bottom: 50px;
+    left: 4px;
   }
 
   //Recomendation Feed
-  #rec-feed {
+  .rec-feed {
     border-right: 2px gray solid;
     height: 1050px;
     right: 15px;
@@ -89,6 +108,9 @@ html>body {
     margin-top: 5px;
     margin-bottom: 0px;
   }
+
+
+
 
 
 
@@ -162,9 +184,7 @@ html>body {
   top: -2em;
 }
 
-.box {
-  height: 160px;
-}
+
 
 .box-divider {
   margin: 5px;
@@ -242,15 +262,6 @@ div.thumbnail {
   border-radius: 5px;
   height: 250px;
   width: 250px;
-}
-
-
-
-span.game-title.index {
-  position: relative;
-  top: -150px;
-  z-index: -1;
-  color: white;
 }
 
 span.caption.game-title {

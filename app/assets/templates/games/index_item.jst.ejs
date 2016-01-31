@@ -1,17 +1,14 @@
-<div class="game-thumb thumbnail pull-left text-center">
-  <div class="box">
+<div class="game-thumb pull-left text-center">
+  <div class="homepage-game-title"><%= game.escape('name') %></div>
 
-    <a href="#games/<%= game.id %>">
-      <img class="homepage-boxart"
-        src="<%= game.escape('thumbnail_url') %>"
-      >
-        <input id="average-score" type="number" class="rate" disabled="true"
-          data-size="xs" min=0 max=5 step=0.1 value="<%= game.escape('score') %>"
-        >
-      </img>
-    </a>
+  <a href="#games/<%= game.id %>">
+    <img class="homepage-boxart" src="<%= game.escape('thumbnail_url') %>">
+    </img>
+  </a>
+
+  <div class="homepage-avg-score">
+    <input class="average-score home-score" type="number" class="rate" disabled="true"
+    data-size="xs" min=0 max=5 step=0.1 value="<%= game.escape('score') %>"
+    >
   </div>
-    <strong>
-      <span class="game-title index"><%= game.escape('name') %></span>
-    </strong>
 </div>
