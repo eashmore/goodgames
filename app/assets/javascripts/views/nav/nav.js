@@ -3,9 +3,9 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
   template: JST['nav/nav'],
 
   events: {
-    'click #profile': 'toProfile',
-    'click #games-link': 'toGamesIndex',
-    'click #users-index': 'toUserIndex',
+    'click .nav-profile': 'toProfile',
+    'click .nav-games': 'toGamesIndex',
+    'click .nav-users': 'toUserIndex',
     'click .search-games': 'searchGamesBar',
     'click .search-users': 'searchUserBar'
   },
@@ -52,6 +52,6 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
   _swapSearch: function (searchView) {
     this._currentSearch && this._currentSearch.remove();
     this._currentSearch = searchView;
-    this.$el.find('#search-bar').html(searchView.render().$el);
+    this.$el.find('.search-bar').html(searchView.render().$el);
   }
 });

@@ -1,10 +1,15 @@
 <div class='new-session text-center'>
+
   <img class='logo'
     src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_720/v1434830178/goodgames-logo2_sbhe9i.png"
   />
 
-  <form class='new-sess-form' action="<%= session_url %>" method="post">
+  <video class="splash-vid" autoplay loop
+    src="https://res.cloudinary.com/dqucbuno8/video/upload/v1454024104/splash-vid-compress_nheccc.mp4"
+    poster="/assets/splash-vid-poster.jpg"
+  ></video>
 
+  <form class='new-sess-form' action="<%= session_url %>" method="post">
     <input type="hidden" name="authenticity_token"
       value="<%= form_authenticity_token %>"
     >
@@ -47,10 +52,4 @@
       value="Guest Sign In"
     >
   </form>
-
-  <video class="splash-vid" autoplay loop
-    src="https://res.cloudinary.com/dqucbuno8/video/upload/v1454024104/splash-vid-compress_nheccc.mp4"
-    poster="/assets/splash-vid-poster.jpg"
-  ></video>
-
 </div>

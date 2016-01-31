@@ -3,8 +3,8 @@ GoodgamesApp.Views.CollectionFeedItem = Backbone.View.extend({
   template: JST['collections/feed_item'],
 
   events: {
-    "click #feed-username": "toUser",
-    "click #feed-gamename": "toGame"
+    "click .feed-username": "toUser",
+    "click .feed-gamename": "toGame"
   },
 
   render: function () {

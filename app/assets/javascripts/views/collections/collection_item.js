@@ -19,7 +19,7 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
     this.$el.html(content);
 
     if (this.currentUser && this.user.id === this.currentUser.id) {
-      this.$el.find('#delete-button').html(this.button);
+      this.$el.find('.delete-button').html(this.button);
     }
 
     return this;

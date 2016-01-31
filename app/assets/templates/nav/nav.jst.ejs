@@ -1,32 +1,35 @@
 <nav class="navbar navbar-default navbar-fixed-top nav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a id="games-link" class="navbar-brand" href="#">
+      <a class="nav-games navbar-brand" href="#">
         <img class="nav-logo"
           src="http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_150/v1434845047/goodgames-logo-nav_zhsknk.png"
         />
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li id="games-link" class='games-link nav-link'><a href="#">
-          Home
-        </a></li>
-        <li id="profile" class='nav-link'><a href="#">My Profile</a></li>
-        <li id="users-index" class='nav-link'><a href="#">Users</a></li>
-
+        <li class="nav-games">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-profile">
+          <a class="nav-link" href="#">My Profile</a>
+        </li>
+        <li class="nav-users">
+          <a class="nav-link" href="#">Users</a>
+        </li>
       </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li id="search-bar"></li>
+      <li class="search-bar"></li>
 
       <li><div class="dropdown">
         <button class="btn btn-default dropdown-toggle nav-drop" type="button"
-          id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          id="dropdown-menu" data-toggle="dropdown" aria-expanded="true">
             <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-menu">
           <li role="presentation"><a class="search-games" role="menuitem"
             tabindex="-1" href="#">Search Games</a>
           </li>
@@ -39,7 +42,7 @@
 
 
       <li>
-        <a id="profile" class='prof-link' href="#">
+        <a class="nav-profile prof-link" href="#">
           <img class="nav-prof-pic"
             src="<%= GoodgamesApp.currentUser.image().get('thumb_url') %>"
           />
@@ -48,12 +51,12 @@
 
 
       <li class="dropdown">
-        <a id='profile-dropdown' href="#" class="dropdown-toggle"
+        <a href="#" class="nav-dropdown dropdown-toggle"
           data-toggle="dropdown" role="button" aria-expanded="false">
           <%= CURRENT_USER %><span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-          <li id='profile'><a href="#">Profile</a></li>
+          <li class="nav-profile"><a href="#">Profile</a></li>
           <li class="divider"></li>
           <li><a href="/session/new">Log Out</a></li>
         </ul>

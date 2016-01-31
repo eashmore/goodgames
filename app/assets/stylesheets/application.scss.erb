@@ -14,107 +14,45 @@
  *= require_self
  */
 
-  @import "bootstrap-sprockets";
-  @import "bootswatch/superhero/variables";
-  @import "bootstrap";
-  @import "bootswatch/superhero/bootswatch";
-  @import 'slick';
+@import "bootstrap-sprockets";
+@import "bootswatch/superhero/variables";
+@import "bootstrap";
+@import "bootswatch/superhero/bootswatch";
+@import 'slick';
 
-  body {
-    padding-top: 60px;
-    background: url('<%= asset_path("blue_body_bg.jpg") %>') center top repeat-y #000000;
-    background-color: black;
-    color: white !important;
-  }
+html>body {
+  padding-top: 60px;
+  background: url('<%= asset_path("blue_body_bg.jpg") %>') center top repeat-y #000000;
+  background-color: black;
+  color: white;
+}
 
-  nav.nav {
-    background-color: #171a21;
-    color: white;
-    border: 1px;
-  }
+//Splash Page
+.splash-bg {
+  width: 103%;
+  height: 500px;
+  right: 1%;
+  background-color: black;
+  position: relative;
+}
 
-  .navbar-default .navbar-nav>li>a {
-    color: #b8b6b4 !important;
-  }
+.logo {
+  height: 600px;
+}
 
-  .navbar-default .navbar-nav>li>a:hover {
-    color: #ffffff !important;
-  }
+.new-sess-form {
+  position: relative;
+  top: -50px;
+}
 
-  .navbar-default .navbar-nav>li>a#profile-dropdown {
-    color: #b8b6b4;
-  }
+.guest-sess-form {
+  position: relative;
+  top: -50px;
+}
 
-  .navbar-default .navbar-nav>li>a#profile-dropdown:hover {
-    color: #ffffff;
-  }
-
-  .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav >
-  .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    background-color: rgba( 64, 128, 183, 0.4) !important;
-  }
-
-  .game-left-col {
-    margin-top: 15px;
-  }
-
-  .game-thumb {
-    min-height: 200px;
-    width: 150px;
-    margin: 5px;
-  }
-
-  .game-thumb-profile {
-    min-height: 175px;
-    width: 125px;
-  }
-
-  .game-thumb-search {
-    height: 225px;
-    width: 150px;
-    margin: 5px;
-  }
-
-  .prof-box:hover {
-    opacity: 1;
-    box-shadow: 0px 0px 15px #fff;
-  }
-
-  .prof-box {
-    opacity: 0.8;
-    box-shadow: 0px 0px 5px #98f5ff
-  }
-
-  .search-boxart {
-    opacity: 0.8;
-    box-shadow: 0px 0px 5px #98f5ff
-  }
-
-  .search-boxart:hover {
-    opacity: 1;
-    box-shadow: 0px 0px 15px #fff;
-  }
-
-  .box-art {
-    // max-height: 400px;
-    width: 355px;
-    border: 1px black solid;
-    border-radius: 3px;
-    box-shadow: 0px 0px 5px #98f5ff
-  }
-
-  #profile-dropdown {
-    margin-right: 10px;
-    margin-left: 15px;
-  }
-
-  .search-boxart {
-    max-height: 160px;
-    border: 1px black solid;
-    border-radius: 2px;
-  }
-
-  .index-boxart {
+//Landing Page
+  //Games
+  .homepage-boxart {
     width: 145px;
     border: 1px black solid;
     border-radius: 2px;
@@ -122,140 +60,29 @@
 
   }
 
-  #edit-review {
+  //Recomendation Feed
+  #rec-feed {
+    border-right: 2px gray solid;
+    height: 1050px;
+    right: 15px;
+  }
+
+  .feed-item {
     position: relative;
-    top: -10px;
-  }
-
-  .star-rating {
-    max-width: 140px;
-  }
-
-  .review-body {
-    word-wrap: break-word;
-    position: relative;
-    top: -2em;
-  }
-
-  .box {
-    height: 160px;
-  }
-
-  .box-divider {
     margin: 5px;
-    top: 5px;
-    position: relative;
-  }
-
-  .box-divider.index {
-    position: relative;
-    top: 40px;
-  }
-
-  .loading-img {
-    height: 150px;
-    position: relative;
-    left: 20px;
-  }
-
-  #e-button {
-    margin-left: 9px;
-  }
-
-  #feed-item {
-    margin: 5px 5px 5px 0px;
-    min-height: 40px;
-    padding-left: 5px;
     width: 400px;
-    position: relative;
-    right: -25px;
+    left: 50px;
   }
 
-  .m-content {
-    z-index: 101;
-    // background-color: white;
-    border-radius: 3px;
-    // padding: 20px;
-    position: fixed;
-    /* margin: 0 auto; */
-    margin-top: 3em;
-    left: 21%;
-    width: 60em;
-  }
-
-  .m-content.profile {
-    overflow: scroll;
-    top: 1em;
-    max-height: 50em;
-  }
-
-  .m-backdrop {
-    position: fixed;
-    background-color: rgba(20, 20, 20, .8);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 68;
-  }
-
-  #rec-div {
-    border-right: 1px gray solid;
-    height: 1300px;
-    right: 20px;
-  }
-
-  .nav-drop {
-    top: 20px;
-    margin-top: 8px;
-  }
-
-  div.thumbnail {
-    border: 1px;
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-  }
-
-  #feed-prof-pic {
+  .feed-prof-pic {
     width: 40px;
     height: 40px;
-    position: relative;
-    right: 10px;
     border: 2px #222223 solid;
     border-radius: 25px;
   }
 
-  .nav-prof-pic {
-    height: 50px;
-    width: 50px;
-    top: -15px;
-    position: relative;
-    left: -15px;
-    border: 2px #222223 solid;
-    border-radius: 25px;
-  }
-
-  .prof-link {
-    height: 50px;
-    max-width: 50px;
-  }
-
-  .spacer {
-    width: 50px
-  }
-
-  .user-index-pic {
-    width: 100px;
-    height: 100px;
-    border: 3px #222223 solid;
-    border-radius: 3px;
-  }
-
-  .profile-picture {
-    border: 2px #222223 solid;
-    border-radius: 5px;
-    height: 250px;
-    width: 250px;
+  .feed-text {
+    min-height: 40px;
   }
 
   .feed-hr {
@@ -263,153 +90,305 @@
     margin-bottom: 0px;
   }
 
-  span.game-title.index {
-    position: relative;
-    top: -150px;
-    z-index: -1;
-    color: white;
-  }
 
-  span.caption.game-title {
-    color: white;
 
-  }
 
-  #my-thumbs-list{
-    overflow: auto;
-    width: 800px;
-    height: 300px;
-  }
+.game-left-col {
+  margin-top: 15px;
+}
 
-  .feed-text {
-    min-height: 40px;
-  }
+.game-thumb {
+  min-height: 200px;
+  width: 150px;
+  margin: 5px;
+}
 
-  div.panel.css-panel {
-    background: linear-gradient( to bottom, rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%);
-    // background-color: black;
-    border-color: gray;
-    border: 1px;
-  }
+.game-thumb-profile {
+  min-height: 175px;
+  width: 125px;
+}
 
-  div.panel-heading.css-panel-head {
-    background-color: black;
-    color: white;
-    border-color: gray;
-    border: 1px;
-  }
+.game-thumb-search {
+  height: 225px;
+  width: 150px;
+  margin: 5px;
+}
 
-  div.panel-footer.css-panel-foot {
-    background-color: black;
-    color: white;
-    border-color: gray;
-    border: 1px;
-  }
+.boxart:hover {
+  opacity: 1;
+  box-shadow: 0px 0px 15px #fff;
+}
 
-  textarea {
-    color: black !important;
-  }
+.boxart {
+  opacity: 0.8;
+  box-shadow: 0px 0px 5px #98f5ff
+}
 
-  .col-delete {
-    position: relative;
-    right: -1px;
-  }
+.search-boxart {
+  opacity: 0.8;
+  box-shadow: 0px 0px 5px #98f5ff
+}
 
-  .wl-delete {
-    position: relative;
-  }
+.search-boxart:hover {
+  opacity: 1;
+  box-shadow: 0px 0px 15px #fff;
+}
 
-  .slick-slide {
-    width: 170px;
-  }
+.box-art {
+  width: 355px;
+  border: 1px black solid;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px #98f5ff
+}
 
-  img.slick-slide {
-    height: 200px;
-  }
+.search-boxart {
+  max-height: 160px;
+  border: 1px black solid;
+  border-radius: 2px;
+}
 
-  .splash-vid {
-    z-index: -1000;
-    position: fixed;
-    min-width: 100%;
-    min-height: 100%;
-    top: 0;
-    left: 0;
-  }
+#edit-review {
+  position: relative;
+  top: -10px;
+}
 
-  div.new-session {
-    position: relative;
-    top: -72px;
-    height: 1px;
-  }
+.star-rating {
+  max-width: 140px;
+}
 
-  .profile-game-buffer {
-    min-height: 240px;
-  }
+.review-body {
+  word-wrap: break-word;
+  position: relative;
+  top: -2em;
+}
 
-  .rate {
-    position: relative;
-    bottom: 10px;
-    // z-index: -10;
-  }
+.box {
+  height: 160px;
+}
 
-  a>div.star-rating {
-    position: relative;
-    top: -50px;
-    z-index: -10;
-  }
+.box-divider {
+  margin: 5px;
+  top: 5px;
+  position: relative;
+}
 
-  .user-idx-recs {
-    position: relative;
-    top: 1em;
-    left: 3em;
-  }
+.box-divider.index {
+  position: relative;
+  top: 40px;
+}
 
-  .user-idx {
-    position: relative;
-    top: -11px;
-    left: 11px;
-    z-index: 10;
-  }
+.loading-img {
+  height: 150px;
+  position: relative;
+  left: 20px;
+}
 
-  .see-reviews {
-    position: relative;
+#e-button {
+  margin-left: 9px;
+}
 
-  }
+.m-content {
+  z-index: 101;
+  // background-color: white;
+  border-radius: 3px;
+  // padding: 20px;
+  position: fixed;
+  /* margin: 0 auto; */
+  margin-top: 3em;
+  left: 21%;
+  width: 60em;
+}
 
-  .slick-slider {
-    border: 2px black solid;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.4);
-  }
+.m-content.profile {
+  overflow: scroll;
+  top: 1em;
+  max-height: 50em;
+}
 
-  .prof-rank {
-    max-width: 125px;
-    max-height: 125px;
-  }
+.m-backdrop {
+  position: fixed;
+  background-color: rgba(20, 20, 20, .8);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 68;
+}
 
-  .profile-pic-div {
-    position: relative;
-    top: 2em;
-    margin-left: 15px;
-  }
+div.thumbnail {
+  border: 1px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
 
-  .prof-header {
-    background: url('http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1170/v1434738775/showcase_bg_bbiywa.png');
-    box-shadow: 0px 0px 3px 0px rgba(20,20,20,0.75);
-    border-radius: 3px;
-    background-size: cover;
-    height: 24em;
-  }
+.prof-link {
+  height: 50px;
+  max-width: 50px;
+}
 
-  .upload-pic {
-    top: 5px;
-    position: relative;
-  }
+.spacer {
+  width: 50px
+}
 
-  div.css-panel.user-item {
-    background: url('http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1145/v1434738775/showcase_bg_bbiywa.png');
-    background-size: cover;
-    height: 333px;
+.user-index-pic {
+  width: 100px;
+  height: 100px;
+  border: 3px #222223 solid;
+  border-radius: 3px;
+}
+
+.profile-picture {
+  border: 2px #222223 solid;
+  border-radius: 5px;
+  height: 250px;
+  width: 250px;
+}
+
+
+
+span.game-title.index {
+  position: relative;
+  top: -150px;
+  z-index: -1;
+  color: white;
+}
+
+span.caption.game-title {
+  color: white;
+
+}
+
+#my-thumbs-list{
+  overflow: auto;
+  width: 800px;
+  height: 300px;
+}
+
+div.panel.css-panel {
+  background: linear-gradient( to bottom, rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%);
+  // background-color: black;
+  border-color: gray;
+  border: 1px;
+}
+
+div.panel-heading.css-panel-head {
+  background-color: black;
+  color: white;
+  border-color: gray;
+  border: 1px;
+}
+
+div.panel-footer.css-panel-foot {
+  background-color: black;
+  color: white;
+  border-color: gray;
+  border: 1px;
+}
+
+textarea {
+  color: black !important;
+}
+
+.col-delete {
+  position: relative;
+  right: -1px;
+}
+
+.wl-delete {
+  position: relative;
+}
+
+.slick-slide {
+  width: 170px;
+}
+
+img.slick-slide {
+  height: 200px;
+}
+
+.splash-vid {
+  z-index: -1000;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+}
+
+div.new-session {
+  position: relative;
+  top: -72px;
+  height: 1px;
+}
+
+.profile-game-buffer {
+  min-height: 240px;
+}
+
+.rate {
+  position: relative;
+  bottom: 10px;
+  // z-index: -10;
+}
+
+a>div.star-rating {
+  position: relative;
+  top: -50px;
+  z-index: -10;
+}
+
+.user-idx-recs {
+  position: relative;
+  top: 1em;
+  left: 3em;
+}
+
+.user-idx {
+  position: relative;
+  top: -11px;
+  left: 11px;
+  z-index: 10;
+}
+
+.see-reviews {
+  position: relative;
+
+}
+
+.slick-slider {
+  border: 2px black solid;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.prof-rank {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.profile-pic-div {
+  position: relative;
+  top: 2em;
+  margin-left: 15px;
+}
+
+.prof-header {
+  background: url('http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1170/v1434738775/showcase_bg_bbiywa.png');
+  box-shadow: 0px 0px 3px 0px rgba(20,20,20,0.75);
+  border-radius: 3px;
+  background-size: cover;
+  height: 24em;
+}
+
+.upload-pic {
+  top: 5px;
+  position: relative;
+}
+
+div.css-panel.user-item {
+  background: url('http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1145/v1434738775/showcase_bg_bbiywa.png');
+  background-size: cover;
+  height: 333px;
 
   }
 
@@ -443,29 +422,8 @@ div.rank-item {
   height: 268px
 }
 
-ul.nav.nav-bar>li.nav-link.active>a {
-  background-color: rgba ( 64, 128, 183, 0.2);
-}
 
-.logo {
-  height: 600px;
-}
 
-.new-sess-form {
-  position: relative;
-  top: -50px;
-}
-
-.guest-sess-form {
-  position: relative;
-  top: -50px;
-}
-
-.nav-logo {
-  height: 50px;
-  position: relative;
-  top: -15px;
-}
 
 .rank {
   position: relative;
@@ -484,10 +442,60 @@ button.close {
   color: red !important;
 }
 
-.splash-bg {
-  width: 103%;
-  height: 500px;
-  right: 1%;
-  background-color: black;
+// navbar
+nav.navbar {
+  background-color: #171a21;
+  border: 1px;
+}
+
+.navbar-default .navbar-nav>li>a.nav-link {
+  color: #b8b6b4;
+}
+
+.navbar-default .navbar-nav>li>a.nav-link:hover {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li>a.nav-dropdown {
+  color: #b8b6b4;
+}
+
+.navbar-default .navbar-nav>li>a.nav-dropdown:hover {
+  color: #ffffff;
+}
+
+.nav-drop {
+  top: 20px;
+  margin-top: 8px;
+}
+
+.nav-prof-pic {
+  height: 50px;
+  width: 50px;
   position: relative;
+  top: -15px;
+  left: -15px;
+  border: 2px #222223 solid;
+  border-radius: 25px;
+}
+
+.nav-logo {
+  height: 50px;
+  position: relative;
+  top: -15px;
+}
+
+ul.nav.nav-bar>li.nav-link.active>a {
+  background-color: rgba ( 64, 128, 183, 0.2);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav >.active > a.nav-link:hover,
+.navbar-default .navbar-nav > .active > a.nav-link:focus {
+  background-color: rgba( 64, 128, 183, 0.4) !important;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus {
+  background-color: inherit;
 }

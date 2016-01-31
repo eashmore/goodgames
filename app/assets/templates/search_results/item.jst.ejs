@@ -1,12 +1,12 @@
-<div class='game-thumb-search thumbnail pull-left text-center'>
-  <div class='box'>
+<div class="game-thumb-search thumbnail pull-left text-center">
+  <div class="box">
     <a href="#games/<%= game.id %>">
     <% if (game.get('image')) { %>
-      <img class='search-boxart' id='boxart'
-        src='<%= game.get('image').small_url %>'>
+      <img class="search-boxart"
+        src="<%= game.get('image').small_url %>">
       </img>
       <% } %>
-  </div><hr class='box-divider'>
-    <span class='caption game-title'><%= game.escape('name') %></span>
+  </div><hr class="box-divider">
+    <span class="caption game-title"><%= game.escape('name') %></span>
   </a>
 </div>
