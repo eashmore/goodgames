@@ -1,18 +1,15 @@
 <div class="col-xs-2">
-  <div class="game-thumb-profile thumbnail pull-left text-center">
+  <div class="game-thumbnail pull-left text-center">
 
-    <div class="profile-game-buffer">
+    <div class="small-boxart-buffer">
+      <a href="#games/<%= game.id %>">
+        <img class="small-boxart"
+          src="<%= game.escape('thumbnail_url') %>">
+        </img>
 
-      <div class="box">
-        <a href="#games/<%= game.id %>">
-          <img class="boxart"
-            src="<%= game.escape('thumbnail_url') %>">
-          </img>
-      </div>
-      <hr class="box-divider">
-      <span class="caption game-title"><%= game.escape('name') %></span>
+        <hr class="box-divider">
+        <span class="caption game-title"><%= game.escape('name') %></span>
       </a>
-
     </div>
 
     <div class="delete-button"></div>

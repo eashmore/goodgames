@@ -42,7 +42,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       model: game,
       currentUser: this.currentUser
     });
-    this.addSubview('.recomendations', collectionView);
+    this.addSubview('.recommendations', collectionView);
   },
 
   addWishlistGame: function (game) {
@@ -76,7 +76,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     if (!this.model.ownedGames().length) {
-      this.$el.find('.recomendations').html("Recommendations Empty");
+      this.$el.find('.recommendations').html("Recommendations Empty");
     }
 
     if (!this.model.wishlistGames().length) {
