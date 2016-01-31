@@ -1,25 +1,22 @@
 <div class="panel panel-default css-panel">
-
   <div class="panel-heading css-panel-head">
-    <div class='pull-right'>
+    <div class="pull-right">
       Written on: <%= review.escape('created_at').slice(0, 10) %>
     </div>
-    <strong><a id='username' href='#'><%= review.escape('author') %></a>
-    </strong> gave
+    <a class="username bold" href="#"><%= review.escape('author') %></a>
+     gave
 
-    <a id="game-name" href="#">
-      <strong><%= game.escape('name') %></strong>
-    </a>
+    <a class="game-name bold" href="#"><%= game.escape('name') %></a>
 
-    <input id="given-score" type="number" class="rating" disabled='true'
-      min=0 max=5 step=0.1 data-size="xs" value='<%= review.escape('score') %>'
+    <input class="game-score" type="number" class="rating" disabled="true"
+      min=0 max=5 step=0.1 data-size="xs" value="<%= review.escape('score') %>"
     >
   </div>
   <br>
   <div class="review-body panel-body"><%= review.escape('body') %></div>
   <div class="panel-footer  css-panel-foot a">
     <% if (review.escape('user_id') == GoodgamesApp.currentUser.id) { %>
-      <a id='edit-review' class='pull-right' href="#">Edit Review</a>
+      <a class="edit-review pull-right" href="#">Edit Review</a>
     <% } %>
   </div>
 </div>

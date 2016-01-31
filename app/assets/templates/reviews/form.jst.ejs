@@ -4,10 +4,11 @@
   <div class="panel panel-default css-panel">
     <div class="panel-heading css-panel-head">
       <button class="close pull-right">&times;</button>
-      <input id="review-score" type="number" name="review[score]"
+      <input class="review-score" type="number" name="review[score]"
              class="rating" min=0 max=5 step=1 data-size="sm"
       >
     </div>
+
     <div class="panel-body">
       <div class="errors"></div>
 
@@ -17,6 +18,7 @@
           cols="131"><%= review.escape('body') %></textarea>
       </label>
     </div>
+
     <input type="hidden" name="review[commentable_id]" value="<%= game_id %>">
     <input type="hidden" name="review[commentable_type]" value="Game">
 

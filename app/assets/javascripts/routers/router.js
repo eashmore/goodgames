@@ -117,5 +117,4 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.$el);
     view.render();
   }
-
 });

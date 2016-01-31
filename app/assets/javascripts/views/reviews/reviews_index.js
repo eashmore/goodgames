@@ -24,7 +24,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       model: review,
       collection: this.collection
     });
-    this.addSubview('#review-list', itemView);
+    this.addSubview('.game-reviews', itemView);
   },
 
   addNewReview: function (review) {
@@ -32,7 +32,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       model: review,
       collection: this.collection
     });
-    this.addSubview('#review-list', itemView, 'prepend');
+    this.addSubview('.game-reviews', itemView, 'prepend');
   },
 
 

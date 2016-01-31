@@ -85,7 +85,6 @@ html>body {
     position: relative;
     z-index: -100;
     bottom: 50px;
-    left: 4px;
   }
 
   //Recomendation Feed
@@ -118,7 +117,7 @@ html>body {
     margin-bottom: 0px;
   }
 
-// Game Show Page
+// Game Page
   // Game Info
   .game-boxart {
     width: 355px;
@@ -131,6 +130,45 @@ html>body {
   .game-score {
     margin: 10px;
   }
+
+  //Game Reviews
+  .review-body {
+    word-wrap: break-word;
+    position: relative;
+    top: -2em;
+  }
+
+  a.edit-review {
+    position: relative;
+    top: -10px;
+  }
+
+  //Review Form
+  .m-content {
+    z-index: 101;
+    border-radius: 3px;
+    position: fixed;
+    margin-top: 3em;
+    left: 21%;
+    width: 60em;
+  }
+
+  .m-content.profile {
+    overflow: scroll;
+    top: 1em;
+    max-height: 50em;
+  }
+
+  .m-backdrop {
+    position: fixed;
+    background-color: rgba(20, 20, 20, .8);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 68;
+  }
+
 
 //Need to sort
 .game-thumb {
@@ -176,23 +214,6 @@ html>body {
   border-radius: 2px;
 }
 
-#edit-review {
-  position: relative;
-  top: -10px;
-}
-
-.star-rating {
-  max-width: 140px;
-}
-
-.review-body {
-  word-wrap: break-word;
-  position: relative;
-  top: -2em;
-}
-
-
-
 .box-divider {
   margin: 5px;
   top: 5px;
@@ -212,34 +233,6 @@ html>body {
 
 #e-button {
   margin-left: 9px;
-}
-
-.m-content {
-  z-index: 101;
-  // background-color: white;
-  border-radius: 3px;
-  // padding: 20px;
-  position: fixed;
-  /* margin: 0 auto; */
-  margin-top: 3em;
-  left: 21%;
-  width: 60em;
-}
-
-.m-content.profile {
-  overflow: scroll;
-  top: 1em;
-  max-height: 50em;
-}
-
-.m-backdrop {
-  position: fixed;
-  background-color: rgba(20, 20, 20, .8);
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 68;
 }
 
 div.thumbnail {
@@ -512,4 +505,8 @@ ul.nav.nav-bar>li.nav-link.active>a {
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover,
 .dropdown-menu>.active>a:focus {
   background-color: inherit;
+}
+
+.star-rating.rating-disabled {
+  cursor: default;
 }

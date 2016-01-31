@@ -2,9 +2,9 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   template: JST['reviews/item'],
 
   events: {
-    'click #username': 'toProfile',
-    'click #game-name': 'toGame',
-    'click #edit-review': 'addForm'
+    'click .username': 'toProfile',
+    'click .game-name': 'toGame',
+    'click .edit-review': 'addForm'
   },
 
   initialize: function () {
@@ -16,7 +16,7 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
     var content = this.template({ review: this.model, game: this.game });
     this.$el.html(content);
 
-    this.$el.find("#given-score").rating();
+    this.$el.find(".game-score").rating();
 
     return this;
   },
