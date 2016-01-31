@@ -52,7 +52,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
       model: game,
       currentUser: this.currentUser
     });
-    this.addSubview('#wishlist', wishlistView);
+    this.addSubview('.wishlist', wishlistView);
   },
 
   addCommentsIndex: function () {
@@ -80,7 +80,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     }
 
     if (!this.model.wishlistGames().length) {
-      this.$el.find('#wishlist').html("Wishist Empty");
+      this.$el.find('.wishlist').html("Wishist Empty");
     }
     this.attachSubviews();
     this.slickSlider();
@@ -100,7 +100,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     var reviewsView = new GoodgamesApp.Views.ReviewsProfile({
       collection: this.model.reviews().where({ commentable_type: 'Game'}),
     });
-    
+
     if (this.model.reviews().length) {
       $('body').prepend(reviewsView.render().$el);
     }
