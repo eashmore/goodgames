@@ -1,54 +1,59 @@
 <div class="container">
 
   <div class="clearfix">
-    <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
+    <div class="game-show-left-side">
+      <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
+
+      <div class="game-score bold">
+        Average Score:
+        <% if (!game.get('score')) { %>
+          Be the first to review <%= game.escape('name') %>!
+        <% } else { %>
+          <%= game.escape('score') %> / 5
+        <% } %>
+
+        <input type="number" class="average-score rating" disabled="true"
+          min=0 max=5 step=0.1 data-size="md" value="<%= game.escape('score') %>"
+        >
+        <div>Number of Reviews: <%= game.reviews().length %></div>
+        <br>
+
+        <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
+          <button class="collection-button btn btn-default btn-warning pull-left">
+            Recommend This Game
+          </button>
+        <% } else { %>
+          <button class="collection-button btn btn-danger btn-disabled pull-left">
+            Recommended
+          </button>
+        <% } %>
+
+        <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
+          <button class="wishlist-button btn btn-warning btn-default">
+              Add to My Wishlist
+          </button>
+        <% } else { %>
+          <button class="remove-game btn btn-default btn-danger">
+              Remove from Wishlist
+          </button>
+        <% } %>
+      </div>
+    </div>
+
     <div class="game-info">
       <h1><%= game.escape('name') %></h1><br>
       <p><%= game.escape('deck') %></h5><p>
       <br>
+
       <span class="bold">Release Date: </span><%= game.escape('release_date') %>
       <br><br>
+      
       <span class="bold">Available Platform(s): </span>
       <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
         <br>
         <%= platform %>
       <% }) %>
     </div>
-  </div>
-
-  <div class="game-score bold">
-    Average Score:
-    <% if (!game.get('score')) { %>
-      Be the first to review <%= game.escape('name') %>!
-    <% } else { %>
-      <%= game.escape('score') %> / 5
-    <% } %>
-
-    <input type="number" class="average-score rating" disabled="true"
-      min=0 max=5 step=0.1 data-size="md" value="<%= game.escape('score') %>"
-    >
-    <div>Number of Reviews: <%= game.reviews().length %></div>
-    <br>
-
-    <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-      <button class="collection-button btn btn-default btn-warning pull-left">
-        Recommend This Game
-      </button>
-    <% } else { %>
-      <button class="collection-button btn btn-danger btn-disabled pull-left">
-        Recommended
-      </button>
-    <% } %>
-
-    <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
-      <button class="wishlist-button btn btn-warning btn-default">
-          Add to My Wishlist
-      </button>
-    <% } else { %>
-      <button class="remove-game btn btn-default btn-danger">
-          Remove from Wishlist
-      </button>
-    <% } %>
   </div>
 
   <hr>
