@@ -35,6 +35,27 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.model.wishlistGames().each(this.addWishlistGame.bind(this));
   },
 
+  render: function () {
+    var content;
+    if (this.model === this.currentUser) {
+      content = this.template({ user: this.model });
+    } else {
+      content = this.templateShow({ user: this.model });
+    }
+
+    this.$el.html(content);
+
+    if (!this.model.ownedGames().length) {
+      this.$el.find('.recommendations').html("Recommendations Empty");
+    }
+
+    if (!this.model.wishlistGames().length) {
+      this.$el.find('.wishlist').html("Wishist Empty");
+    }
+    this.attachSubviews();
+    this.slickSlider();
+  },
+
   addOwnedGame: function (game) {
     var collectionView = new GoodgamesApp.Views.CollectionItem({
       user: this.model,
@@ -63,27 +84,6 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   addPic: function () {
     var picView = new GoodgamesApp.Views.ImagesShow({ model: this.model });
     this.addSubview('.profile-pic', picView);
-  },
-
-  render: function () {
-    var content;
-    if (this.model === this.currentUser) {
-      content = this.template({ user: this.model });
-    } else {
-      content = this.templateShow({ user: this.model });
-    }
-
-    this.$el.html(content);
-
-    if (!this.model.ownedGames().length) {
-      this.$el.find('.recommendations').html("Recommendations Empty");
-    }
-
-    if (!this.model.wishlistGames().length) {
-      this.$el.find('.wishlist').html("Wishist Empty");
-    }
-    this.attachSubviews();
-    this.slickSlider();
   },
 
   upload: function(event){

@@ -2,15 +2,19 @@
   <div class="panel-heading css-panel-head">
     <h4>Leave a comment: </h4>
   </div>
+
   <div class="panel-body">
   <div class="errors"></div>
       <textarea name="review[body]" rows="5" cols="155"></textarea>
   </div>
+
   <input type="hidden" name="review[commentable_id]" value="<%= user.id %>">
-  <input type="hidden" name="review[score]" value='1'>
-  <input type="hidden" name="review[commentable_type]" value="<%= "User" %>">
+  <input type="hidden" name="review[score]" value="1">
+  <input type="hidden" name="review[commentable_type]" value="<%= 'User' %>">
 
   <div class="panel-footer css-panel-foot">
-    <button class="compose btn btn-default btn-success" type="submit">Submit Comment</button>
+    <button class="compose btn btn-default btn-success" type="submit">
+      Submit Comment
+    </button>
   </div>
 </div>

@@ -3,21 +3,32 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.user = options.user;
-
     this.comments = new GoodgamesApp.Collections.UserComments();
+
     this.comments.fetch({
       data: { page: 1,
               user_id: this.user.id
-            },
+            }
     });
 
     this.addForm();
 
-    this.listenTo(this.user.comments(), 'add', this.addNewComment);
-    this.listenTo(this.user.comments(), 'add', this.render);
+    this.listenTo(this.comments, 'sync', this.attachComments);
+  },
 
-    this.listenTo(this.comments, 'change', this.render);
+  render: function () {
+    this.$el.html(this.template);
+    this.attachSubviews();
+    this.listenForScroll.call(this);
+
+    return this;
+  },
+
+  attachComments: function() {
+    this.listenTo(this.user.comments(), 'add', this.addNewComment);
+    
     this.comments.each(this.addComment.bind(this));
+    this.render();
   },
 
   addComment: function (comment) {
@@ -28,6 +39,7 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
   addNewComment: function (comment) {
     var commentView = new GoodgamesApp.Views.CommentItem({ model: comment });
     this.addSubview('.comment-list', commentView, 'prepend');
+    this.render();
   },
 
   addForm: function () {
@@ -38,15 +50,6 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
     this.addSubview('.comment-form', formView);
   },
 
-  render: function () {
-    this.$el.html(this.template);
-    this.attachSubviews();
-
-    this.listenForScroll.call(this);
-
-    return this;
-  },
-
   listenForScroll: function () {
     $(window).off("scroll");
     var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
@@ -55,7 +58,9 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
 
   nextPage: function () {
     var view = this;
-    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+    if (
+      $(window).scrollTop() > $(document).height() - $(window).height() - 50
+    ) {
       if (view.comments.page < view.comments.total_pages) {
         view.comments.fetch({
           data: { page: parseInt(view.comments.page) + 1,
