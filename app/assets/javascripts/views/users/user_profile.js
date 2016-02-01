@@ -37,7 +37,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     var content;
     if (this.model === this.currentUser) {
       content = this.template({ user: this.model });
-      $('.nav-profile').addClass("active");
+      $('.nav-profile.nav-tab').addClass('active');
     } else {
       content = this.templateShow({ user: this.model });
     }
