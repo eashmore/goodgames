@@ -37,16 +37,23 @@ html>body {
 }
 
 //Splash Page
-.splash-bg {
-  width: 103%;
-  height: 500px;
-  right: 1%;
-  background-color: black;
-  position: relative;
+.splash-vid {
+  z-index: -1000;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .logo {
   height: 600px;
+}
+
+.new-session {
+  position: relative;
+  top: -72px;
+  height: 1px;
 }
 
 .new-sess-form, .guest-sess-form {
@@ -130,10 +137,6 @@ html>body {
     float: left;
   }
 
-  .game-score {
-    margin: 10px;
-  }
-
   .collection-button {
     margin-right: 35px;
   }
@@ -148,6 +151,21 @@ html>body {
   a.edit-review {
     position: relative;
     top: -10px;
+  }
+
+  div.panel.css-panel {
+    background: linear-gradient(to bottom,
+      rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%
+    );
+    border-color: gray;
+    border: 1px;
+  }
+
+  div.panel-heading.css-panel-head, div.panel-footer.css-panel-foot {
+    background-color: black;
+    color: white;
+    border-color: gray;
+    border: 1px;
   }
 
   //Review Form
@@ -172,6 +190,16 @@ html>body {
     top: 0;
     bottom: 0;
     z-index: 50;
+  }
+
+  button.close {
+    color: #e12727;
+    opacity: 0.5;
+  }
+
+  button.close:hover {
+    color: red;
+    opacity: 0.8;
   }
 
 //User Profile
@@ -266,8 +294,14 @@ html>body {
       position: relative;
     }
 
-  .caption.game-title {
+    .caption.game-title {
       color: white;
+    }
+
+    .slick-slider {
+      border: 2px black solid;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.4);
     }
 
   //Comments
@@ -342,105 +376,6 @@ html>body {
     margin: 5px;
   }
 
-//Need to sort
-
-
-#e-button {
-  margin-left: 9px;
-}
-
-div.thumbnail {
-  border: 1px;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-}
-
-.prof-link {
-  height: 50px;
-  max-width: 50px;
-}
-
-.spacer {
-  width: 50px
-}
-
-#my-thumbs-list{
-  overflow: auto;
-  width: 800px;
-  height: 300px;
-}
-
-div.panel.css-panel {
-  background: linear-gradient(to bottom,
-    rgba( 64, 128, 183, 0.4) 5%, rgba( 64, 128, 183, 0.2) 95%
-  );
-  border-color: gray;
-  border: 1px;
-}
-
-div.panel-heading.css-panel-head {
-  background-color: black;
-  color: white;
-  border-color: gray;
-  border: 1px;
-}
-
-div.panel-footer.css-panel-foot {
-  background-color: black;
-  color: white;
-  border-color: gray;
-  border: 1px;
-}
-
-.slick-slide {
-  width: 170px;
-}
-
-img.slick-slide {
-  height: 200px;
-}
-
-.splash-vid {
-  z-index: -1000;
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-  top: 0;
-  left: 0;
-}
-
-div.new-session {
-  position: relative;
-  top: -72px;
-  height: 1px;
-}
-
-.rate {
-  position: relative;
-  bottom: 10px;
-  // z-index: -10;
-}
-
-a>div.star-rating {
-  position: relative;
-  top: -50px;
-  z-index: -10;
-}
-
-.see-reviews {
-  position: relative;
-}
-
-.slick-slider {
-  border: 2px black solid;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-button.close {
-  color: red !important;
-}
-
 // navbar
 nav.navbar {
   background-color: #171a21;
@@ -463,17 +398,12 @@ nav.navbar {
   color: #ffffff;
 }
 
-.nav-drop {
-  top: 20px;
-  margin-top: 8px;
-}
-
 .nav-prof-pic {
   height: 50px;
   width: 50px;
   position: relative;
   top: -15px;
-  left: -15px;
+  left: -7px;
   border: 2px #222223 solid;
   border-radius: 25px;
 }
@@ -499,6 +429,16 @@ ul.nav.nav-bar>li.nav-link.active>a {
   background-color: inherit;
 }
 
+.profile-link {
+  height: 50px;
+  max-width: 50px;
+}
+
+.search-bar {
+  margin-right: 25px;
+}
+
+//Other
 .star-rating.rating-disabled {
   cursor: default;
 }

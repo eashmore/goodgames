@@ -23,26 +23,8 @@
 
     <ul class="nav navbar-nav navbar-right">
       <li class="search-bar"></li>
-
-      <li><div class="dropdown">
-        <button class="btn btn-default dropdown-toggle nav-drop" type="button"
-          id="dropdown-menu" data-toggle="dropdown" aria-expanded="true">
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-menu">
-          <li role="presentation"><a class="search-games" role="menuitem"
-            tabindex="-1" href="#">Search Games</a>
-          </li>
-          <li role="presentation"><a class="search-users" role="menuitem"
-            tabindex="-1" href="#">Search Users</a>
-          </li>
-        </ul>
-      <div class="spacer">
-      </div></li>
-
-
       <li>
-        <a class="nav-profile prof-link" href="#">
+        <a class="nav-profile profile-link" href="#">
           <img class="nav-prof-pic"
             src="<%= GoodgamesApp.currentUser.image().get('thumb_url') %>"
           />
@@ -62,6 +44,5 @@
         </ul>
       </li>
     </ul>
-</div>
   </div>
 </nav>
