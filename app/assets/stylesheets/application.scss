@@ -386,15 +386,9 @@ nav.navbar {
   color: #b8b6b4;
 }
 
-.navbar-default .navbar-nav>li>a.nav-link:hover {
-  color: #ffffff;
-}
-
-.navbar-default .navbar-nav>li>a.nav-dropdown {
-  color: #b8b6b4;
-}
-
-.navbar-default .navbar-nav>li>a.nav-dropdown:hover {
+.navbar-default .navbar-nav>li>a.nav-link:hover,
+.navbar-default .navbar-nav>li>a.nav-link:focus,
+.navbar-default .navbar-nav>li.active>a.nav-link {
   color: #ffffff;
 }
 
@@ -423,7 +417,8 @@ nav.navbar {
 .navbar-default .navbar-nav > .active > a.nav-link,
 .navbar-default .navbar-nav >.active > a.nav-link:hover,
 .navbar-default .navbar-nav > .active > a.nav-link:focus,
-.navbar-default .navbar-nav>.open>a.nav-link, .navbar-default .navbar-nav>.open>a.nav-link:hover,
+.navbar-default .navbar-nav>.open>a.nav-link,
+.navbar-default .navbar-nav>.open>a.nav-link:hover,
 .navbar-default .navbar-nav>.open>a.nav-link:focus
  {
   background-color: rgba( 64, 128, 183, 0.4);
