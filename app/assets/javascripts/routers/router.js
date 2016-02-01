@@ -24,7 +24,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(indexView);
-    $('.nav-games').addClass("active");
   },
 
   showGame: function (id) {
@@ -51,6 +50,7 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
 
   showUserPage: function (id) {
     $(".nav").find(".active").removeClass("active");
+
     var user = new GoodgamesApp.Collections.Users().getOrFetch(id);
     var userView = new GoodgamesApp.Views.UserProfile({
       model: user,
@@ -68,7 +68,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(userView);
-    $('.nav-profile').addClass("active");
   },
 
   userSearch: function (query) {
@@ -89,7 +88,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
           collection: results
         });
         this._swapView(userSearchView);
-        $('#users-index').addClass("active");
       }.bind(this)
     });
   },
@@ -100,7 +98,6 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     var userView = new GoodgamesApp.Views.UsersIndex({ collection: users });
 
     this._swapView(userView);
-    $('.nav-users').addClass("active");
   },
 
   _swapView: function (view) {

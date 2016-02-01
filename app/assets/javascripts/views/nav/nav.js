@@ -1,4 +1,4 @@
-GoodgamesApp.Views.Nav = Backbone.View.extend({
+GoodgamesApp.Views.Nav = Backbone.CompositeView.extend({
 
   template: JST['nav/nav'],
 
@@ -10,14 +10,11 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
     'click .search-users': 'searchUserBar'
   },
 
-  initialize: function () {
-    this.listenTo(GoodgamesApp.currentUser, 'sync', this.render);
-    this.listenTo(GoodgamesApp.currentUser.image(), 'change', this.render);
-  },
-
   render: function () {
     this.$el.html(this.template);
     this.searchGamesBar();
+    this.addUserInfo();
+    this.attachSubviews();
 
     return this;
   },
@@ -32,6 +29,11 @@ GoodgamesApp.Views.Nav = Backbone.View.extend({
     event.preventDefault();
     var searchView = new GoodgamesApp.Views.UserSearchBar();
     this._swapSearch(searchView);
+  },
+
+  addUserInfo: function () {
+    var userInfo = new GoodgamesApp.Views.UserInfo();
+    this.addSubview('.nav-user-info', userInfo);
   },
 
   toProfile: function (event) {

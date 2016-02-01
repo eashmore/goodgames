@@ -3,6 +3,8 @@ GoodgamesApp.Views.UsersIndex = Backbone.CompositeView.extend({
   template: JST['users/index'],
 
   initialize: function () {
+    $('.nav-users').addClass("active");
+    
     this.collection.fetch({
       success: function() {
         this.collection = this.collection.sortBy(function (model) {

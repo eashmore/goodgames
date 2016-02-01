@@ -30,7 +30,7 @@
             id="dropdown-menu" data-toggle="dropdown" aria-expanded="true">
               <span class="caret"></span>
           </button>
-          
+
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-menu">
             <li role="presentation"><a class="search-games" role="menuitem"
               tabindex="-1" href="#">Search Games</a>
@@ -41,27 +41,8 @@
           </ul>
         </div>
       </li>
-
-      <li>
-        <a class="nav-profile profile-link" href="#">
-          <img class="nav-prof-pic"
-            src="<%= GoodgamesApp.currentUser.image().get('thumb_url') %>"
-          />
-        </a>
-      </li>
-
-
-      <li class="dropdown">
-        <a href="#" class="nav-dropdown dropdown-toggle"
-          data-toggle="dropdown" role="button" aria-expanded="false">
-          <%= CURRENT_USER %><span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li class="nav-profile"><a href="#">Profile</a></li>
-          <li class="divider"></li>
-          <li><a href="/session/new">Log Out</a></li>
-        </ul>
-      </li>
+      
+      <li class="nav-user-info"></li>
     </ul>
   </div>
 </nav>

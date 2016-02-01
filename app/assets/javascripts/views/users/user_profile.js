@@ -10,12 +10,11 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     window.scrollTo(0, 0);
+    $('.nav-profile').addClass("active");
 
     this.currentUser = options.currentUser;
-
     this.userCollection = new GoodgamesApp.Collections.Collections();
     this.userCollection.fetch();
-
     this.userWishlist = new GoodgamesApp.Collections.Wishlists();
     this.userWishlist.fetch();
 
