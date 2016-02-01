@@ -10,12 +10,12 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
   addResult: function () {
     this.searchResults.each(function (item) {
       var itemView = new GoodgamesApp.Views.SearchItem({ model: item });
-      this.addSubview('#results', itemView);
+      this.addSubview('.search-results', itemView);
     }.bind(this));
   },
 
   removeSubs: function () {
-    this.$el.find('#results').html('');
+    this.$el.find('.search-results').html('');
   },
 
   render: function () {
