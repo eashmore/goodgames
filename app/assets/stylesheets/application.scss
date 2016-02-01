@@ -22,7 +22,7 @@
 
 html>body {
   padding-top: 60px;
-  background: url("<%= asset_path("blue_body_bg.jpg") %>")
+  background: image-url("blue_body_bg.jpg")
     center top repeat-y #000000;
   background-color: black;
   color: white;
@@ -61,8 +61,8 @@ html>body {
   top: -50px;
 }
 
-//Home Page
-  //Games
+//Games
+  //Home Page
   .homepage-game {
     position: relative;
     height: 220px;
@@ -95,38 +95,7 @@ html>body {
     bottom: 50px;
   }
 
-  //Recomendation Feed
-  .rec-feed {
-    border-right: 2px gray solid;
-    height: 1050px;
-    right: 15px;
-  }
-
-  .feed-item {
-    position: relative;
-    margin: 5px;
-    width: 400px;
-    left: 50px;
-  }
-
-  .feed-prof-pic {
-    width: 40px;
-    height: 40px;
-    border: 2px #222223 solid;
-    border-radius: 25px;
-  }
-
-  .feed-text {
-    min-height: 40px;
-  }
-
-  .feed-hr {
-    margin-top: 5px;
-    margin-bottom: 0px;
-  }
-
-// Game Page
-  // Game Info
+  //Game Show Page
   .game-boxart {
     width: 355px;
     border: 1px black solid;
@@ -141,6 +110,55 @@ html>body {
     margin-right: 35px;
   }
 
+  //Game Thumbnails
+  .recommendations, .wishlist {
+    height: 295px;
+  }
+
+  .game-thumbnail {
+    margin-top: 10px;
+  }
+
+  .small-boxart {
+    opacity: 0.8;
+    box-shadow: 0px 0px 5px #98f5ff;
+    width: 125px;
+    max-height: 180px;
+  }
+
+  .small-boxart:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 15px #fff;
+  }
+
+  .small-boxart-buffer {
+    min-height: 240px;
+  }
+
+  .box-divider {
+    margin: 5px;
+    top: 5px;
+    position: relative;
+  }
+
+  .caption.game-title {
+    color: white;
+  }
+
+  .slick-slider {
+    border: 2px black solid;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  //Search Results
+  .game-search-results {
+    height: 225px;
+    width: 150px;
+    margin: 5px;
+  }
+
+// Review and Comments
   //Game Reviews
   .review-body {
     word-wrap: break-word;
@@ -168,8 +186,8 @@ html>body {
     border: 1px;
   }
 
-  //Review Form
-  .review-content {
+  //Review/Comment Form
+  .review-content, .comment-content {
     color: black;
   }
 
@@ -202,8 +220,15 @@ html>body {
     opacity: 0.8;
   }
 
-//User Profile
-  //User Info
+  //User Review List
+  .m-content.profile {
+    overflow: scroll;
+    top: 1em;
+    max-height: 50em;
+  }
+
+// Users
+  // Profile
   .prof-header {
     background: url(
       "http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1170/v1434738775/showcase_bg_bbiywa.png"
@@ -234,146 +259,115 @@ html>body {
     left: 58px;
   }
 
-  //Rank
-  .rank {
-    float: right;
-    margin-right: 50px;
+  // User Card
+  .user-card {
+    background: url(
+      "http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1145/v1434738775/showcase_bg_bbiywa.png"
+    );
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
   }
 
-  .profile-rank{
+  .user-card-info {
+    float: left;
+    margin-top: 20px;
+    margin-left: 25px;
+  }
+
+  .user-card-recommendations {
+    width: 90%;
+    font-size: 15px;
+    position: relative;
+    top: 20px;
+    left: 30px;
+  }
+
+  .card-recommendations {
+    font-size: 12px;
+  }
+
+  .user-card-avatar {
+    width: 100px;
+    height: 100px;
+    border: 3px #222223 solid;
+    border-radius: 3px;
+  }
+
+  .user-card-rank {
+    float: right;
+    position: relative;
+    bottom: 20px;
+    right: 40px;
+  }
+
+  .card-rank {
     border: 1px solid #212121;
     border-radius: 3px;
     background-color: #222223;
-    height: 200px;
-    width: 200px;
+    height: 175px;
     box-shadow: 1px 1px 0 #343944;
-    position: relative;
   }
 
-  .rank-image {
-    max-width: 125px;
-    max-height: 125px;
-  }
-
-  //Reviews
-  .m-content.profile {
-    overflow: scroll;
-    top: 1em;
-    max-height: 50em;
-  }
-
-  //Recommended Games/Wishlist
-    //Game Thumbnails
-    .recommendations, .wishlist {
-      height: 295px;
-    }
-
-    .game-thumbnail {
-      margin-top: 10px;
-    }
-
-    .small-boxart {
-      opacity: 0.8;
-      box-shadow: 0px 0px 5px #98f5ff;
-      width: 125px;
-      max-height: 180px;
-    }
-
-    .small-boxart:hover {
-      opacity: 1;
-      box-shadow: 0px 0px 15px #fff;
-    }
-
-    .small-boxart-buffer {
-      min-height: 240px;
-    }
-
-    .box-divider {
-      margin: 5px;
-      top: 5px;
-      position: relative;
-    }
-
-    .caption.game-title {
-      color: white;
-    }
-
-    .slick-slider {
-      border: 2px black solid;
-      border-radius: 4px;
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-  //Comments
-  .comment-content {
-    color: black;
-  }
-
-//Users Page
-.user-card {
-  background: url(
-    "http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1145/v1434738775/showcase_bg_bbiywa.png"
-  );
-  background-size: cover;
-  height: 300px;
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-.user-card-info {
-  float: left;
-  margin-top: 20px;
-  margin-left: 25px;
-}
-
-.user-card-recommendations {
-  width: 90%;
-  font-size: 15px;
-  position: relative;
-  top: 20px;
-  left: 30px;
-}
-
-.card-recommendations {
-  font-size: 12px;
-}
-
-.user-card-avatar {
-  width: 100px;
-  height: 100px;
-  border: 3px #222223 solid;
-  border-radius: 3px;
-}
-
-.user-card-rank {
+// Ranking
+.rank {
   float: right;
-  position: relative;
-  bottom: 20px;
-  right: 40px;
+  margin-right: 50px;
 }
 
-.card-rank {
+.profile-rank{
   border: 1px solid #212121;
   border-radius: 3px;
   background-color: #222223;
-  height: 175px;
+  height: 200px;
+  width: 200px;
   box-shadow: 1px 1px 0 #343944;
+  position: relative;
 }
 
-//Search Results
+.rank-image {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+//Recomendation Feed
+.rec-feed {
+  border-right: 2px gray solid;
+  height: 1050px;
+  right: 15px;
+}
+
+.feed-item {
+  position: relative;
+  margin: 5px;
+  width: 400px;
+  left: 50px;
+}
+
+.feed-prof-pic {
+  width: 40px;
+  height: 40px;
+  border: 2px #222223 solid;
+  border-radius: 25px;
+}
+
+.feed-text {
+  min-height: 40px;
+}
+
+.feed-hr {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+// Search Results
   //Loading Screen
   .loading-img {
     height: 150px;
     position: relative;
     left: 20px;
-  }
-
-  //Games
-  .game-search-results {
-    height: 225px;
-    width: 150px;
-    margin: 5px;
   }
 
 // navbar

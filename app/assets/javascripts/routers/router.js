@@ -8,9 +8,9 @@ GoodgamesApp.Routers.Router = Backbone.Router.extend({
     '': 'index',
     'user': 'showCurrentUserPage',
     'users': 'usersPage',
-    'users/?/:query': 'userSearch',
+    'users/search/:query': 'userSearch',
     'users/:id': 'showUserPage',
-    'games/search/?/:query': 'showSearchResults',
+    'games/search/:query': 'showSearchResults',
     'games/:id': 'showGame'
 
   },
