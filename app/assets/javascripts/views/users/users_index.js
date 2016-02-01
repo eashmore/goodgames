@@ -16,7 +16,7 @@ GoodgamesApp.Views.UsersIndex = Backbone.CompositeView.extend({
 
   addUser: function (user) {
     var userView = new GoodgamesApp.Views.UserItem({ model: user });
-    this.addSubview('#user-list', userView);
+    this.addSubview('.user-list', userView);
   },
 
   render: function () {

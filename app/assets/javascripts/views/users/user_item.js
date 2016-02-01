@@ -2,7 +2,7 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
   template: JST['users/item'],
 
   events: {
-    'click #to-user': 'toUser'
+    'click .username': 'toUser'
   },
 
   initialize: function () {
@@ -15,7 +15,8 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
       user: this.model,
       model: game,
     });
-    this.addSubview('#recs', recView);
+
+    this.addSubview('.card-recommendations', recView);
   },
 
   render: function () {
@@ -26,7 +27,7 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
       user: this.model,
       numberOfReviews: numberOfReviews
     });
-    
+
     this.$el.html(content);
     this.attachSubviews();
 

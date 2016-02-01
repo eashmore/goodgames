@@ -1,27 +1,23 @@
-<div class="panel panel-body css-panel user-item">
-  <div class="pull-right">
-    <h3>Reviews Written: <%= numberOfReviews %></h3>
-  </div>
-  <div class="pull-left text-center user-idx">
-    <a id="to-user" href="#">
-      <h3><strong><%= user.escape('username') %></strong></h3>
-      <img class="user-index-pic" src="<%= user.image().get('url') %>" />
+<div class="user-card">
+  <div class="user-card-info text-center">
+    <a class="username" href="#">
+      <h3 class="bold"><%= user.escape('username') %></h3>
+      <img class="user-card-avatar" src="<%= user.image().get('url') %>" />
     </a>
   </div>
 
-  <div class="user-idx-recs row">
-    <h5>User's Recommendations:</h5>
-    <div id="recs" class="">
-      <div class="col-xs-2 user-item-placehold">
+  <div class="user-card-recommendations bold">Recommendations:
+    <div class="card-recommendations"></div>
+  </div>
 
-      </div>
-    </div>
-    <div class="col-xs-2 text-center rank-item">
+  <div class="user-card-rank">
+    <h3>Reviews Written: <%= numberOfReviews %></h3>
+    <br>
 
-      <strong><%= user.rank().escape('name') %></strong>
-        <br><br>
-      <img class='user-item-rank' src="<%= user.rank().get('image_url') %>" />
-
+    <div class="card-rank text-center">
+      <div class="bold"><%= user.rank().escape('name') %></div>
+      <br>
+      <img class="rank-image" src="<%= user.rank().get('image_url') %>" />
     </div>
   </div>
 </div>
