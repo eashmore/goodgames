@@ -20,6 +20,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
       game.set({ id: this.model.id });
     }
 
+    this.mimicLoad();
     game.set(this.getAttributes(game));
     game.save({}, {
       success: function () {
@@ -30,22 +31,32 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   },
 
   getAttributes: function (game) {
+    var platforms = this.parsePlatforms();
+    var attrs = {
+      game: { id: this.model.get('id'),
+              name: this.model.get('name'),
+              deck: this.model.get('deck'),
+              boxart_url: this.model.get('image').small_url,
+              release_date: this.model.get('original_release_date') ?
+                this.model.get('original_release_date').slice(0, 10) :
+                this.model.get('expected_release_year'),
+              platforms: platforms
+            }
+    };
+
+    return attrs;
+  },
+
+  parsePlatforms: function () {
     var platforms = "";
     this.model.get('platforms').forEach(function (platform) {
       platforms += platform.name + "@@@";
     });
 
-    var attrs = { game: {
-      id: this.model.get('id'),
-      name: this.model.get('name'),
-      deck: this.model.get('deck'),
-      boxart_url: this.model.get('image').small_url,
-      release_date: this.model.get('original_release_date') ?
-        this.model.get('original_release_date').slice(0, 10) :
-        this.model.get('expected_release_year'),
-      platforms: platforms
-    }};
+    return platforms;
+  },
 
-    return attrs;
+  mimicLoad: function () {
+    $('.search-results-page').css('visibility', 'hidden');
   }
 });
