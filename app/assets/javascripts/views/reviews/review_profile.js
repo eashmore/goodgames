@@ -5,7 +5,7 @@ GoodgamesApp.Views.ReviewsProfile = Backbone.CompositeView.extend({
   events: {
     'click .close': 'remove',
     'click .m-backdrop': 'remove',
-    'click #game-name': 'remove'
+    'click .game-name': 'remove'
   },
 
   addClass: 'review-profile-index',

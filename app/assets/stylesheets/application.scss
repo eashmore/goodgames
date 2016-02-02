@@ -196,40 +196,37 @@ html>body {
     width: 100%;
   }
 
-  .m-content {
-    z-index: 100;
-    border-radius: 3px;
-    position: fixed;
-    margin-top: 3em;
-    left: 21%;
-    width: 60em;
-  }
-
-  .m-backdrop {
-    position: fixed;
-    background-color: rgba(20, 20, 20, .8);
+  .m-content.form {
     left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 50;
+    margin-top: 35px;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 
   button.close {
     color: #e12727;
-    opacity: 0.5;
+    opacity: 0.7;
   }
 
   button.close:hover {
     color: red;
-    opacity: 0.8;
+    opacity: 1.0;
   }
 
   //User Review List
   .m-content.profile {
-    overflow: scroll;
-    top: 1em;
-    max-height: 50em;
+    overflow-y: scroll;
+    max-height: 85%;
+    margin-top: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+  }
+
+  button.close.profile-reviews-close {
+    position: fixed;
+    z-index: 1000;
+    left: 84%;
   }
 
 // Users
@@ -462,6 +459,23 @@ nav.navbar {
   margin-right: 25px;
   position: relative;
   top: 8px;
+}
+
+//Modal
+.m-content {
+  z-index: 100;
+  border-radius: 3px;
+  position: fixed;
+}
+
+.m-backdrop {
+  position: fixed;
+  background-color: rgba(20, 20, 20, .8);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
 }
 
 //Other
