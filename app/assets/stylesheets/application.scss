@@ -115,10 +115,6 @@ html>body {
   }
 
   //Game Thumbnails
-  .recommendations, .wishlist {
-    height: 275px;
-  }
-
   .game-thumbnail {
     margin-top: 10px;
   }
@@ -135,10 +131,6 @@ html>body {
     box-shadow: 0px 0px 15px #fff;
   }
 
-  .small-boxart-buffer {
-    min-height: 230px;
-  }
-
   .box-divider {
     margin: 5px;
     top: 5px;
@@ -147,12 +139,6 @@ html>body {
 
   .caption.game-title {
     color: white;
-  }
-
-  .slick-slider {
-    border: 2px black solid;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.4);
   }
 
   //Search Results
@@ -190,7 +176,7 @@ html>body {
     border: 1px;
   }
 
-  //Review/Comment Form
+  //Review and Comment Form
   .review-content, .comment-content {
     color: black;
     width: 100%;
@@ -339,6 +325,48 @@ html>body {
 .rank-image {
   max-width: 125px;
   max-height: 125px;
+}
+
+//Recommendations and wishlist
+.recommendations, .wishlist {
+  height: 275px;
+}
+
+.small-boxart-buffer {
+  min-height: 230px;
+}
+
+.slick-slider {
+  border: 2px black solid;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+button.slick-next, button.slick-prev {
+  width: 25px;
+  height: 275px;
+  top: 8px;
+  border: 2px black solid;
+}
+
+button.slick-next, button.slick-next:focus {
+  border-radius: 0px 15px 15px 0px;
+  right: -30px;
+  background: #0B1119;
+}
+
+button.slick-prev, button.slick-prev:focus {
+  border-radius: 15px 0px 0px 15px;
+  background: #090D13;
+  left: -30px;
+}
+
+button.slick-next:hover, button.slick-prev:hover {
+  background: #233F59;
+}
+
+button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
+  background-color: transparent;
+  cursor: default;
 }
 
 //Recomendation Feed
