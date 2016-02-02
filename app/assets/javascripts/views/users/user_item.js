@@ -10,15 +10,6 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
     this.model.ownedGames().slice(0,4).forEach(this.addRec.bind(this));
   },
 
-  addRec: function (game) {
-    var recView = new GoodgamesApp.Views.CollectionItem({
-      user: this.model,
-      model: game,
-    });
-
-    this.addSubview('.card-recommendations', recView);
-  },
-
   render: function () {
     var numberOfReviews = this.model.reviews().where({
       commentable_type: 'Game'
@@ -27,11 +18,17 @@ GoodgamesApp.Views.UserItem = Backbone.CompositeView.extend({
       user: this.model,
       numberOfReviews: numberOfReviews
     });
-
     this.$el.html(content);
     this.attachSubviews();
-
     return this;
+  },
+
+  addRec: function (game) {
+    var recView = new GoodgamesApp.Views.CollectionItem({
+      user: this.model,
+      model: game,
+    });
+    this.addSubview('.card-recommendations', recView);
   },
 
   toUser: function (event) {

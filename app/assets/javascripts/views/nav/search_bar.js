@@ -15,8 +15,8 @@ GoodgamesApp.Views.SearchBar = Backbone.View.extend({
   search: function (event) {
     event.preventDefault();
     var query = this.$el.serializeJSON().query;
-    Backbone.history.navigate("games/search/" + query,
-      { trigger: true }
-    );
+    Backbone.history.navigate("games/search/" + query, {
+      trigger: true
+    });
   }
 });

@@ -15,7 +15,6 @@ GoodgamesApp.Views.CommentForm = Backbone.View.extend({
   render: function () {
     var content = this.template({ user: this.user });
     this.$el.html(content);
-
     return this;
   },
 
@@ -29,7 +28,7 @@ GoodgamesApp.Views.CommentForm = Backbone.View.extend({
         this.user.comments().add(comment);
         this.render();
       }.bind(this),
-      error: function (model,response) {
+      error: function (model, response) {
         this.$el.find('.errors').html(
           response.responseText.slice(1,-1).split(',').join('<br>')
         );

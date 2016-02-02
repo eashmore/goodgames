@@ -17,7 +17,7 @@ GoodgamesApp.Collections.Users = Backbone.Collection.extend({
     } else {
       user.fetch();
     }
+     
     return user;
   }
-
 });

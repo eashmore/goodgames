@@ -8,10 +8,11 @@ GoodgamesApp.Views.Rank = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ rank: this.model, numRevs: this.numReviews });
+    var content = this.template({
+      rank: this.model,
+      numRevs: this.numReviews
+    });
     this.$el.html(content);
-
     return this;
   }
-
 });

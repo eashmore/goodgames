@@ -5,5 +5,4 @@ GoodgamesApp.Collections.SearchResults = Backbone.Collection.extend({
   parse: function (response) {
     return response.results;
   }
-
 });

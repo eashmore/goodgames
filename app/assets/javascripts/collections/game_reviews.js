@@ -9,5 +9,4 @@ GoodgamesApp.Collections.GameReviews = Backbone.Collection.extend({
     this.total_pages = response.total_pages;
     return response.models;
   }
-
 });

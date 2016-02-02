@@ -10,22 +10,20 @@ GoodgamesApp.Views.CollectionFeedItem = Backbone.View.extend({
   render: function () {
     var content = this.template({ recommendation: this.model });
     this.$el.html(content);
-
     return this;
   },
 
   toUser: function (event) {
     event.preventDefault();
-    Backbone.history.navigate("/users/" + this.model.escape('user_id'),
-      { trigger: true }
-    );
+    Backbone.history.navigate("/users/" + this.model.escape('user_id'), {
+      trigger: true
+    });
   },
 
   toGame: function (event) {
     event.preventDefault();
-    Backbone.history.navigate("/games/" + this.model.escape('game_id'),
-      { trigger: true }
-    );
-
+    Backbone.history.navigate("/games/" + this.model.escape('game_id'), {
+      trigger: true
+    });
   }
 });

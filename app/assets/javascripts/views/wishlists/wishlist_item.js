@@ -16,11 +16,10 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
   render: function () {
     var content = this.template({ game: this.model });
     this.$el.html(content);
-
     if (this.user.id === this.currentUser.id) {
       this.$el.find('.delete-button').html(this.button);
     }
-
+    
     return this;
   },
 
@@ -30,7 +29,10 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
       user_id: this.currentUser.id,
       game_id: this.model.id
     })[0];
+    this.destroyCurrent(currentWishlist);
+  },
 
+  destroyCurrent: function (currentWishlist) {
     currentWishlist.destroy({
       success: function () {
         this.currentUser.wishlistGames().remove(this.model);

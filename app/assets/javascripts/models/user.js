@@ -20,7 +20,9 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
 
   wishlistGames: function () {
     if (!this._wishlistGames) {
-      this._wishlistGames = new GoodgamesApp.Collections.Games([], { user: this });
+      this._wishlistGames = new GoodgamesApp.Collections.Games([], {
+        user: this
+      });
     }
 
     return this._wishlistGames;

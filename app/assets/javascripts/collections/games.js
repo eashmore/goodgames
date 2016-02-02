@@ -12,12 +12,12 @@ GoodgamesApp.Collections.Games = Backbone.Collection.extend({
       game.fetch({
         success: function () {
           games.add(game);
-        },
+        }
       });
     } else {
       game.fetch();
     }
+    
     return game;
-  },
-
+  }
 });

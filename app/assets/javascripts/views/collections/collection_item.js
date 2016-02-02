@@ -15,9 +15,7 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
 
   render: function () {
     var content = this.template({ game: this.model });
-
     this.$el.html(content);
-
     if (this.currentUser && this.user.id === this.currentUser.id) {
       this.$el.find('.delete-button').html(this.button);
     }
@@ -31,7 +29,10 @@ GoodgamesApp.Views.CollectionItem = Backbone.View.extend({
       user_id: this.currentUser.id,
       game_id: this.model.id
     })[0];
+    this.destroyCurrent(currentCollection);
+  },
 
+  destroyCurrent: function (currentCollection) {
     currentCollection.destroy({
       success: function () {
         this.currentUser.ownedGames().remove(this.model);

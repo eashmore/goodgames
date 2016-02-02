@@ -23,7 +23,6 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.$el.html(this.template);
     this.attachSubviews();
     this.listenForScroll.call(this);
-
     return this;
   },
 
@@ -55,12 +54,13 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
   },
 
   setRank: function () {
-    var numReviews = GoodgamesApp.currentUser.reviews().where({
-      commentable_type: 'Game'
-    }).length + 1;
     ranks = new GoodgamesApp.Collections.Ranks();
     ranks.fetch({
       success: function () {
+        var numReviews = GoodgamesApp.currentUser.reviews().where({
+          commentable_type: 'Game'
+        }).length + 1;
+        
         ranks.slice(1).forEach(function (rank) {
           if (numReviews >= rank.escape('score')) {
             GoodgamesApp.currentUser.set({ rank_id: rank.id });
@@ -89,5 +89,4 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
       }
     }
   }
-
 });

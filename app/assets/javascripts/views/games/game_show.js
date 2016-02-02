@@ -11,9 +11,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
               game_id: this.model.id
             }
     });
-
     this.wishlist = new GoodgamesApp.Collections.Wishlists();
-
     this.addReviewIndex();
 
     this.listenTo(this.currentUser.wishlistGames(), 'add remove', this.render);
@@ -25,7 +23,6 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     'click .collection-button': 'addToCollection',
     'click .wishlist-button': 'addToWishlist',
     'click .remove-game': "removeFromWishlist"
-
   },
 
   render: function () {
@@ -34,12 +31,9 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       game: this.model,
       currentUser: this.currentUser
     });
-    
     this.$el.html(content);
-
     this.attachSubviews();
     this.$el.find(".average-score").rating();
-
     return this;
   },
 
@@ -48,7 +42,6 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
       collection: this.reviews,
       game: this.model
     });
-
     this.addSubview('.game-reviews', reviewView);
   },
 
@@ -57,7 +50,6 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     this.model.reviews().each(function (review) {
       totalPoints += review.get('score');
     });
-
     var reviewCount = this.model.reviews().length;
     var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
     if (!averageScore) {
@@ -102,17 +94,20 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     event.preventDefault();
     this.wishlist.fetch({
       success: function () {
-        var currentWishlist = this.wishlist.where({
-          game_id: this.model.id,
-          user_id: this.currentUser.id,
-        })[0];
-        currentWishlist.destroy({
-          success: function () {
-            this.currentUser.wishlistGames().remove(this.model);
-            this.render();
-          }.bind(this)
-        });
+        this.destroyWhishlistItem();
+      }.bind(this)
+    });
+  },
 
+  destroyWhishlistItem: function () {
+    var currentWishlist = this.wishlist.where({
+      game_id: this.model.id,
+      user_id: this.currentUser.id,
+    })[0];
+    currentWishlist.destroy({
+      success: function () {
+        this.currentUser.wishlistGames().remove(this.model);
+        this.render();
       }.bind(this)
     });
   }

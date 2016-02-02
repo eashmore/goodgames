@@ -14,17 +14,14 @@ GoodgamesApp.Views.ReviewsProfile = Backbone.CompositeView.extend({
     this.collection.forEach(this.addUserReview.bind(this));
   },
 
+  render: function () {
+    this.$el.html(this.template);
+    this.attachSubviews();
+    return this;
+  },
+
   addUserReview: function (review) {
     var itemView = new GoodgamesApp.Views.ReviewItem({ model: review });
     this.addSubview('.review-list', itemView, 'prepend');
-  },
-
-  render: function () {
-    this.$el.html(this.template);
-
-    this.attachSubviews();
-
-    return this;
   }
-
 });

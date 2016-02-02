@@ -16,15 +16,12 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
   render: function () {
     var content = this.template({ review: this.model, game_id: this.game.id });
     this.$el.html(content);
-
     this.$el.find(".review-score").rating();
-
     return this;
   },
 
   submit: function (event) {
     event.preventDefault();
-
     var attrs = this.$el.serializeJSON();
     this.model.set(attrs);
     this.model.save({}, {
@@ -38,6 +35,5 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
         );
       }.bind(this)
     });
-  },
-
+  }
 });

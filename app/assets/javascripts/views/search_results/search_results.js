@@ -7,6 +7,12 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
     this.listenTo(this.searchResults, 'reset', this.removeSubs);
   },
 
+  render: function () {
+    var loadingView = new GoodgamesApp.Views.Loading();
+    this.$el.html(loadingView.render().$el);
+    this.getSearchResults();
+  },
+
   addResult: function () {
     this.searchResults.each(function (item) {
       var itemView = new GoodgamesApp.Views.SearchItem({ model: item });
@@ -16,12 +22,6 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
 
   removeSubs: function () {
     this.$el.find('.search-results').html('');
-  },
-
-  render: function () {
-    var loadingView = new GoodgamesApp.Views.Loading();
-    this.$el.html(loadingView.render().$el);
-    this.getSearchResults();
   },
 
   getSearchResults: function () {
@@ -45,7 +45,6 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.addResult();
     this.attachSubviews();
-
     return this;
   }
 });

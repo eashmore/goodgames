@@ -17,7 +17,7 @@ GoodgamesApp.Collections.Reviews = Backbone.Collection.extend({
     } else {
       review.fetch();
     }
+    
     return review;
   }
-
 });

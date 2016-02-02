@@ -9,16 +9,14 @@ GoodgamesApp.Views.UserSearchBar = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template);
-
     return this;
   },
 
   search: function (event) {
     event.preventDefault();
     var query = this.$el.serializeJSON().query;
-
-    Backbone.history.navigate('/users/search/' + query,
-      { trigger: true }
-    );
+    Backbone.history.navigate('/users/search/' + query, {
+      trigger: true
+    });
   }
 });

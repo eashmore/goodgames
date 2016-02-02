@@ -15,7 +15,6 @@ GoodgamesApp.Views.Nav = Backbone.CompositeView.extend({
     this.searchGamesBar();
     this.addUserInfo();
     this.attachSubviews();
-
     return this;
   },
 

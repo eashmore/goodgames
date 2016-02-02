@@ -6,7 +6,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     $('.nav-games').addClass("active");
-
     this.currentUser = options.currentUser;
     this.listenTo(this.collection, 'sync', this.render);
     this.addFeed();
@@ -19,7 +18,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
       this.addGames();
     }
     this.attachSubviews();
-
     return this;
   },
 
@@ -28,7 +26,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     var newReleases = [41484, 45577, 46582, 47342, 49073];
     var classics = [12572, 10299, 18115, 8307, 8870];
     var highestRated = this.getHighestRated();
-
     this.addGame(popular, '#popular');
     this.addGame(newReleases, '#new');
     this.addGame(highestRated, '#best');
@@ -48,11 +45,9 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     var sortedGames = GoodgamesApp.games.sortBy(function (game) {
       return -game.escape('score');
     });
-
     sortedGames.slice(0, 5).forEach(function (game) {
       highestRated.push(game.id);
     }.bind(this));
-
     return highestRated;
   },
 

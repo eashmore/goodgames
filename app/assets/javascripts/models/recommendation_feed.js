@@ -19,11 +19,10 @@ GoodgamesApp.Models.RecommendationFeed = Backbone.Model.extend({
         url: "assets/user.png",
         thumb_url: "assets/user.png",
         user_id: response.id
-      }, {parse: true });
+      }, { parse: true });
       delete response.image;
     }
-
+    
     return response;
   }
-
 });

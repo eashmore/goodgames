@@ -14,8 +14,8 @@ GoodgamesApp.Views.CommentItem = Backbone.View.extend({
 
   toProfile: function (event) {
     event.preventDefault();
-    Backbone.history.navigate('users/' + this.model.escape('user_id'),
-      { trigger: true }
-    );
-  },
+    Backbone.history.navigate('users/' + this.model.escape('user_id'), {
+      trigger: true
+    });
+  }
 });

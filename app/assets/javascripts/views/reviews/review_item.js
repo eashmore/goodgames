@@ -15,25 +15,23 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   render: function () {
     var content = this.template({ review: this.model, game: this.game });
     this.$el.html(content);
-
     this.$el.find(".game-score").rating();
-
     return this;
   },
 
   toProfile: function (event) {
     event.preventDefault();
-    Backbone.history.navigate('users/' + this.model.escape('user_id'),
-      { trigger: true }
-    );
+    Backbone.history.navigate('users/' + this.model.escape('user_id'), {
+      trigger: true
+    });
   },
 
   toGame: function (event) {
     event.preventDefault();
     $('.review-profile-index').remove();
-    Backbone.history.navigate('games/' + this.game.id,
-      { trigger: true }
-    );
+    Backbone.history.navigate('games/' + this.game.id, {
+      trigger: true
+    });
   },
 
   addForm: function (event) {
@@ -43,7 +41,6 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
       collection: this.game.reviews(),
       game: this.game
     });
-
     $('body').prepend(formView.render().$el);
-  },
+  }
 });
