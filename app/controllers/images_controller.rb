@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-
   def create
     @image = Image.new(image_params)
     @image.user_id = current_user.id
@@ -29,6 +28,7 @@ class ImagesController < ApplicationController
   end
 
   private
+
   def image_params
     params.require(:image).permit(:url, :thumb_url)
   end

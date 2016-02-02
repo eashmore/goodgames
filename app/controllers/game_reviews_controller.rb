@@ -1,27 +1,29 @@
 class GameReviewsController < ApplicationController
   def index
-    @reviews = Game.find(params[:game_id]).reviews.where({
-      commentable_type: 'Game'
-     }).order('created_at').reverse_order.page(params[:page]).per(5)
+    @game_reviews = Game.find(params[:game_id]).reviews
+                        .where(commentable_type: 'Game').order('created_at')
+                        .reverse_order.page(params[:page]).per(5)
     render json: {
-        :models => @reviews,
-        :page => params[:page],
-        :total_pages => @reviews.total_pages
+      models: @game_reviews,
+      page: params[:page],
+      total_pages: @game_reviews.total_pages
     }
   end
 
   def update
-    @review = Review.find(params[:id])
-    if @review.update(review_params)
-      render json: @review
+    @game_review = Review.find(params[:id])
+    if @game_review.update(review_params)
+      render json: @game_review
     else
-      render json: @review.errors.full_messages, status: :unprocessable_entity
+      render json: @game_review.errors.full_messages,
+                   status: :unprocessable_entity
     end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:body, :score, :commentable_id, :commentable_type);
+    params.require(:review).permit(:body, :score, :commentable_id,
+                                   :commentable_type)
   end
 end

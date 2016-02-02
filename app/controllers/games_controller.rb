@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    Cloudinary::Uploader.upload(@game.boxart_url, :public_id => @game.id)
+    Cloudinary::Uploader.upload(@game.boxart_url, public_id: @game.id)
     @game.boxart_url =
       "http://res.cloudinary.com/dqucbuno8/image/upload/#{@game.id}.jpg"
     @game.thumbnail_url =

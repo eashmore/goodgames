@@ -1,5 +1,4 @@
 class RanksController < ApplicationController
-
   def index
     @ranks = Rank.all
     render json: @ranks
@@ -18,6 +17,7 @@ class RanksController < ApplicationController
   end
 
   private
+
   def rank_params
     params.require(:rank).permit(:score, :name, :image_url)
   end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:reviews).includes(:owned_games).includes(:image).includes(:rank).all
+    @users = User.includes(:reviews).includes(:owned_games).includes(:image)
+                 .includes(:rank).all
     render :index
   end
 
@@ -38,7 +39,9 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:password, :username, :email, :commentable_id, :commentable_type, :rank_id)
+    params.require(:user).permit(:password, :username, :email, :commentable_id,
+                                 :commentable_type, :rank_id)
   end
 end

@@ -1,5 +1,4 @@
 class CollectionsController < ApplicationController
-
   def index
     @collections = Collection.all
     render json: @collections
@@ -10,7 +9,8 @@ class CollectionsController < ApplicationController
     if @collection.save
       render json: @collection
     else
-      render json: @collection.errors.full_messages, status: :unprocessable_entity
+      render json: @collection.errors.full_messages,
+                   status: :unprocessable_entity
     end
   end
 
@@ -21,7 +21,9 @@ class CollectionsController < ApplicationController
   end
 
   private
+
   def collection_params
-    params.require(:collection).permit(:user_id, :game_id, :game_name, :user_name)
+    params.require(:collection).permit(:user_id, :game_id,
+                                       :game_name, :user_name)
   end
 end
