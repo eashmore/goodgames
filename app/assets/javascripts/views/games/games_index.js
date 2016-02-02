@@ -4,7 +4,7 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
 
   className: 'container-fluid',
 
-  initialize: function(options) {
+  initialize: function (options) {
     $('.nav-games').addClass("active");
 
     this.currentUser = options.currentUser;
@@ -12,7 +12,7 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     this.addFeed();
   },
 
-  render: function() {
+  render: function () {
     var content = this.template();
     this.$el.html(content);
     if (this.collection.length) {
@@ -23,7 +23,7 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  addGames: function() {
+  addGames: function () {
     var popular = [36765, 36113, 46569, 35573, 24024];
     var newReleases = [41484, 45577, 46582, 47342, 49073];
     var classics = [12572, 10299, 18115, 8307, 8870];
@@ -35,7 +35,7 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     this.addGame(classics, '#old');
   },
 
-  addGame: function(array, index) {
+  addGame: function (array, index) {
     array.forEach(function (game_id) {
       var game = GoodgamesApp.games.where({ id: game_id })[0];
       var gameView = new GoodgamesApp.Views.GameItem({ model: game });
@@ -43,20 +43,20 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  getHighestRated: function() {
+  getHighestRated: function () {
     var highestRated = [];
     var sortedGames = GoodgamesApp.games.sortBy(function (game) {
       return -game.escape('score');
     });
 
-    sortedGames.slice(0, 5).forEach(function(game) {
+    sortedGames.slice(0, 5).forEach(function (game) {
       highestRated.push(game.id);
     }.bind(this));
 
     return highestRated;
   },
 
-  addFeed: function() {
+  addFeed: function () {
     var recFeedView = new GoodgamesApp.Views.CollectionFeed();
     this.addSubview('#recommendation-feed', recFeedView);
   }

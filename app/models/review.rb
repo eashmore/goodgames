@@ -4,5 +4,4 @@ class Review < ActiveRecord::Base
 
   validates :body, :score, :user, presence: true
   validates :score, numericality: { greater_than: 0, less_than: 6 }
-
 end

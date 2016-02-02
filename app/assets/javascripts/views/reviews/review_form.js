@@ -9,7 +9,7 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     'click button': 'submit'
   },
 
-  initialize: function(options) {
+  initialize: function (options) {
     this.game = options.game;
   },
 

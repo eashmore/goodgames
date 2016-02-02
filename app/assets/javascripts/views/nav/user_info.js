@@ -5,12 +5,12 @@ GoodgamesApp.Views.UserInfo = Backbone.CompositeView.extend({
 
   className: 'nav navbar-nav navbar-right',
 
-  initialize: function() {
+  initialize: function () {
     this.listenTo(GoodgamesApp.currentUser, 'sync', this.render);
     this.listenTo(GoodgamesApp.currentUser.image(), 'change', this.render);
   },
 
-  render: function() {
+  render: function () {
     this.$el.html(this.template);
 
     return this;

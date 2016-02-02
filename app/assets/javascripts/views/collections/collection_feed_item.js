@@ -14,7 +14,7 @@ GoodgamesApp.Views.CollectionFeedItem = Backbone.View.extend({
     return this;
   },
 
-  toUser: function(event) {
+  toUser: function (event) {
     event.preventDefault();
     Backbone.history.navigate("/users/" + this.model.escape('user_id'),
       { trigger: true }

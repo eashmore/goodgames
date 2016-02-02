@@ -3,7 +3,7 @@ window.GoodgamesApp = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
+  initialize: function () {
     GoodgamesApp.games = new GoodgamesApp.Collections.Games();
     GoodgamesApp.games.fetch();
 

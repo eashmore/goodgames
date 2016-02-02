@@ -57,8 +57,8 @@
             }
             return parseFloat(options[vattr]);
         },
-        listenClick: function($el, callback) {
-            $el.on('click touchstart', function(e) {
+        listenClick: function ($el, callback) {
+            $el.on('click touchstart', function (e) {
                 e.stopPropagation();
                 e.preventDefault();
                 if (e.handled !== true) {
@@ -82,7 +82,7 @@
         listen: function () {
             var self = this, pos, out;
             self.initTouch();
-            self.listenClick(self.$rating, function(e) {
+            self.listenClick(self.$rating, function (e) {
                 if (self.inactive) {
                     return false;
                 }

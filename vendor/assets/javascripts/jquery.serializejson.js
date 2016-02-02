@@ -44,24 +44,24 @@
       parseBooleans: false, // convert "true", "false" to true, false
       parseNulls: false, // convert "null" to null
       parseAll: false, // all of the above
-      parseWithFunction: null, // to use custom parser, a function like: function(val){ return parsed_val; }
+      parseWithFunction: null, // to use custom parser, a function like: function (val){ return parsed_val; }
 
       customTypes: {}, // override defaultTypes
       defaultTypes: {
-        "string":  function(str) { return String(str); },
-        "number":  function(str) { return Number(str); },
-        "boolean": function(str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1; },
-        "null":    function(str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1 ? str : null; },
-        "array":   function(str) { return JSON.parse(str); },
-        "object":  function(str) { return JSON.parse(str); },
-        "auto":    function(str) { return $.serializeJSON.parseValue(str, null, {parseNumbers: true, parseBooleans: true, parseNulls: true}); } // try again with something like "parseAll"
+        "string":  function (str) { return String(str); },
+        "number":  function (str) { return Number(str); },
+        "boolean": function (str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1; },
+        "null":    function (str) { var falses = ["false", "null", "undefined", "", "0"]; return falses.indexOf(str) === -1 ? str : null; },
+        "array":   function (str) { return JSON.parse(str); },
+        "object":  function (str) { return JSON.parse(str); },
+        "auto":    function (str) { return $.serializeJSON.parseValue(str, null, {parseNumbers: true, parseBooleans: true, parseNulls: true}); } // try again with something like "parseAll"
       },
 
       useIntKeysAsArrayIndex: false // name="foo[2]" value="v" => {foo: [null, null, "v"]}, instead of {foo: ["2": "v"]}
     },
 
     // Merge option defaults into the options
-    setupOpts: function(options) {
+    setupOpts: function (options) {
       var opt, validOpts, defaultOptions, optWithDefault, parseAll, f;
       f = $.serializeJSON;
 
@@ -77,7 +77,7 @@
       }
 
       // Helper to get the default value for this option if none is specified by the user
-      optWithDefault = function(key) { return (options[key] !== false) && (options[key] !== '') && (options[key] || defaultOptions[key]); };
+      optWithDefault = function (key) { return (options[key] !== false) && (options[key] !== '') && (options[key] || defaultOptions[key]); };
 
       // Return computed options (opts to be used in the rest of the script)
       parseAll = optWithDefault('parseAll');
@@ -96,7 +96,7 @@
     },
 
     // Given a string, apply the type or the relevant "parse" options, to return the parsed value
-    parseValue: function(str, type, opts) {
+    parseValue: function (str, type, opts) {
       var typeFunction, f;
       f = $.serializeJSON;
 
@@ -113,12 +113,12 @@
       return str;
     },
 
-    isObject:          function(obj) { return obj === Object(obj); }, // is it an Object?
-    isUndefined:       function(obj) { return obj === void 0; }, // safe check for undefined values
-    isValidArrayIndex: function(val) { return /^[0-9]+$/.test(String(val)); }, // 1,2,3,4 ... are valid array indexes
-    isNumeric:         function(obj) { return obj - parseFloat(obj) >= 0; }, // taken from jQuery.isNumeric implementation. Not using jQuery.isNumeric to support old jQuery and Zepto versions
+    isObject:          function (obj) { return obj === Object(obj); }, // is it an Object?
+    isUndefined:       function (obj) { return obj === void 0; }, // safe check for undefined values
+    isValidArrayIndex: function (val) { return /^[0-9]+$/.test(String(val)); }, // 1,2,3,4 ... are valid array indexes
+    isNumeric:         function (obj) { return obj - parseFloat(obj) >= 0; }, // taken from jQuery.isNumeric implementation. Not using jQuery.isNumeric to support old jQuery and Zepto versions
 
-    optionKeys: function(obj) { if (Object.keys) { return Object.keys(obj); } else { var key, keys = []; for(key in obj){ keys.push(key); } return keys;} }, // polyfill Object.keys to get option keys in IE<9
+    optionKeys: function (obj) { if (Object.keys) { return Object.keys(obj); } else { var key, keys = []; for(key in obj){ keys.push(key); } return keys;} }, // polyfill Object.keys to get option keys in IE<9
 
     // Split the input name in programatically readable keys.
     // The last element is always the type (default "_").
@@ -132,7 +132,7 @@
     // "foo[inn][arr][0]" => ['foo', 'inn', 'arr', '0', '_']
     // "arr[][val]"       => ['arr', '', 'val', '_']
     // "arr[][val]:null"  => ['arr', '', 'val', 'null']
-    splitInputNameIntoKeysArray: function(name, opts) {
+    splitInputNameIntoKeysArray: function (name, opts) {
       var keys, nameWithoutType, type, _ref, f;
       f = $.serializeJSON;
       _ref = f.extractTypeFromInputName(name, opts); nameWithoutType = _ref[0]; type = _ref[1];
@@ -147,7 +147,7 @@
     // "foo"              =>  ["foo",      '_']
     // "foo:boolean"      =>  ["foo",      'boolean']
     // "foo[bar]:null"    =>  ["foo[bar]", 'null']
-    extractTypeFromInputName: function(name, opts) {
+    extractTypeFromInputName: function (name, opts) {
       var match, validTypes, f;
       if (match = name.match(/(.*):([^:]+)$/)){
         f = $.serializeJSON;

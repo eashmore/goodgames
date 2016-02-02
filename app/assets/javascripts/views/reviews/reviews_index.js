@@ -19,6 +19,14 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addReview.bind(this));
   },
 
+  render: function () {
+    this.$el.html(this.template);
+    this.attachSubviews();
+    this.listenForScroll.call(this);
+
+    return this;
+  },
+
   addReview: function (review) {
     var itemView = new GoodgamesApp.Views.ReviewItem({
       model: review,
@@ -35,7 +43,6 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.addSubview('.game-reviews', itemView, 'prepend');
   },
 
-
   addForm: function (event) {
     event.preventDefault();
     var newReview = new GoodgamesApp.Models.Review();
@@ -47,14 +54,6 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     $('body').prepend(formView.render().$el);
   },
 
-  render: function () {
-    this.$el.html(this.template);
-    this.attachSubviews();
-    this.listenForScroll.call(this);
-
-    return this;
-  },
-
   setRank: function () {
     var numReviews = GoodgamesApp.currentUser.reviews().where({
       commentable_type: 'Game'
@@ -62,7 +61,7 @@ GoodgamesApp.Views.ReviewsIndex = Backbone.CompositeView.extend({
     ranks = new GoodgamesApp.Collections.Ranks();
     ranks.fetch({
       success: function () {
-        ranks.slice(1).forEach(function(rank) {
+        ranks.slice(1).forEach(function (rank) {
           if (numReviews >= rank.escape('score')) {
             GoodgamesApp.currentUser.set({ rank_id: rank.id });
             GoodgamesApp.currentUser.save();

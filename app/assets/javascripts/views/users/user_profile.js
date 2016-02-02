@@ -8,7 +8,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     'click .see-reviews': 'addReviewIndex'
   },
 
-  initialize: function(options) {
+  initialize: function (options) {
     window.scrollTo(0, 0);
 
     this.currentUser = options.currentUser;
@@ -33,7 +33,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.model.wishlistGames().each(this.addWishlistGame.bind(this));
   },
 
-  render: function() {
+  render: function () {
     var content;
     if (this.model === this.currentUser) {
       content = this.template({ user: this.model });
@@ -55,7 +55,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.slickSlider();
   },
 
-  addOwnedGame: function(game) {
+  addOwnedGame: function (game) {
     var collectionView = new GoodgamesApp.Views.CollectionItem({
       user: this.model,
       collection: this.userCollection,
@@ -65,7 +65,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addSubview('.recommendations', collectionView);
   },
 
-  addWishlistGame: function(game) {
+  addWishlistGame: function (game) {
     var wishlistView = new GoodgamesApp.Views.WishlistItem({
       user: this.model,
       collection: this.userWishlist,
@@ -75,26 +75,26 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addSubview('.wishlist', wishlistView);
   },
 
-  addCommentsIndex: function() {
+  addCommentsIndex: function () {
     var commentView = new GoodgamesApp.Views.CommentIndex({ user: this.model });
     this.addSubview('.comment-index', commentView);
   },
 
-  addPic: function() {
+  addPic: function () {
     var picView = new GoodgamesApp.Views.ImagesShow({ model: this.model });
     this.addSubview('.profile-pic', picView);
   },
 
-  upload: function(event){
+  upload: function (event){
     event.preventDefault();
-    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result){
+    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result){
       var data = result[0];
       this.model.image().set({url: data.url, thumb_url: data.thumbnail_url});
       this.model.image().save();
     }.bind(this));
   },
 
-  addReviewIndex: function(event) {
+  addReviewIndex: function (event) {
     event.preventDefault();
     var reviewsView = new GoodgamesApp.Views.ReviewsProfile({
       collection: this.model.reviews().where({ commentable_type: 'Game'}),
@@ -105,7 +105,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     }
   },
 
-  addRank: function() {
+  addRank: function () {
     var rankView = new GoodgamesApp.Views.Rank({
       model: this.model.rank(),
       user: this.model
@@ -113,7 +113,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addSubview('.rank', rankView);
   },
 
-  slickSlider: function() {
+  slickSlider: function () {
     $('.slider').slick({
       dots: true,
       infinite: false,

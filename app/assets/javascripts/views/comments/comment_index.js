@@ -11,7 +11,14 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
     });
     this.addForm();
 
-    this.listenTo(this.comments, 'sync', this.attachComments);
+    setTimeout(function () {
+      this.listenTo(this.user.comments(), 'add', this.addNewComment);
+    }.bind(this), 1000);
+
+    this.listenTo(this.comments, 'add', this.addComment);
+    this.listenTo(this.comments, 'change', this.render);
+
+    this.comments.each(this.addComment.bind(this));
   },
 
   render: function () {
@@ -22,13 +29,6 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  attachComments: function() {
-    this.listenTo(this.comments, 'add', this.addNewComment);
-
-    this.comments.each(this.addComment.bind(this));
-    this.render();
-  },
-
   addComment: function (comment) {
     var commentView = new GoodgamesApp.Views.CommentItem({ model: comment });
     this.addSubview('.comment-list', commentView);
@@ -37,7 +37,6 @@ GoodgamesApp.Views.CommentIndex = Backbone.CompositeView.extend({
   addNewComment: function (comment) {
     var commentView = new GoodgamesApp.Views.CommentItem({ model: comment });
     this.addSubview('.comment-list', commentView, 'prepend');
-    this.render();
   },
 
   addForm: function () {

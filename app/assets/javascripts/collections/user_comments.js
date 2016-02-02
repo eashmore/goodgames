@@ -4,7 +4,7 @@ GoodgamesApp.Collections.UserComments = Backbone.Collection.extend({
 
   url: '/user_comments',
 
-  parse: function(response) {
+  parse: function (response) {
     this.page = response.page;
     this.total_pages = response.total_pages;
     return response.models;

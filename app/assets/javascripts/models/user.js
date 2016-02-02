@@ -91,5 +91,4 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
 
     return response;
   }
-
 });

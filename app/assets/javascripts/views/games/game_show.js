@@ -107,7 +107,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
           user_id: this.currentUser.id,
         })[0];
         currentWishlist.destroy({
-          success: function() {
+          success: function () {
             this.currentUser.wishlistGames().remove(this.model);
             this.render();
           }.bind(this)

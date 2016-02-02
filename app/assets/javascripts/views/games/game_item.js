@@ -2,7 +2,7 @@ GoodgamesApp.Views.GameItem = Backbone.View.extend({
 
   template: JST['games/index_item'],
 
-  render: function() {
+  render: function () {
     var content = this.template({ game: this.model });
     this.$el.html(content);
 

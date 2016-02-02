@@ -6,7 +6,7 @@ GoodgamesApp.Views.UsersIndex = Backbone.CompositeView.extend({
     $('.nav-users').addClass("active");
 
     this.collection.fetch({
-      success: function() {
+      success: function () {
         this.collection = this.collection.sortBy(function (model) {
           return -model.reviews().where({ commentable_type: 'Game' }).length;
         });

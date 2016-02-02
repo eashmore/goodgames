@@ -32,7 +32,7 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
     })[0];
 
     currentWishlist.destroy({
-      success: function() {
+      success: function () {
         this.currentUser.wishlistGames().remove(this.model);
         this.remove();
       }.bind(this)
