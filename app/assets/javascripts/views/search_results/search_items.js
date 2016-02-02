@@ -3,7 +3,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   template: JST['search_results/item'],
 
   events: {
-    'click .game-thumb-search': 'toShow'
+    'click .game-search-results': 'toShow'
   },
 
   render: function () {
@@ -45,6 +45,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
         this.model.get('expected_release_year'),
       platforms: platforms
     }};
+
     return attrs;
   }
 });
