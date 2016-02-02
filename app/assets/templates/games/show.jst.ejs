@@ -3,12 +3,14 @@
     <div class="game-show-left-side">
       <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
 
-      <div class="game-score bold">
-        Average Score:
+      <div class="game-score">
         <% if (!game.get('score')) { %>
-          Be the first to review <%= game.escape('name') %>!
+          Be the first to review 
+          <span class="bold"><%= game.escape('name') %>!</span>
         <% } else { %>
-          <%= game.escape('score') %> / 5
+          <span class="bold">
+            Average Score: <%= game.escape('score') %> / 5
+          </span>
         <% } %>
 
         <input type="number" class="average-score rating" disabled="true"

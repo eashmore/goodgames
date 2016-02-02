@@ -88,7 +88,7 @@ html>body {
   .homepage-avg-score {
     position: relative;
     z-index: -100;
-    bottom: 50px;
+    bottom: 40px;
   }
 
   //Game Show Page
@@ -103,11 +103,16 @@ html>body {
 
   .game-show-left-side {
     float: left;
+    width: 400px;
+  }
+
+  .game-score {
+    margin-left: 10px;
+    width: 360px;
   }
 
   .wishlist-button {
     float: right;
-    margin-right: 30px;
   }
 
   //Game Thumbnails
@@ -173,6 +178,9 @@ html>body {
   }
 
   //Review and Comment Form
+  .btn-compose {
+    margin-left: 10px;
+  }
   .review-content, .comment-content {
     color: black;
     width: 100%;

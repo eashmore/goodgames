@@ -6,30 +6,12 @@
 
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
-
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
   <link rel="stylesheet" href="/assets/slick-theme.css" media="all"  type="text/css" />
-
   <link rel="stylesheet" href="/assets/star-rating.min.scss" media="all" type="text/css" />
 
-  <script type="text/javascript" charset="utf-8">
-    window.GIANTBOMB = {
-      api_key: '<%= ENV['giantbomb_api_key'] %>'
-    };
-  </script>
-
-  <script type="text/javascript" charset="utf-8">
-    window.CLOUDINARY_OPTIONS = {
-      cloud_name: "<%=ENV['CLOUD_NAME']%>",
-      upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
-    };
-  </script>
-
-  <script async defer src="/assets/star-rating.js" type="text/javascript"></script>
-  <script async defer src="https://widget.cloudinary.com/global/all.js" type="text/javascript" charset="utf-8"></script>
   <%= javascript_include_tag 'application' %>
 </head>
 
@@ -45,6 +27,21 @@
 
   <%= yield %>
 
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    window.GIANTBOMB = {
+      api_key: '<%= ENV['giantbomb_api_key'] %>'
+    };
+  </script>
+
+  <script type="text/javascript" charset="utf-8">
+    window.CLOUDINARY_OPTIONS = {
+      cloud_name: "<%=ENV['CLOUD_NAME']%>",
+      upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
+    };
+  </script>
+
+  <script defer src="/assets/star-rating.js" type="text/javascript"></script>
+  <script async type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+  <script async src="https://widget.cloudinary.com/global/all.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
