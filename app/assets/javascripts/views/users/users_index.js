@@ -4,7 +4,7 @@ GoodgamesApp.Views.UsersIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     $('.nav-users').addClass("active");
-    
+
     this.collection.fetch({
       success: function() {
         this.collection = this.collection.sortBy(function (model) {
@@ -18,7 +18,7 @@ GoodgamesApp.Views.UsersIndex = Backbone.CompositeView.extend({
 
   addUser: function (user) {
     var userView = new GoodgamesApp.Views.UserItem({ model: user });
-    this.addSubview('.user-list', userView);
+    this.addSubview('#top-submitter-list', userView);
   },
 
   render: function () {

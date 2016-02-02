@@ -2,9 +2,11 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
 
   template: JST['games/index'],
 
+  className: 'container-fluid',
+
   initialize: function (options) {
     $('.nav-games').addClass("active");
-    
+
     this.currentUser = options.currentUser;
     this.highestRated = [26839, 22420, 1539, 15473, 2600];
     this.listenTo(this.collection, 'sync', this.render);
@@ -50,6 +52,6 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
 
   addFeed: function () {
     var recFeedView = new GoodgamesApp.Views.CollectionFeed();
-    this.addSubview('.rec-feed', recFeedView);
+    this.addSubview('#recommendation-feed', recFeedView);
   }
 });

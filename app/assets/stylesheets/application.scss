@@ -218,7 +218,7 @@ html>body {
 
 // Users
   // Profile
-  .prof-header {
+  .profile-header {
     background: url(
       "http://res.cloudinary.com/dqucbuno8/image/upload/c_fit,w_1170/v1434738775/showcase_bg_bbiywa.png"
     );
@@ -370,14 +370,14 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
 }
 
 //Recomendation Feed
-.rec-feed {
+#recommendation-feed {
   border-right: 2px gray solid;
   height: 1175px;
   position: relative;
   right: 6px;
 }
 
-.rec-list {
+.feed-list {
   margin-top: 10px;
 }
 

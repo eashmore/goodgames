@@ -45,8 +45,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     if (!this.model.ownedGames().length) {
-      this.$el.find('.recommendations')
-        .html("No games have been recommended!");
+      this.$el.find('.recommendations').html("No games have been recommended!");
     }
 
     if (!this.model.wishlistGames().length) {
