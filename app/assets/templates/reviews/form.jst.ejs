@@ -3,7 +3,11 @@
 
   <div class="panel panel-default css-panel">
     <div class="panel-heading css-panel-head">
-      <button class="close pull-right">&times;</button>
+      <button class="close pull-right">
+        <i class="fa fa-remove"></i>
+      </button>
+      
+      <h4>Score:</h4>
       <input class="review-score" type="number" name="review[score]"
              class="rating" min=0 max=5 step=1 data-size="sm"
       >
@@ -24,6 +28,7 @@
 
     <div class="panel-footer css-panel-foot">
       <button class="compose btn btn-default btn-success" type="submit">
+        <i class="fa fa-check"></i>
         Submit Review
       </button>
     </div>

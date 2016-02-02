@@ -19,22 +19,26 @@
         <br>
 
         <% if (!currentUser.ownedGames().where({id: this.model.id}).length) {%>
-          <button class="collection-button btn btn-default btn-warning pull-left">
-            Recommend This Game
+          <button class="collection-button btn btn-default btn-primary pull-left">
+            <i class="fa fa-heart fa-lg"></i>
+            Recommend
           </button>
         <% } else { %>
-          <button class="collection-button btn btn-danger btn-disabled pull-left">
+          <button class="collection-button btn btn-warning btn-disabled pull-left">
+            <i class="fa fa-heart fa-lg"></i>
             Recommended
           </button>
         <% } %>
 
         <% if (!currentUser.wishlistGames().where({id: this.model.id}).length) {%>
-          <button class="wishlist-button btn btn-warning btn-default">
-              Add to My Wishlist
+          <button class="wishlist-button btn btn-primary btn-default">
+            <i class="fa fa-list fa-lg"></i>
+            Add to Wishlist
           </button>
         <% } else { %>
-          <button class="remove-game btn btn-default btn-danger">
-              Remove from Wishlist
+          <button class="wishlist-button remove-game btn btn-default btn-danger">
+            <i class="fa fa-list fa-lg"></i>
+            Remove from Wishlist
           </button>
         <% } %>
       </div>
@@ -47,7 +51,7 @@
 
       <span class="bold">Release Date: </span><%= game.escape('release_date') %>
       <br><br>
-      
+
       <span class="bold">Available Platform(s): </span>
       <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
         <br>
