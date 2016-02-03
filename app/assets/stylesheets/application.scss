@@ -64,6 +64,7 @@ html>body {
     height: 220px;
     width: 150px;
     margin: 10px;
+    margin-bottom: 0px;
   }
 
   .homepage-boxart {
@@ -375,20 +376,26 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
 
 //Recomendation Feed
 #recommendation-feed {
-  border-right: 2px gray solid;
+  // border-right: 2px gray solid;
   height: 1175px;
   position: relative;
-  right: 6px;
+  right: 10px;
 }
 
 .feed-list {
-  margin-top: 10px;
+  position: relative;
+  left: 35px;
 }
 
 .feed-item {
-  margin: 5px;
+  margin: 10px;
+  padding: 2px;
   width: 375px;
-  float: right;
+  border-width: 1px 3px 3px 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 3px;
+  background: rgba(49, 66, 90, 0.4);
 }
 
 .feed-prof-pic {
@@ -404,14 +411,9 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
   min-height: 40px;
 }
 
-.feed-hr {
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-
 .feed-title {
   position: relative;
-  left: 130px;
+  left: 110px;
   font-size: 18px;
   margin-bottom: 5px;
 }
