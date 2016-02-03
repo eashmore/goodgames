@@ -59,6 +59,12 @@ html>body {
 
 //Games
   //Home Page
+  #homepage-game-lists{
+    width: 60%;
+    float: left;
+    margin-left: 4%;
+  }
+
   .homepage-game {
     position: relative;
     height: 220px;
@@ -380,15 +386,9 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
 
 //Recomendation Feed
 #recommendation-feed {
-  // border-right: 2px gray solid;
+  float: left;
   height: 1175px;
-  position: relative;
-  right: 10px;
-}
-
-.feed-list {
-  position: relative;
-  left: 35px;
+  margin-left: 2%;
 }
 
 .feed-item {
@@ -416,10 +416,10 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
 }
 
 .feed-title {
-  position: relative;
-  left: 110px;
   font-size: 18px;
   margin-bottom: 5px;
+  width: 375px;
+  margin-left: 10px;
 }
 
 // Search Results
