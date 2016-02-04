@@ -42,14 +42,12 @@
         Sign Up
       </button>
     </a>
-    <br><br>
-
   </form>
+
   <form class='guest-sess-form' action="<%= session_url %>" method="post">
     <input type="hidden" name="authenticity_token"
       value="<%= form_authenticity_token %>"
     >
-
     <input type="hidden" name="user[username]" value="guest">
     <input type="hidden" name="user[password]" value="password">
 

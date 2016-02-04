@@ -1,11 +1,10 @@
 <div class="container">
-  <div class="clearfix">
-    <div class="game-show-left-side">
+  <div class="clearfix game-profile">
+    <div class="game-profile-left">
       <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
-
       <div class="game-score">
         <% if (!game.get('score')) { %>
-          Be the first to review 
+          Be the first to review
           <span class="bold"><%= game.escape('name') %>!</span>
         <% } else { %>
           <span class="bold">
@@ -46,21 +45,22 @@
     </div>
 
     <div class="game-info">
-      <h1><%= game.escape('name') %></h1><br>
-      <p><%= game.escape('deck') %></h5><p>
+      <h1><%= game.escape('name') %></h1>
+      <p class="description"><%= game.escape('deck') %><p>
+
+      <div class="release-date bold">Release Date: </div>
+      <%= game.escape('release_date') %>
       <br>
 
-      <span class="bold">Release Date: </span><%= game.escape('release_date') %>
-      <br><br>
-
-      <span class="bold">Available Platform(s): </span>
-      <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
+      <div class="platforms">
+        <span class="bold">Available Platform(s): </span>
+        <% game.escape('platforms').split('@@@').forEach(function (platform) { %>
         <br>
         <%= platform %>
-      <% }) %>
+        <% }) %>
+      </div>
     </div>
   </div>
 
-  <hr>
   <div class="game-reviews"></div>
 </div>

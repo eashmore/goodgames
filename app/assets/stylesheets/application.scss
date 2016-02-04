@@ -57,6 +57,10 @@ html>body {
   top: -50px;
 }
 
+.guest, .to-signin{
+  margin-top: 10px;
+}
+
 //Games
   //Home Page
   #homepage-game-lists{
@@ -108,7 +112,13 @@ html>body {
     margin-right: 40px;
   }
 
-  .game-show-left-side {
+  .game-profile {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .game-profile-left {
     float: left;
     width: 400px;
   }
@@ -120,6 +130,10 @@ html>body {
 
   .wishlist-button {
     float: right;
+  }
+
+  .platforms, .release-date, .description {
+    margin-top: 20px;
   }
 
   //Game Thumbnails
@@ -188,9 +202,15 @@ html>body {
     border: 1px;
   }
 
+  //User Comments
+  .comment-index {
+    margin-top: 60px;
+  }
+
   //Review and Comment Form
-  .btn-compose {
+  .btn.btn-compose {
     margin-left: 10px;
+    margin-bottom: 10px;
   }
   .review-content, .comment-content {
     color: black;
