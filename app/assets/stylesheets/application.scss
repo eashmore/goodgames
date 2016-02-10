@@ -515,10 +515,22 @@ nav.navbar {
   max-width: 50px;
 }
 
+.search-bar {
+  display: inline-block;
+}
+
+input.query.form-control {
+  width: 350px;
+}
+
+.search-button {
+  width: 145px;
+}
+
 .search-bar-dropdown {
-  margin-right: 25px;
+  display: inline-block;
   position: relative;
-  top: 8px;
+  right: 20px;
 }
 
 //Modal
