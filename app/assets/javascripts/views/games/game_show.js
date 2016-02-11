@@ -33,8 +33,17 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews();
-    this.$el.find(".average-score").rating();
+    this.displayScore();
+
     return this;
+  },
+
+  displayScore: function () {
+    if (this.model.reviews().length) {
+      this.$el.find('.average-score').rating();
+    } else {
+      this.$el.find('.average-score').css('display', 'none');
+    }
   },
 
   addReviewIndex: function () {
