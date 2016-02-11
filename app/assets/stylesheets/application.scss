@@ -43,18 +43,14 @@ html>body {
 }
 
 .logo {
-  height: 600px;
+  margin-bottom: -30px;
+  width: 65%;
 }
 
 .new-session {
   position: relative;
   top: -72px;
   height: 1px;
-}
-
-.new-sess-form, .guest-sess-form {
-  position: relative;
-  top: -50px;
 }
 
 .guest, .to-signin{
