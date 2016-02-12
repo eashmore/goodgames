@@ -10,11 +10,11 @@
     <div class="card-recommendations"></div>
   </div>
 
-  <div class="user-card-rank">
+  <div class="user-card-rank text-center">
     <h3>Reviews Written: <%= numberOfReviews %></h3>
     <br>
 
-    <div class="card-rank text-center">
+    <div class="card-rank">
       <div class="bold"><%= user.rank().escape('name') %></div>
       <br>
       <img class="rank-image" src="<%= user.rank().get('image_url') %>" />
