@@ -8,7 +8,7 @@ window.GoodgamesApp = {
     GoodgamesApp.games.fetch();
 
     GoodgamesApp.currentUser = new GoodgamesApp.Collections.Users()
-                               .getOrFetch(CURRENT_USER_ID);
+                               .getOrFetch(CURRENT_USER);
 
     var $rootEl = $("#main");
     var router = new GoodgamesApp.Routers.Router( { $rootEl: $rootEl });
