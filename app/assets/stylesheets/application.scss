@@ -57,6 +57,13 @@ html>body {
   margin-top: 10px;
 }
 
+.alert.alert-warning {  
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+
 //Games
   //Home Page
   .homepage-game-list {
