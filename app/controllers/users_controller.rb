@@ -6,10 +6,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    if current_user
-      logout
-      redirect_to new_user_url
-    end
     @user = User.new
   end
 

@@ -5,6 +5,10 @@ GoodgamesApp.Views.UserInfo = Backbone.CompositeView.extend({
 
   className: 'nav navbar-nav navbar-right',
 
+  events: {
+    'click .logout' : 'endSession'
+  },
+
   initialize: function () {
     this.listenTo(GoodgamesApp.currentUser, 'sync', this.render);
     this.listenTo(GoodgamesApp.currentUser.image(), 'change', this.render);
@@ -13,5 +17,14 @@ GoodgamesApp.Views.UserInfo = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template);
     return this;
+  },
+
+  endSession: function (event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/session',
+      type: 'DELETE',
+      success: window.location.reload()
+    });
   }
 });
