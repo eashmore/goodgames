@@ -24,8 +24,8 @@ GoodgamesApp.Views.UserInfo = Backbone.CompositeView.extend({
     $.ajax({
       url: '/session',
       type: 'DELETE',
-      success: window.location.reload(),
-      errors: window.location.reload()
+      async: false,
+      success: window.location.reload()
     });
   }
 });
