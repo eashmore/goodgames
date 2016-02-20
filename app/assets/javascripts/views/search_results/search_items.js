@@ -20,38 +20,14 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
     }
 
     this.mimicLoad();
-    game.set(this.getAttributes(game));
+    var attrs = this.model.getAttributes();
+    game.set(attrs);
     game.save({}, {
       success: function () {
         GoodgamesApp.games.add(game, { merge: true });
         Backbone.history.navigate('games/' + game.id, { trigger: true });
       }
     });
-  },
-
-  getAttributes: function (game) {
-    var platforms = this.parsePlatforms();
-    var attrs = {
-      game: {
-        id: this.model.get('id'),
-        name: this.model.get('name'),
-        deck: this.model.get('deck'),
-        boxart_url: this.model.get('image').small_url,
-        release_date: this.model.get('original_release_date') ?
-          this.model.get('original_release_date').slice(0, 10) :
-          this.model.get('expected_release_year'),
-        platforms: platforms
-      }
-    };
-    return attrs;
-  },
-
-  parsePlatforms: function () {
-    var platforms = "";
-    this.model.get('platforms').forEach(function (platform) {
-      platforms += platform.name + "@@@";
-    });
-    return platforms;
   },
 
   mimicLoad: function () {

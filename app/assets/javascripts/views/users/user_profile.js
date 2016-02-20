@@ -4,7 +4,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   templateShow: JST['users/show'],
 
   events: {
-    'click .upload-pic': 'upload',
+    'click .upload-pic': 'uploadPic',
     'click .see-reviews': 'addReviewIndex'
   },
 
@@ -85,7 +85,7 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
     this.addSubview('.profile-pic', picView);
   },
 
-  upload: function (event){
+  uploadPic: function (event){
     event.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result){
       var data = result[0];

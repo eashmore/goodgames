@@ -1,9 +1,4 @@
 class Api::WishlistsController < ApplicationController
-  def index
-    @wishlists = Wishlist.all
-    render json: @wishlists
-  end
-
   def create
     @wishlist = Wishlist.new(wishlist_params)
     if @wishlist.save

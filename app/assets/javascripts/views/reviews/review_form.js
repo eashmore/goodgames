@@ -25,10 +25,10 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     var attrs = this.$el.serializeJSON();
     this.model.set(attrs);
     this.model.save({}, {
-      success: function (e) {
-        if (e.escape('created_at') === e.escape('updated_at')) {
+      success: function (review) {
+        if (review.escape('created_at') === review.escape('updated_at')) {
           this.game.reviews().add(this.model);
-          this.model.updateUserReviewCount();
+          GoodgamesApp.currentUser.updateReviewCount();
         }
         this.game.updateScore();
         this.remove();

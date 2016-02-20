@@ -1,9 +1,4 @@
 class Api::CollectionsController < ApplicationController
-  def index
-    @collections = Collection.all
-    render json: @collections
-  end
-
   def create
     @collection = Collection.new(collection_params)
     if @collection.save

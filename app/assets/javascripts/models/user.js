@@ -92,5 +92,11 @@ GoodgamesApp.Models.User = Backbone.Model.extend({
     }
 
     return response;
+  },
+
+  updateReviewCount: function() {
+    var newCount = this.get('review_count') + 1;
+    this.set({ 'review_count': newCount });
+    this.save();
   }
 });

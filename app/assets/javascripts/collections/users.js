@@ -4,7 +4,7 @@ GoodgamesApp.Collections.Users = Backbone.Collection.extend({
 
   url: '/users',
 
-  getOrFetch: function (id, fn) {
+  getOrFetch: function (id) {
     var users = this;
     var user = this.get(id);
     if (!user) {
@@ -12,12 +12,10 @@ GoodgamesApp.Collections.Users = Backbone.Collection.extend({
       user.fetch({
         success: function () {
           users.add(user);
-          return typeof fn === 'function' ? fn(user) : user;
         },
       });
     } else {
       user.fetch();
-      return typeof fn === 'function' ? fn(user) : user;
     }
 
     return user;

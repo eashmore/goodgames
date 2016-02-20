@@ -32,11 +32,11 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
     this.addGame(classics, '#old');
   },
 
-  addGame: function (array, index) {
+  addGame: function (array, list) {
     array.forEach(function (game_id) {
       var game = GoodgamesApp.games.where({ id: game_id })[0];
       var gameView = new GoodgamesApp.Views.GameItem({ model: game });
-      this.addSubview(index, gameView);
+      this.addSubview(list, gameView);
     }.bind(this));
   },
 
