@@ -37,6 +37,6 @@ class Api::GamesController < ApplicationController
 
   def game_params
     params.require(:game).permit(:name, :deck, :id, :boxart_url,
-                                 :release_date, :platforms)
+                                 :release_date, :platforms, :score)
   end
 end
