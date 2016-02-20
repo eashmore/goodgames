@@ -7,3 +7,7 @@ end
 json.comments @user.comments do |comment|
   json.partial! 'api/reviews/review', review: comment
 end
+
+json.reviews @user.reviews do |review|
+  json.partial! 'api/reviews/review', review: review
+end

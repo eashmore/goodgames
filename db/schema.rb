@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(version: 20160220045438) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "username",                    null: false
+    t.string   "password_digest",             null: false
+    t.string   "session_token",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.text     "about"
     t.integer  "rank_id"
-    t.integer  "review_count"
+    t.integer  "review_count",    default: 0
   end
 
   add_index "users", ["rank_id"], name: "index_users_on_rank_id", using: :btree

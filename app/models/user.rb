@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   def self.update_count
     all.each do |user|
-      user.review_count = user.reviews.length
+      user.review_count = user.reviews.where(commentable_type: 'Game').length
       user.save
     end
   end

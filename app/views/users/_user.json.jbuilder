@@ -1,8 +1,4 @@
-json.extract! user, :username, :id, :about
-
-json.reviews user.reviews do |review|
-  json.partial! 'api/reviews/review', review: review
-end
+json.extract! user, :username, :id, :about, :review_count
 
 json.owned_games user.owned_games do |game|
   json.partial! 'api/games/game', game: game
