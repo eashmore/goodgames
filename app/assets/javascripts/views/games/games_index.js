@@ -41,10 +41,9 @@ GoodgamesApp.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   getHighestRated: function () {
-    var highestRated = GoodgamesApp.games.slice(0, 5).map(function(game) {
+    return GoodgamesApp.games.slice(0, 5).map(function(game) {
       return game.get('id');
     });
-    return highestRated;
   },
 
   addFeed: function () {
