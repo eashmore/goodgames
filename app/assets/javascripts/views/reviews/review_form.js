@@ -27,7 +27,6 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     this.model.save({}, {
       success: function (e) {
         if (e.escape('created_at') === e.escape('updated_at')) {
-          debugger;
           this.game.reviews().add(this.model);
           this.model.updateUserReviewCount();
         }
