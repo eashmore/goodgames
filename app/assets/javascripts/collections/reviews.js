@@ -2,7 +2,7 @@ GoodgamesApp.Collections.Reviews = Backbone.Collection.extend({
 
   model: GoodgamesApp.Models.Review,
 
-  url: '/reviews',
+  url: 'api/reviews',
 
   getOrFetch: function (id) {
     var reviews = this;
@@ -17,7 +17,7 @@ GoodgamesApp.Collections.Reviews = Backbone.Collection.extend({
     } else {
       review.fetch();
     }
-    
+
     return review;
   }
 });

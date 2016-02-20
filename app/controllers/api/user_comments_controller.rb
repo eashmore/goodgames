@@ -1,4 +1,4 @@
-class UserCommentsController < ApplicationController
+class Api::UserCommentsController < ApplicationController
   def index
     @comments = User.find(params[:user_id]).comments
                     .where(commentable_type: 'User').order('created_at')

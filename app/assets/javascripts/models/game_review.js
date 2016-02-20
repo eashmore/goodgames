@@ -1,5 +1,5 @@
 GoodgamesApp.Models.GameReview = Backbone.Model.extend({
 
-  urlRoot: '/game_reviews'
-  
+  urlRoot: 'api/game_reviews'
+
 });

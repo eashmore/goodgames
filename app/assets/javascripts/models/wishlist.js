@@ -1,5 +1,5 @@
 GoodgamesApp.Models.Wishlist = Backbone.Model.extend({
 
-  urlRoot: '/wishlists'
+  urlRoot: 'api/wishlists'
 
 });

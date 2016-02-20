@@ -2,7 +2,7 @@ GoodgamesApp.Collections.Games = Backbone.Collection.extend({
 
   model: GoodgamesApp.Models.Game,
 
-  url: '/games',
+  url: 'api/games',
 
   getOrFetch: function (id) {
     var games = this;
@@ -17,7 +17,7 @@ GoodgamesApp.Collections.Games = Backbone.Collection.extend({
     } else {
       game.fetch();
     }
-    
+
     return game;
   }
 });

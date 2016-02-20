@@ -1,6 +1,6 @@
 GoodgamesApp.Models.RecommendationFeed = Backbone.Model.extend({
 
-  urlRoot: '/recommendation_feeds',
+  urlRoot: 'api/recommendation_feeds',
 
   image: function () {
     if (!this._image) {
@@ -22,7 +22,7 @@ GoodgamesApp.Models.RecommendationFeed = Backbone.Model.extend({
       }, { parse: true });
       delete response.image;
     }
-    
+
     return response;
   }
 });

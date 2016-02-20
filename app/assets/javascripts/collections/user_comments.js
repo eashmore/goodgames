@@ -2,7 +2,7 @@ GoodgamesApp.Collections.UserComments = Backbone.Collection.extend({
 
   model: GoodgamesApp.Models.UserComment,
 
-  url: '/user_comments',
+  url: 'api/user_comments',
 
   parse: function (response) {
     this.page = response.page;

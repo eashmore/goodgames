@@ -2,7 +2,7 @@ GoodgamesApp.Collections.GameReviews = Backbone.Collection.extend({
 
   model: GoodgamesApp.Models.GameReview,
 
-  url: '/game_reviews',
+  url: 'api/game_reviews',
 
   parse: function (response) {
     this.page = response.page;

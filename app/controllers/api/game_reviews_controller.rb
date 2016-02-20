@@ -1,4 +1,4 @@
-class GameReviewsController < ApplicationController
+class Api::GameReviewsController < ApplicationController
   def index
     @game_reviews = Game.find(params[:game_id]).reviews
                         .where(commentable_type: 'Game').order('created_at')

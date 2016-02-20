@@ -1,4 +1,4 @@
-class WishlistsController < ApplicationController
+class Api::WishlistsController < ApplicationController
   def index
     @wishlists = Wishlist.all
     render json: @wishlists

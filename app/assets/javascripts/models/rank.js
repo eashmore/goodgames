@@ -1,5 +1,5 @@
 GoodgamesApp.Models.Rank = Backbone.Model.extend({
 
-  urlRoot: '/ranks'
+  urlRoot: 'api/ranks'
 
 });
