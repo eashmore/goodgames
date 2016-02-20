@@ -11,7 +11,6 @@ class Api::GamesController < ApplicationController
       "http://res.cloudinary.com/dqucbuno8/image/upload/#{@game.id}.jpg"
     @game.thumbnail_url =
       "http://res.cloudinary.com/dqucbuno8/image/upload/c_scale,h_250/#{@game.id}.jpg"
-    @game.score = 0.0
     if @game.save
       render json: @game
     else
@@ -26,6 +25,7 @@ class Api::GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
+    params[:score] = params[:score].to_f
     if @game.update(game_params)
       render json: @game
     else

@@ -3,17 +3,17 @@
     <div class="game-profile-left">
       <img class="game-boxart" src="<%= game.escape('boxart_url') %>"/>
       <div class="game-score">
-        <% if (!game.get('score')) { %>
+        <% if (!game.reviews().length) { %>
           Be the first to review
           <span class="bold"><%= game.escape('name') %>!</span>
         <% } else { %>
           <span class="bold">
-            Average Score: <%= game.escape('score') %> / 5
+            Average Score: <%= game.get('score') %> / 5
           </span>
         <% } %>
 
         <input type="number" class="average-score rating" disabled="true"
-          min=0 max=5 step=0.1 data-size="md" value="<%= game.escape('score') %>"
+          min=0 max=5 step=0.1 data-size="md" value="<%= game.get('score') %>"
         >
         <div>Number of Reviews: <%= game.reviews().length %></div>
         <br>

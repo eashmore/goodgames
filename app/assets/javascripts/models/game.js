@@ -10,23 +10,22 @@ GoodgamesApp.Models.Game = Backbone.Model.extend({
   },
 
   parse: function (response) {
-    // var averageScore = null;
     if (response.reviews) {
       this.reviews().set(response.reviews, { parse: true });
-      // var totalPoints = 0;
-      // response.reviews.forEach(function (review) {
-      //   totalPoints += review.score;
-      // });
-      //
-      // averageScore = Math.round(totalPoints/response.reviews.length * 100) / 100;
       delete response.reviews;
     }
 
-    // if (!averageScore) {
-    //   averageScore = 0;
-    // }
-
-    // response.score = averageScore;
     return response;
-  }
+  },
+
+  updateScore: function () {
+    var totalPoints = 0;
+    this.reviews().each(function (review) {
+      totalPoints += review.get('score');
+    });
+    var reviewCount = this.reviews().length;
+    var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
+    this.set('score', averageScore);
+    this.save({'score': averageScore}, {patch: true});
+  },
 });

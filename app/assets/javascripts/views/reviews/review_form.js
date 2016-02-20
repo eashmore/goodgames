@@ -20,17 +20,6 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     return this;
   },
 
-  updateGameScore: function () {
-    var totalPoints = 0;
-    this.game.reviews().each(function (review) {
-      totalPoints += review.get('score');
-    });
-    var reviewCount = this.game.reviews().length;
-    var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
-
-    this.game.save('score', averageScore);
-  },
-
   submit: function (event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
@@ -38,7 +27,7 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         this.game.reviews().add(this.model);
-        this.updateGameScore();
+        this.game.updateScore();
         this.remove();
       }.bind(this),
       error: function (model, response) {

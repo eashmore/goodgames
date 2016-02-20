@@ -15,6 +15,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     this.addReviewIndex();
 
     this.listenTo(this.currentUser.wishlistGames(), 'add remove', this.render);
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model.reviews(), 'add', this.render);
   },
@@ -52,7 +53,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.game-reviews', reviewView);
   },
-  
+
   addToCollection: function (event) {
     event.preventDefault();
     var collection = new GoodgamesApp.Models.Collection();
