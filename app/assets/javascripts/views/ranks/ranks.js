@@ -9,7 +9,7 @@ GoodgamesApp.Views.Rank = Backbone.View.extend({
   render: function () {
     var content = this.template({
       rank: this.model,
-      numRevs: this.user.get('review_count')
+      user: this.user
     });
     this.$el.html(content);
     return this;

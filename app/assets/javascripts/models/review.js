@@ -8,7 +8,7 @@ GoodgamesApp.Models.Review = Backbone.Model.extend({
       success: function() {
         var newCount = user.get('review_count') + 1;
         user.set({ 'review_count': newCount });
-        user.save({ 'review_count': newCount }, {patch:true});
+        user.save();
       }
     });
   }
