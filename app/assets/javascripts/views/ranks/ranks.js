@@ -9,7 +9,7 @@ GoodgamesApp.Views.Rank = Backbone.View.extend({
   render: function () {
     var content = this.template({
       rank: this.model,
-      user: this.user
+      reviews: this.user.reviews().where({'commentable_type': 'Game'})
     });
     this.$el.html(content);
     return this;
