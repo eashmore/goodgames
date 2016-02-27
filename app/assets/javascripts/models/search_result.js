@@ -17,9 +17,9 @@ GoodgamesApp.Models.SearchResult = Backbone.Model.extend({
   },
 
   parsePlatforms: function () {
-    var platforms = "";
+    var platforms = '';
     this.get('platforms').forEach(function (platform) {
-      platforms += platform.name + "@@@";
+      platforms += platform.name + '@@@';
     });
     return platforms;
   },

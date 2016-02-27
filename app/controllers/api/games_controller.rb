@@ -1,6 +1,7 @@
 class Api::GamesController < ApplicationController
   def index
-    @games = Game.includes(:reviews).all.where.not(score: nil).order(score: :desc)
+    @games = Game.includes(:reviews).all
+                 .where.not(score: nil).order(score: :desc)
     render :index
   end
 

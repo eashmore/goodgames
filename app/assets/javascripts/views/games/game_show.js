@@ -27,9 +27,15 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    var platforms = [];
+    if (this.model.get('platforms')) {
+      platforms = this.model.get('platforms').split('@@@');
+    }
+
     var content = this.template({
       game: this.model,
-      currentUser: this.currentUser
+      currentUser: this.currentUser,
+      platforms: platforms
     });
     this.$el.html(content);
     this.attachSubviews();
