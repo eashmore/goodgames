@@ -34,9 +34,9 @@ GoodgamesApp.Views.ReviewForm = Backbone.View.extend({
         this.remove();
       }.bind(this),
       error: function (model, response) {
-        this.$el.find('.errors').html(
-          response.responseText.slice(1, -1).split(',').join('<br>')
-        );
+        var errorList = response.responseText
+                        .slice(2, -2).split('","').join('<br>');
+        this.$el.find('.errors').html(errorList);
       }.bind(this)
     });
   }
