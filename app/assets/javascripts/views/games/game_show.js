@@ -49,7 +49,7 @@ GoodgamesApp.Views.GameShow = Backbone.CompositeView.extend({
     if (this.model.reviews().length) {
       score.rating();
     } else {
-      score.css('display', 'none');
+      score.addClass('display-none');
     }
   },
 

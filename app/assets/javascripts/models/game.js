@@ -26,6 +26,6 @@ GoodgamesApp.Models.Game = Backbone.Model.extend({
     var reviewCount = this.reviews().length;
     var averageScore = Math.round(totalPoints/reviewCount * 100) / 100;
     this.set('score', averageScore);
-    this.save({'score': averageScore}, {patch: true});
+    this.save();
   },
 });
