@@ -31,6 +31,6 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   },
 
   mimicLoad: function () {
-    $('.search-results-page').css('visibility', 'hidden');
+    $('#search-results-page').addClass('display-none');
   }
 });

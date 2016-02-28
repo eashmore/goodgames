@@ -4,13 +4,13 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.query = options.query;
-    this.listenTo(this.searchResults, 'reset', this.removeSubs);
+    this.searchResults = new GoodgamesApp.Collections.SearchResults();
+    this.getSearchResults();
   },
 
   render: function () {
-    var loadingView = new GoodgamesApp.Views.Loading();
-    this.$el.html(loadingView.render().$el);
-    this.getSearchResults();
+    var content = this.template({ results: this.searchResults, query: this.query });
+    this.$el.html(content);
   },
 
   addResult: function () {
@@ -20,12 +20,7 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  removeSubs: function () {
-    this.$el.find('.search-results').html('');
-  },
-
   getSearchResults: function () {
-    this.searchResults = new GoodgamesApp.Collections.SearchResults();
     this.searchResults.fetch({
       url: "http://www.giantbomb.com/api/search/?api_key=" + GIANTBOMB.api_key +
            "&format=jsonp&query=" + this.query + "&resources=game&limit=35",
@@ -34,17 +29,22 @@ GoodgamesApp.Views.SearchResults = Backbone.CompositeView.extend({
       contentType: "application/json",
       jsonp: 'json_callback',
       success: function () {
-        this.$el.find('.loading-screen').remove();
+        this.removeLoadingScreen();
         this.showResults();
       }.bind(this)
     });
   },
 
+  removeLoadingScreen: function () {
+    this.$el.find('#loading-screen').addClass('display-none');
+    this.$el.find('#results').removeClass('display-none');
+    if (!this.searchResults.length) {
+      this.$el.find('#no-results').html('No results found');
+    }
+  },
+
   showResults: function () {
-    var content = this.template({ results: this.searchResults });
-    this.$el.html(content);
     this.addResult();
     this.attachSubviews();
-    return this;
   }
 });

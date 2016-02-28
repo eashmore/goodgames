@@ -53,6 +53,6 @@ GoodgamesApp.Views.Nav = Backbone.CompositeView.extend({
   _swapSearch: function (searchView) {
     this._currentSearch && this._currentSearch.remove();
     this._currentSearch = searchView;
-    this.$el.find('.search-bar').html(searchView.render().$el);
+    this.$el.find('#search-bar').html(searchView.render().$el);
   }
 });

@@ -1,9 +1,19 @@
-<div class="container search-results-page">
-  <h3>Search Results:</h3>
-  <div class="row">
-    <div class="search-results"></div>
-    <% if (!results.length) { %>
-      <h4>No results found</h4>
-    <% } %>
+<div id="search-results-page" class="container">
+  <div id="loading-screen" class="loading-screen container">
+    <div class="search-for">
+      Searching for <span class="bold"><%= query %></span>...
+    </div>
+    <img class="loading-img" src="assets/linkspinattack.gif"/>
+  </div>
+
+  <div id="results" class="display-none">
+    <div class="search-for">
+      Search results for <span class="bold"><%= query %></span>:
+    </div>
+    <div class="row">
+      <div class="search-results">
+        <h4 id="no-results"></h4>
+      </div>
+    </div>
   </div>
 </div>

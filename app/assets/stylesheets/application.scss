@@ -25,11 +25,15 @@ html>body {
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .clearfix {
   overflow: auto;
+}
+
+.display-none {
+  display: none;
 }
 
 //Splash Page
@@ -171,6 +175,11 @@ html>body {
     height: 225px;
     width: 150px;
     margin: 5px;
+  }
+
+  .search-for {
+    font-size: 30px;
+    margin-bottom: 20px;
   }
 
 // Review and Comments
@@ -517,7 +526,7 @@ nav.navbar {
   max-width: 50px;
 }
 
-.search-bar {
+#search-bar {
   display: inline-block;
 }
 
