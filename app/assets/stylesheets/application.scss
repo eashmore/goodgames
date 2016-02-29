@@ -36,6 +36,10 @@ html>body {
   display: none;
 }
 
+.relative-pos {
+  position: relative;
+}
+
 //Splash Page
 .splash-vid {
   z-index: -1000;
@@ -569,4 +573,11 @@ input.query.form-control {
 
 .fa.center-fa {
   vertical-align: 0;
+}
+
+@media (max-width: 820px) {
+  #recommendation-feed {
+    position: absolute;
+    top: 100%;
+  }
 }
