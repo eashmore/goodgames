@@ -3,8 +3,6 @@ GoodgamesApp.Views.UserInfo = Backbone.CompositeView.extend({
 
   tagName: 'li',
 
-  className: 'nav navbar-nav navbar-right',
-
   events: {
     'click .logout' : 'endSession'
   },
