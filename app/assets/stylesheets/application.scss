@@ -291,6 +291,7 @@ html>body {
     border-radius: 4px;
     height: 250px;
     width: 250px;
+    background-color: white;
   }
 
   .upload-pic {
@@ -445,6 +446,7 @@ button.slick-next.slick-disabled, button.slick-prev.slick-disabled {
   border-radius: 25px;
   float: left;
   margin-right: 15px;
+  background-color: white;
 }
 
 .feed-text {
@@ -552,6 +554,10 @@ nav.navbar {
   background-color: inherit;
 }
 
+div.navbar-collapse.in {
+    overflow-y: inherit;
+}
+
 .profile-link {
   height: 50px;
   max-width: 50px;
@@ -567,6 +573,7 @@ nav.navbar {
 
 input.query.form-control {
   width: 250px;
+  display: inline-block;
 }
 
 .search-button {
@@ -613,11 +620,25 @@ input.query.form-control {
 
   .nav-right {
     float: left;
+    padding-left: 0px;
   }
 
   #recommendation-feed {
     position: absolute;
     top: 100%;
+    width: 90%;
+  }
+
+  .feed-title {
+    width: 100%;
+  }
+
+  .feed-item {
+    width: 100%;
+  }
+
+  .profile-header {
+    height: 420px;
   }
 }
 
@@ -628,5 +649,14 @@ input.query.form-control {
 
   .nav-right {
     float: none;
+  }
+
+  #dropdown-menu {
+    margin-left: 16px;
+  }
+
+  input.query.form-control {
+    top: 2px;
+    position: relative;
   }
 }

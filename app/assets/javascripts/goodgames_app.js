@@ -19,3 +19,7 @@ window.GoodgamesApp = {
     Backbone.history.start();
   }
 };
+
+$(document).ready(function (){
+  GoodgamesApp.initialize();
+});
