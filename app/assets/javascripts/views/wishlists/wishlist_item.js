@@ -19,7 +19,7 @@ GoodgamesApp.Views.WishlistItem = Backbone.View.extend({
     if (this.user.id === this.currentUser.id) {
       this.$el.find('.delete-button').html(this.button);
     }
-    
+
     return this;
   },
 
