@@ -10,7 +10,7 @@ class Api::CollectionsController < ApplicationController
       render json: @collection
     else
       render json: @collection.errors.full_messages,
-                   status: :unprocessable_entity
+             status: :unprocessable_entity
     end
   end
 

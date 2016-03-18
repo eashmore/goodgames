@@ -10,7 +10,7 @@ class Api::WishlistsController < ApplicationController
       render json: @wishlist
     else
       render json: @wishlist.errors.full_messages,
-                   status: :unprocessable_entity
+             status: :unprocessable_entity
     end
   end
 
