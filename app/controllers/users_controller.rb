@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.includes(:reviews).includes(:owned_games).includes(:image)
-                 .includes(:rank).all.order(review_count: :desc)[0..9]
+             .includes(:rank).all.order(review_count: :desc)[0..9]
     render :index
   end
 
@@ -26,6 +26,8 @@ class UsersController < ApplicationController
     @user = User.includes(:reviews).find(params[:id])
     if @user.update(user_params)
       render :show
+    else
+      render json: @user.errors.full_messages, status: :unprocessable_entity
     end
   end
 
