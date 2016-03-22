@@ -8,7 +8,7 @@ GoodgamesApp.Views.ReviewItem = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.game = GoodgamesApp.games.get(this.model.get('commentable_id'));
+    this.game = GoodgamesApp.games.getOrFetch(this.model.get('commentable_id'));
     this.listenTo(this.model, 'change', this.render);
   },
 

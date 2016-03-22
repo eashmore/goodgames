@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @user.rank_id = Rank.first.id
     if @user.save
       login(@user)
-
       redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages
