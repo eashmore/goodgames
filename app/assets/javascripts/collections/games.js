@@ -6,13 +6,12 @@ GoodgamesApp.Collections.Games = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var games = this;
-    var game = this.get(id);
+    var game = games.get(id);
     if (!game) {
       game = new GoodgamesApp.Models.Game({ id: id });
+      games.add(game);
       game.fetch({
-        success: function () {
-          games.add(game);
-        }
+        error: function () { games.remove(game); }
       });
     } else {
       game.fetch();
