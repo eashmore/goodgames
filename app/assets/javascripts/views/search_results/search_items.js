@@ -15,7 +15,7 @@ GoodgamesApp.Views.SearchItem = Backbone.View.extend({
   toShow: function (event) {
     event.preventDefault();
     var game = new GoodgamesApp.Models.Game();
-    if (GoodgamesApp.games.where({ id: this.model.id }).length) {
+    if (GoodgamesApp.games.get(this.model.id)) {
       game.set({ id: this.model.id });
     }
 
