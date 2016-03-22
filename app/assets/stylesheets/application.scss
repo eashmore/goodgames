@@ -263,7 +263,7 @@ html>body {
 
   button.close.profile-reviews-close {
     position: fixed;
-    z-index: 1000;
+    z-index: 10000;
     left: 84%;
   }
 
@@ -590,7 +590,7 @@ input.query.form-control {
 
 //Modal
 .m-content {
-  z-index: 100;
+  z-index: 10000;
   border-radius: 3px;
   position: fixed;
 }
@@ -602,7 +602,7 @@ input.query.form-control {
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 5000;
 }
 
 //Other
