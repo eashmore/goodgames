@@ -28,11 +28,6 @@ GoodgamesApp.Views.UserProfile = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var revs = this.model.reviews().where({ commentable_type: 'Game'});
-    for(var i = 0; i < revs.length; i++) {
-      console.log(revs[i].get('commentable_id'));
-    }
-
     var content = this.chooseTemplate();
     this.$el.html(content);
     if (this.model.rank().id){
